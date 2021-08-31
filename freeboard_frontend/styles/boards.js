@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  height: 1715px;
   width: 1200px;
+  padding-top: 60px;
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-bottom: 100px;
 `;
-export const Wrapper__head = styled.div``;
 export const Title = styled.div`
   font-family: Noto Sans CJK KR;
   font-style: normal;
@@ -14,75 +16,56 @@ export const Title = styled.div`
   text-align: center;
   color: #000000;
 `;
-export const Wrapper__body = styled.div`
-  height: 1300px;
+export const WriterWrapper = styled.div`
   width: 100%;
+
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 80px;
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-bottom: 80px;
-`;
-export const Body__title = styled.div`
-  width: 100%;
-  height: 92px;
-  display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
 `;
-export const Item = styled.div`
+export const TextWrapper = styled.div`
+  padding-top: 40px;
+`;
+export const Label = styled.div`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+  padding-bottom: 16px;
+  /* Black */
+
+  color: #000000;
 `;
-export const Title__content = styled.input`
-  width: 100%;
+export const Writer = styled.input`
+  width: 486px;
   height: 52px;
-  background: #ffffff;
-
+  padding-left: 16px;
   border: 1px solid #bdbdbd;
-  box-sizing: border-box;
 `;
-export const Body__content = styled.div`
-  width: 100%;
-  height: 520px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
+export const Password = styled.input`
+  width: 486px;
+  height: 52px;
+  padding-left: 16px;
+  border: 1px solid #bdbdbd;
 `;
-export const Content__content = styled.input`
-  width: 100%;
+export const Subject = styled.input`
+  width: 996px;
+  height: 52px;
+  padding-left: 16px;
+  border: 1px solid #bdbdbd;
+`;
+export const Contents = styled.input`
+  width: 996px;
   height: 480px;
-  background: #ffffff;
-
   border: 1px solid #bdbdbd;
-  box-sizing: border-box;
+  padding-left: 16px;
 `;
-
-export const Address = styled.div`
-  width: 100%;
-  height: 228px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-export const Address__search = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-export const Address__number = styled.input`
+export const AddressWrapper = styled.div``;
+export const AddressNumber = styled.input`
   width: 77px;
   height: 52px;
-
-  background: #ffffff;
-  border: 1px solid #bdbdbd;
-  box-sizing: border-box;
 
   font-family: Noto Sans CJK KR;
   font-style: normal;
@@ -90,109 +73,81 @@ export const Address__number = styled.input`
   font-size: 16px;
   line-height: 24px;
   color: #bdbdbd;
-`;
-export const Address__button = styled.input`
-  width: 124px;
-  height: 52px;
-  background: #000000;
-  margin-left: 16px;
 
-  font-family: Noto Sans CJK KR;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  /* identical to box height */
-
-  /* White */
-
-  color: #ffffff;
-`;
-export const Address__content = styled.input`
-  width: 100%;
-  height: 52px;
-`;
-
-export const Youtube = styled.div`
-  width: 100%;
-  height: 92px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-export const Youtube__content = styled.input`
-  width: 100%;
-  height: 52px;
-  background: #ffffff;
+  padding-left: 16px;
 
   border: 1px solid #bdbdbd;
-  box-sizing: border-box;
 `;
+export const SearchButton = styled.button`
+  width: 124px;
+  height: 52px;
+  left: 555px;
+  top: 1749px;
+  background: #000000;
+  cursor: pointer;
 
-export const Photo = styled.div`
-  width: 100%;
-  height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-export const Photo__upload = styled.div`
-  width: 282px;
-  display: flex;
-  justify-content: space-between;
-`;
-export const Photo__list = styled.div`
-  width: 78px;
-  height: 78px;
-  background: #bdbdbd;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-`;
-export const Plus = styled.span`
-  font-family: Noto Sans CJK KR;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 18px;
-`;
-export const Upload = styled.span`
-  font-family: Noto Sans CJK KR;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 18px;
-`;
-
-export const Main__set = styled.div``;
-export const Select = styled.input``;
-export const Select__content = styled.span`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  /* identical to box height */
+  color: #ffffff;
 
-  color: #000000;
+  margin-left: 16px;
 `;
+export const Address = styled.input`
+  width: 996px;
+  height: 52px;
+  border: 1px solid #bdbdbd;
+  cursor: pointer;
 
-export const Wrapper__footer = styled.div`
+  margin-top: 16px;
+`;
+export const Youtube = styled.input`
+  width: 996px;
+  height: 52px;
+  border: 1px solid #bdbdbd;
+  padding-left: 16px;
+`;
+export const UploadButton = styled.button`
+  width: 78px;
+  height: 78px;
+  margin-right: 24px;
+  border: none;
+  cursor: pointer;
+`;
+export const PhotoWrapper = styled.div`
+  margin-top: 40px;
+`;
+export const OptionWrapper = styled.div`
+  margin-top: 40px;
+`;
+export const OptionRadio = styled.input``;
+export const RadioLabel = styled.span``;
+export const ButtonWrapper = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  margin-top: 80px;
 `;
-export const Registration = styled.input`
+export const CancelButton = styled.button`
+  width: 179px;
+  height: 52px;
+  background: #bdbdbd;
+  border: none;
+  cursor: pointer;
+
+  margin-right: 24px;
+`;
+export const SubmitButton = styled.button`
   width: 179px;
   height: 52px;
   background: #ffd600;
+  border: none;
+  cursor: pointer;
+`;
 
-  font-family: Noto Sans CJK KR;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  color: #000000;
+export const Error = styled.div`
+  margin-top: 10px;
+  color: red;
 `;
