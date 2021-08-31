@@ -88,6 +88,8 @@ export const Select__FAQ = styled.span`
   font-style: normal;
   line-height: 1.87;
   letter-spacing: normal;
+  text-decoration: underline 4px;
+  text-underline-position: under;
   color: #ff1b6d;
 `;
 

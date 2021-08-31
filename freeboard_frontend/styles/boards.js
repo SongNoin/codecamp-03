@@ -25,7 +25,13 @@ export const Wrapper__body = styled.div`
   padding-right: 100px;
   padding-bottom: 80px;
 `;
-export const Body__title = styled.div``;
+export const Body__title = styled.div`
+  width: 100%;
+  height: 92px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 export const Item = styled.div`
   font-family: Noto Sans CJK KR;
   font-style: normal;
@@ -41,7 +47,13 @@ export const Title__content = styled.input`
   border: 1px solid #bdbdbd;
   box-sizing: border-box;
 `;
-export const Body__content = styled.div``;
+export const Body__content = styled.div`
+  width: 100%;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 export const Content__content = styled.input`
   width: 100%;
   height: 480px;
@@ -83,6 +95,7 @@ export const Address__button = styled.input`
   width: 124px;
   height: 52px;
   background: #000000;
+  margin-left: 16px;
 
   font-family: Noto Sans CJK KR;
   font-style: normal;
@@ -100,7 +113,13 @@ export const Address__content = styled.input`
   height: 52px;
 `;
 
-export const Youtube = styled.div``;
+export const Youtube = styled.div`
+  width: 100%;
+  height: 92px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 export const Youtube__content = styled.input`
   width: 100%;
   height: 52px;
@@ -110,7 +129,13 @@ export const Youtube__content = styled.input`
   box-sizing: border-box;
 `;
 
-export const Photo = styled.div``;
+export const Photo = styled.div`
+  width: 100%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 export const Photo__upload = styled.div`
   width: 282px;
   display: flex;
@@ -143,7 +168,16 @@ export const Upload = styled.span`
 
 export const Main__set = styled.div``;
 export const Select = styled.input``;
-export const Select__content = styled.span``;
+export const Select__content = styled.span`
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #000000;
+`;
 
 export const Wrapper__footer = styled.div`
   display: flex;
