@@ -1,7 +1,16 @@
-import '../styles/globals.css'
-
+// 세팅, 설정 파일
+import "../styles/globals.css";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client"; //apollo 세팅
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+  const client = new ApolloClient({
+    uri: "http://example.codebootcamp.co.kr/graphql",
+    cache: new InMemoryCache(),
+  });
 
-export default MyApp
+  return (
+    <ApolloProvider client={client}>
+      <Component {...pageProps} />
+    </ApolloProvider>
+  );
+}
+export default MyApp;
