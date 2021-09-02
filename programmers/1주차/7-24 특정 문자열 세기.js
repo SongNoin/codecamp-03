@@ -11,15 +11,13 @@
 // - 대문자 "A" 문자열도 "a" 에 포함입니다.
 
 function countLetter(str) {
-	let count = 0;
-  str = str.toLowerCase()
-  for (let i= 0; i< str.length; i++) {
-    if (str[i] === "a"){
-      count++
+	let count= 0;
+  for (let i = 0 ; i< str.length; i= i+1) {
+    if (str[i]=== "a" || str[i]=== "A"){
+      count = count +1
     }
   }
   console.log(count)
 }
-
-countLetter("I am from Korea")
+countLetter("I am from Korea") 
 countLetter("A day without laughter is a day wasted.")

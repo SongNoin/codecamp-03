@@ -14,7 +14,7 @@ const CREATE_BOARD = gql`
 `;
 
 export default function GraphqlMutationBoard1Page() {
-  const [createBoard] = useMutation(CREATE_BOARD); 
+  const [createBoard] = useMutation(CREATE_BOARD);
 
   async function aaa() {
     const result = await createBoard(); //실행(요청)

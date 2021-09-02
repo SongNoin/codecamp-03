@@ -8,3 +8,14 @@
 
 // **`주의 사항`**
 // - for을 이용해서 문제를 풀어야 합니다.
+function makeNumber(num) {
+  let train = "1";
+  for (let i=2 ; i <= num; i= i+1) {
+    train = train + "-"+ i;
+
+  }
+  console.log(train)
+}
+
+makeNumber(5) // 1-2-3-4-5
+makeNumber(7) // 1-2-3-4-5-6-7

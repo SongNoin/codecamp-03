@@ -1,5 +1,6 @@
-import { useMutation, gql } from "@apollo/client";
 import { useState } from "react";
+import { useMutation, gql } from "@apollo/client";
+
 const CREATE_PRODUCT = gql`
   mutation createProduct(
     $seller: String
@@ -18,7 +19,7 @@ export default function GraphqlMutationProductPag() {
   const [mySeller, setMySeller] = useState("");
   const [myName, setMyName] = useState("");
   const [myDetail, setMyDetail] = useState("");
-  const [myPrice, setMyPrice] = useState("");
+  const [myPrice, setMyprice] = useState("");
 
   function onChangeMySeller(event) {
     setMySeller(event.target.value);
@@ -33,7 +34,7 @@ export default function GraphqlMutationProductPag() {
   }
 
   function onChangeMyPrice(event) {
-    setMyPrice(event.target.value);
+    setMyprice(event.target.value);
   }
 
   async function onClickSubmit() {

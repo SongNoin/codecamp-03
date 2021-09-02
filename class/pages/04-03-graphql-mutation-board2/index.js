@@ -1,12 +1,12 @@
 import { useMutation, gql } from "@apollo/client";
 
 const CREATE_BOARD = gql`
-  mutation createBoard($writer: String, $title: String, $contents: String) {
+ mutation createBoard($writer: String, $title: String, $contents: String) {
     createBoard(writer: $writer, title: $title, contents: $contents) {
       number
       message
     }
-  }
+  } 
 `; //  어떤 문자열이든 넣을 준비가 되어있는 세팅 /apollo 매뉴얼에 나와있다/ $ 는 apollo 규칙 / String  은 playground에 써있는대로 똑같이 적어야 한다.
 
 export default function GraphqlMutationBoard2Page() {

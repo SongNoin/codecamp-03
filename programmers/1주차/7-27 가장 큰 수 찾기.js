@@ -9,3 +9,18 @@
 // - str에서 각각의 문자를 숫자로 바꿔서 계산해야 합니다.
 // - 비교할 수 있는 기준값이 있어야 합니다.
 // - 최댓값을 저장할 수 있는 변수가 있어야 합니다.
+
+
+function bigNum(str) {
+	let big = 0;
+	for (let i = 0; i <= str.length; i= i + 1) {
+		if (Number(str[i]) > big) {
+			big = Number(str[i])
+		}
+	}
+	console.log(big)
+	
+}
+
+bigNum("12345") // 5
+bigNum("87135") // 8

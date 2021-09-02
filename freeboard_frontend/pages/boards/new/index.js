@@ -26,19 +26,35 @@ import {
   Error,
 } from "../../../styles/boards";
 
+import { useMutation, gql } from "@apollo/client";
+
+// createBoard gql
+const CREATE_BOARD = gql`
+  mutation createBoard($createBoardInput: CreateBoardInput!) {
+    createBoard(createBoardInput: $createBoardInput) {
+      _id
+      writer
+    }
+  }
+`;
+
 export default function BoardsNewPage() {
-  const [writer, setWriter] = useState("");
+  // 빈칸 에러 useState
+
   const [writerError, setWriterError] = useState("");
-
-  const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
-  const [title, setTitle] = useState("");
   const [titleError, setTitleError] = useState("");
-
-  const [contents, setContents] = useState("");
   const [contentsError, setContentsError] = useState("");
 
+  // createBoard useMutation / useState
+
+  const [createBoard] = useMutation(CREATE_BOARD);
+  const [myWriter, setWriter] = useState("");
+  const [myPassword, setPassword] = useState("");
+  const [myTitle, setTitle] = useState("");
+  const [myContents, setContents] = useState("");
+
+  // 빈칸 에러 메시지 함수
   function onChangeWriter(event) {
     setWriter(event.target.value);
   }
@@ -55,24 +71,36 @@ export default function BoardsNewPage() {
     setContents(event.target.value);
   }
 
-  function onClickCorrect() {
-    if (writer == "") {
+  async function onClickCorrect() {
+    if (myWriter == "") {
       setWriterError("입력되지 않았습니다!");
     }
 
-    if (password == "") {
+    if (myPassword == "") {
       setPasswordError("입력되지 않았습니다!");
     }
 
-    if (title == "") {
+    if (myTitle == "") {
       setTitleError("입력되지 않았습니다!");
     }
 
-    if (contents == "") {
+    if (myContents == "") {
       setContentsError("입력되지 않았습니다!");
     }
-  }
 
+    // createBoard Variables
+    const result = await createBoard({
+      variables: {
+        createBoardInput: {
+          writer: myWriter,
+          password: myPassword,
+          title: myTitle,
+          contents: myContents,
+        },
+      },
+    });
+    console.log(result.data.createBoard._id);
+  }
   return (
     <Wrapper>
       <Title>게시물 수정</Title>
