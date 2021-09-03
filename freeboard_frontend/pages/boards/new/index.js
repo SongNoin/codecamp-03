@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 import {
   Wrapper,
@@ -39,6 +40,7 @@ const CREATE_BOARD = gql`
 `;
 
 export default function BoardsNewPage() {
+  const router = useRouter();
   // 빈칸 에러 useState
 
   const [writerError, setWriterError] = useState("");
@@ -72,6 +74,22 @@ export default function BoardsNewPage() {
   }
 
   async function onClickCorrect() {
+    try {
+      const result = await createBoard({
+        variables: {
+          createBoardInput: {
+            writer: myWriter,
+            password: myPassword,
+            title: myTitle,
+            contents: myContents,
+          },
+        },
+      });
+      console.log(result.data.createBoard._id);
+      router.push(`/boards/detail/${result.data.createBoard._id}}`);
+    } catch (error) {
+      console.log(error);
+    }
     if (myWriter == "") {
       setWriterError("입력되지 않았습니다!");
     }
@@ -87,19 +105,6 @@ export default function BoardsNewPage() {
     if (myContents == "") {
       setContentsError("입력되지 않았습니다!");
     }
-
-    // createBoard Variables
-    const result = await createBoard({
-      variables: {
-        createBoardInput: {
-          writer: myWriter,
-          password: myPassword,
-          title: myTitle,
-          contents: myContents,
-        },
-      },
-    });
-    console.log(result.data.createBoard._id);
   }
   return (
     <Wrapper>
