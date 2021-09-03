@@ -51,13 +51,13 @@ export const Password = styled.input`
   border: 1px solid #bdbdbd;
 `;
 export const Subject = styled.input`
-  width: 996px;
+  width: 100%;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
 `;
 export const Contents = styled.input`
-  width: 996px;
+  width: 100%;
   height: 480px;
   border: 1px solid #bdbdbd;
   padding-left: 16px;
@@ -96,7 +96,7 @@ export const SearchButton = styled.button`
   margin-left: 16px;
 `;
 export const Address = styled.input`
-  width: 996px;
+  width: 100%;
   height: 52px;
   border: 1px solid #bdbdbd;
   cursor: pointer;
@@ -104,7 +104,7 @@ export const Address = styled.input`
   margin-top: 16px;
 `;
 export const Youtube = styled.input`
-  width: 996px;
+  width: 100%;
   height: 52px;
   border: 1px solid #bdbdbd;
   padding-left: 16px;

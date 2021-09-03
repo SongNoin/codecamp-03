@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { useMutation, gql } from "@apollo/client";
 
 import {
   Wrapper,
@@ -27,20 +28,25 @@ import {
   Error,
 } from "../../../styles/boards";
 
-import { useMutation, gql } from "@apollo/client";
-
 // createBoard gql
 const CREATE_BOARD = gql`
   mutation createBoard($createBoardInput: CreateBoardInput!) {
     createBoard(createBoardInput: $createBoardInput) {
       _id
-      writer
     }
   }
 `;
 
+//   mutation createBoard($createBoardInput: CreateBoardInput!) {
+//     createBoard(createBoardInput: $createBoardInput) {
+//       _id
+//     }
+//   }
+// `;
+
 export default function BoardsNewPage() {
   const router = useRouter();
+  const [createBoard] = useMutation(CREATE_BOARD);
   // 빈칸 에러 useState
 
   const [writerError, setWriterError] = useState("");
@@ -50,7 +56,6 @@ export default function BoardsNewPage() {
 
   // createBoard useMutation / useState
 
-  const [createBoard] = useMutation(CREATE_BOARD);
   const [myWriter, setWriter] = useState("");
   const [myPassword, setPassword] = useState("");
   const [myTitle, setTitle] = useState("");
@@ -74,22 +79,6 @@ export default function BoardsNewPage() {
   }
 
   async function onClickCorrect() {
-    try {
-      const result = await createBoard({
-        variables: {
-          createBoardInput: {
-            writer: myWriter,
-            password: myPassword,
-            title: myTitle,
-            contents: myContents,
-          },
-        },
-      });
-      console.log(result.data.createBoard._id);
-      router.push(`/boards/detail/${result.data.createBoard._id}}`);
-    } catch (error) {
-      console.log(error);
-    }
     if (myWriter == "") {
       setWriterError("입력되지 않았습니다!");
     }
@@ -104,6 +93,23 @@ export default function BoardsNewPage() {
 
     if (myContents == "") {
       setContentsError("입력되지 않았습니다!");
+    }
+    try {
+      const result = await createBoard({
+        variables: {
+          createBoardInput: {
+            writer: myWriter,
+            password: myPassword,
+            title: myTitle,
+            contents: myContents,
+          },
+        },
+      });
+      console.log(result.data.createBoard._id);
+      // router.push("/boards/detail/" + result.data.createBoard._id); // 옛날방식
+      router.push(`/boards/detail/${result.data.createBoard._id}`);
+    } catch (error) {
+      console.log(error);
     }
   }
   return (
