@@ -47,7 +47,7 @@ const CREATE_BOARD = gql`
 export default function BoardsNewPage() {
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
-  
+
   // 빈칸 에러 useState
   const [writerError, setWriterError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -206,7 +206,7 @@ export default function BoardsNewPage() {
       </OptionWrapper>
       <ButtonWrapper>
         <CancelButton>취소하기</CancelButton>
-        <SubmitButton onClick={onClickCorrect}>수정하기</SubmitButton>
+        <SubmitButton onClick={onClickCorrect}>등록하기</SubmitButton>
       </ButtonWrapper>
     </Wrapper>
   );
