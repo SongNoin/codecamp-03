@@ -47,8 +47,8 @@ const CREATE_BOARD = gql`
 export default function BoardsNewPage() {
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
+  
   // 빈칸 에러 useState
-
   const [writerError, setWriterError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [titleError, setTitleError] = useState("");
@@ -64,18 +64,30 @@ export default function BoardsNewPage() {
   // 빈칸 에러 메시지 함수
   function onChangeWriter(event) {
     setWriter(event.target.value);
+    if (event.target.value !== "") {
+      setWriterError(""); //if 문은 글이 채워졌다면 에러메시지가 안뜨게 해준다.
+    }
   }
 
   function onChangePassword(event) {
     setPassword(event.target.value);
+    if (event.target.value !== "") {
+      setPasswordError("");
+    }
   }
 
   function onChangeTitle(event) {
     setTitle(event.target.value);
+    if (event.target.value !== "") {
+      setTitleError("");
+    }
   }
 
   function onChangeContents(event) {
     setContents(event.target.value);
+    if (event.target.value !== "") {
+      setContentsError("");
+    }
   }
 
   async function onClickCorrect() {
@@ -96,9 +108,10 @@ export default function BoardsNewPage() {
     }
     try {
       const result = await createBoard({
+        // network 창에 뜨는 graphql 과 짝궁 (여기서 graphql 창이 생김)
         variables: {
           createBoardInput: {
-            writer: myWriter,
+            writer: myWriter, //이름을 동일하게 줄수도 있음  [키와 밸류가 같으면 생략가능!] ex) writer, 하고 넘어가도 됨
             password: myPassword,
             title: myTitle,
             contents: myContents,
