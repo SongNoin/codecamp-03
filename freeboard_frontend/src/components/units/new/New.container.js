@@ -132,6 +132,7 @@ export default function NewWrite() {
       onChangeContents={onChangeContents}
       onClickCorrect={onClickCorrect}
       color={color}
+      // 함수 변수 를 넘어주는 작업
     />
   );
 }

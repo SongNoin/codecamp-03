@@ -144,8 +144,9 @@ export const SubmitButton = styled.button`
   height: 52px;
   background: #ffd600;
   border: none;
-  cursor: pointer;
-  background-color: ${(props) => (props.color === true ? "yellow" : "gray")};
+  cursor: ${(props) => (props.color === true ? "pointer" : "default")};
+  background-color: ${(props) =>
+    props.color === true ? "yellow" : "gray"}; //함수를 받을수없어서 만들어줌
 `;
 
 export const Error = styled.div`

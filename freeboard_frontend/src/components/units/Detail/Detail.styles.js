@@ -1,12 +1,19 @@
 import styled from "@emotion/styled";
 export const Wrapper = styled.div`
+  width: 1920px;
+  padding-top: 80px;
+  padding-left: 360px;
+  padding-right: 360px;
+`;
+export const BoardsWrapper = styled.div`
   width: 1200px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   padding-top: 80px;
   padding-left: 102px;
   padding-right: 102px;
@@ -164,4 +171,34 @@ export const DislikeCount = styled.div`
 
   color: #828282;
   margin-top: 4px;
+`;
+
+export const ButtonWrapper = styled.div`
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+export const ChangeButton = styled.button`
+  width: 179px;
+  height: 52px;
+  background: #ffffff;
+  /* Gray 4 */
+
+  border: 1px solid #bdbdbd;
+
+  margin-right: 24px;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  text-align: center;
+
+  /* Black */
+
+  color: #000000;
 `;
