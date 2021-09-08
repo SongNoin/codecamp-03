@@ -17,20 +17,21 @@
 // 입출력 예 #1,2
 // 문제의 예시와 같습니다.
 
-function solution(arr) {
-  var answer = [];
-  let n = 0;
-  answer.push(arr[0]);
-  for (let i = 0; i <= arr.length-1; i = i + 1) {
-    if (arr[i] !== answer[n]) {
-      answer.push(arr[i]);
-      n++;
-    }
-  }
-  return answer;
-}
+// 1번 Reference
+// function solution(arr) {
+//   var answer = [];
+//   let n = 0;
+//   answer.push(arr[0]);
+//   for (let i = 0; i <= arr.length - 1; i = i + 1) {
+//     if (arr[i] !== answer[n]) {
+//       answer.push(arr[i]);
+//       n++;
+//     }
+//   }
+//   return answer;
+// }
 
-// 1번 Refernce
+// 2번 Refernce
 // function solution(arr) {
 //   var answer = [];
 //   for (let i = 0; i <= arr.length; i = i + 1) {
