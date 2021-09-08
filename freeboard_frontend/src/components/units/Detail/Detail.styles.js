@@ -179,7 +179,7 @@ export const ButtonWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
 `;
-export const ChangeButton = styled.button`
+export const ListButton = styled.button`
   width: 179px;
   height: 52px;
   background: #ffffff;
@@ -201,4 +201,53 @@ export const ChangeButton = styled.button`
   /* Black */
 
   color: #000000;
+  cursor: pointer;
+`;
+export const DeleteButton = styled.button`
+  width: 179px;
+  height: 52px;
+  background: #ffffff;
+  /* Gray 4 */
+
+  border: 1px solid #bdbdbd;
+
+  margin-right: 24px;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  text-align: center;
+
+  /* Black */
+
+  color: #000000;
+  cursor: pointer;
+`;
+export const EditButton = styled.button`
+  width: 179px;
+  height: 52px;
+  background: #ffffff;
+  /* Gray 4 */
+
+  border: 1px solid #bdbdbd;
+
+  margin-right: 24px;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  text-align: center;
+
+  /* Black */
+
+  color: #000000;
+  cursor: pointer;
 `;

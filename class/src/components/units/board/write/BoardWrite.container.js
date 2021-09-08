@@ -2,11 +2,15 @@ import BoardWriteUI from "./BoardWrite.presenter"; // presenter 연결을 위한
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 // 기능들도 다 import 해와야한다.
-import { CREATE_BOARD } from "./BoardWrite.queries";
+import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
 //query를 위한 함수도 import 하기
+import { useRouter } from "next/router";
 
-export default function BoardWrite() {
+export default function BoardWrite(props) {
+  const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
+  const [updateBoard] = useMutation(UPDATE_BOARD);
+
   const [myWriter, setMyWriter] = useState("");
   const [myTitle, setMyTitle] = useState("");
   const [myContents, setMyContents] = useState("");
@@ -50,8 +54,24 @@ export default function BoardWrite() {
     }); //실행(요청) / variables 에 내용 입력/ 실행하는 시점에 내용을 넣어줌 /잘 됐는지 확인하려면 playground에서 query 해보기
     console.log(result);
     console.log(result.data.createBoard.number);
+    router.push(`/08-04-board-detail/${result.data.createBoard.number}`);
   }
 
+  async function onClickEdit() {
+    try {
+      await updateBoard({
+        variables: {
+          number: Number(router.query.number),
+          writer: myWriter,
+          title: myTitle,
+          contents: myContents,
+        },
+      });
+      router.push(`/08-04-board-detail/${router.query.number}/`);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <BoardWriteUI
       onChangeMyWriter={onChangeMyWriter}
@@ -60,6 +80,8 @@ export default function BoardWrite() {
       aaa={aaa}
       qqq={qqq}
       zzz={zzz}
+      isEdit={props.isEdit}
+      onClickEdit={onClickEdit}
     />
   );
   //한줄일땐 괄호생략가능 두줄부터 ()붙여야한다.

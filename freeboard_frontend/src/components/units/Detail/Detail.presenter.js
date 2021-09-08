@@ -27,7 +27,9 @@ import {
   DislikeCount,
   BoardsWrapper,
   ButtonWrapper,
-  ChangeButton,
+  ListButton,
+  DeleteButton,
+  EditButton,
 } from "./Detail.styles";
 
 export default function DetailUI(props) {
@@ -89,13 +91,14 @@ export default function DetailUI(props) {
         </LikeWrapper>
       </BoardsWrapper>
       <ButtonWrapper>
-        <ChangeButton>목록으로</ChangeButton>
-        <ChangeButton
+        <ListButton onClick={props.onClickList}>목록으로</ListButton>
+        <DeleteButton
           id={props.data?.fetchBoard._id}
           onClick={props.onClickDelete}
         >
           삭제하기
-        </ChangeButton>
+        </DeleteButton>
+        <EditButton onClick={props.onClickEdit}>수정하기</EditButton>
       </ButtonWrapper>
     </Wrapper>
   );

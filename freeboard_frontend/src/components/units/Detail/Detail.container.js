@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 export default function Detail() {
   const [deleteBoard] = useMutation(DELETE_BOARD);
+
   const router = useRouter();
 
   const { data } = useQuery(FETCH_BOARD, {
@@ -14,6 +15,10 @@ export default function Detail() {
     },
   });
 
+  function onClickList() {
+    router.push(`/boards/list/`);
+  }
+
   async function onClickDelete(event) {
     await deleteBoard({
       variables: { boardId: event.target.id },
@@ -21,5 +26,17 @@ export default function Detail() {
     });
   }
 
-  return <DetailUI router={router} data={data} onClickDelete={onClickDelete} />;
+  async function onClickEdit() {
+    router.push(`${router.query.number}/edit`);
+  }
+
+  return (
+    <DetailUI
+      router={router}
+      data={data}
+      onClickList={onClickList}
+      onClickDelete={onClickDelete}
+      onClickEdit={onClickEdit}
+    />
+  );
 }

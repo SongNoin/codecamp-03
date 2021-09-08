@@ -2,11 +2,12 @@ import NewWriteUI from "./New.presenter";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { CREATE_BOARD } from "./New.queries";
+import { CREATE_BOARD, UPDATE_BOARD } from "./New.queries";
 
-export default function NewWrite() {
+export default function NewWrite(props) {
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
+  const [updateBoard] = useMutation(UPDATE_BOARD);
 
   // 빈칸 에러 useState
   const [writerError, setWriterError] = useState("");
@@ -120,6 +121,25 @@ export default function NewWrite() {
       console.log(error);
     }
   }
+
+  async function onClickMoveToEdit() {
+    try {
+      await updateBoard({
+        variables: {
+          updateBoardInput: {
+            title: myTitle,
+            contents: myContents,
+          },
+          password: myPassword,
+          boardId: router.query.number,
+        },
+      });
+      router.push(`/boards/detail/${router.query.number}/`);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <NewWriteUI
       writerError={writerError}
@@ -132,6 +152,8 @@ export default function NewWrite() {
       onChangeContents={onChangeContents}
       onClickCorrect={onClickCorrect}
       color={color}
+      isEdit={props.isEdit}
+      onClickMoveToEdit={onClickMoveToEdit}
       // 함수 변수 를 넘어주는 작업
     />
   );

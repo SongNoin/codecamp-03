@@ -328,4 +328,6 @@ export const RegisterBoardButton = styled.button`
   box-sizing: border-box;
   border-radius: 10px;
   margin-left: 370px;
+
+  cursor: pointer;
 `;
