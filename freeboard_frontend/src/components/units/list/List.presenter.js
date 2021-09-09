@@ -30,6 +30,7 @@ import {
   ListName,
   Row,
   Column,
+  TitleToDetail,
   WrapperFooter,
   PageNumber,
   ArrowPhoto,
@@ -165,7 +166,9 @@ export default function ListUI(props) {
             <Row key={el._id}>
               <Column>{10 - index}</Column>{" "}
               {/* 10-index 를 해줘야 10부터 숫자가 시작된다. 1 부터 시작하고 싶으면 index + 1*/}
-              <Column>{el.title}</Column>
+              <TitleToDetail id={el._id} onClick={props.onClickDetail}>
+                {el.title}
+              </TitleToDetail>
               <Column>{el.writer}</Column>
               <Column>{el.createdAt}</Column>
             </Row>

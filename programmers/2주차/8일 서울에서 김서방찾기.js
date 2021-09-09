@@ -5,17 +5,25 @@
 // seoul은 길이 1 이상, 1000 이하인 배열입니다.
 // seoul의 원소는 길이 1 이상, 20 이하인 문자열입니다.
 // "Kim"은 반드시 seoul 안에 포함되어 있습니다.
+
+
+
+
 function solution(seoul) {
-  let answer = "";
-  let find = 0;
-  for (let i = 0; i < seoul.length; i = i + 1) {
-    if (seoul[i] === "Kim") {
-      find = i;
-      answer = "김서방은 " + find + "에 있다";
+  let answer = '';
+  let find ="";
+  for (let i = 0; i< seoul.length ; i++){
+    if (seoul[i] == "Kim"){
+      find = i
     }
+    answer = "김서방은 "+ find + "에 있다"
   }
   return answer;
 }
+
+
+
+
 
 // Reference 1
 // function solution(seoul) {

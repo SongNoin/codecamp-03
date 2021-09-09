@@ -5,12 +5,11 @@
 // 제한 조건
 // s는 길이 4 이상, 20이하인 문자열입니다.
 
-
 function solution(phone_number) {
-    var answer = '';
-    answer = phone_number.slice(phone_number.length-4,phone_number)
-    answer = answer.padStart(phone_number.length,"*")
-    return answer;
+  let answer = "";
+  answer = phone_number.slice(phone_number.length - 4, phone_number.length);
+  answer = answer.padStart(phone_number.length, "*")
+  return answer;
 }
 
 

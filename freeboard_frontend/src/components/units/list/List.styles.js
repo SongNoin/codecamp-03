@@ -267,6 +267,14 @@ export const Column = styled.div`
   align-items: center;
 `;
 
+export const TitleToDetail = styled.div`
+  width: 20%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const WrapperFooter = styled.div`
   width: 100%;
   height: 52px;

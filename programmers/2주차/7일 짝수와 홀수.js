@@ -7,14 +7,24 @@
 
 function solution(num) {
   let answer = "";
-  if (num % 2 === 1 || num % 2 === -1) {
-    answer = "Odd";
-  } else if (num % 2 === 0) {
+  if (num % 2 === 0) {
     answer = "Even";
+  } else {
+    answer = "Odd";
   }
   return answer;
 }
 
+// 내풀이 1
+// function solution(num) {
+//   let answer = "";
+//   if (num % 2 === 1 || num % 2 === -1) {
+//     answer = "Odd";
+//   } else if (num % 2 === 0) {
+//     answer = "Even";
+//   }
+//   return answer;
+// }
 
 //Reference 1 if 조건문
 //function solution(num){
@@ -26,7 +36,7 @@ function solution(num) {
 
 // }
 
-//Reference 1 삼항연산자
+// Reference 2 삼항연산자
 // function solution(num){
 //     return num% 2 === 0
 //     ?'Even'

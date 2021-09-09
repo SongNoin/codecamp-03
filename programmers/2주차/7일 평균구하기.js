@@ -6,28 +6,37 @@
 // arr의 원소는 -10,000 이상 10,000 이하인 정수입니다.
 
 
+
+
+
 function solution(arr) {
     let answer = 0;
     let total = 0;
-    for (let i=0; i<arr.length; i = i+1){
-        total = arr[i]+total
+    for (let i = 0 ; i < arr.length ; i = i+1){
+        total = arr[i] + total
+        answer = total/arr.length
     }
-    answer = total/arr.length
     return answer;
 }
 
 
+
+
+
+
+
+
 //Reference 1
-function solution(arr) {
+// function solution(arr) {
     // 평균 구하기
     // 모든 정수의 합 / 정수의 갯수
     
     //모든 정수를 담는 변수
-    let sum = 0;
+//     let sum = 0;
     
-    for (let i=0; i<arr.length; i = i+1){
-        sum = sum + arr[i];
-    }
+//     for (let i=0; i<arr.length; i = i+1){
+//         sum = sum + arr[i];
+//     }
 
-    return sum / arr.length
-}
+//     return sum / arr.length
+// }

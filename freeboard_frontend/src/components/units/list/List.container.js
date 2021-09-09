@@ -11,5 +11,15 @@ export default function List() {
     router.push(`/boards/new/`);
   }
 
-  return <ListUI data={data} onClickWrite={onClickWrite} />;
+  function onClickDetail(event) {
+    router.push(`/boards/detail/${event.target.id}`);
+  }
+
+  return (
+    <ListUI
+      data={data}
+      onClickWrite={onClickWrite}
+      onClickDetail={onClickDetail}
+    />
+  );
 }

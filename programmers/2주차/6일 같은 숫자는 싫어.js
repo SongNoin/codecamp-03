@@ -17,6 +17,17 @@
 // 입출력 예 #1,2
 // 문제의 예시와 같습니다.
 
+function solution(arr) {
+  let answer = [];
+  for (let i = 0; i < arr.length; i = i + 1) {
+    if (arr[i] !== arr[i + 1]) {
+      answer.push(arr[i]);
+    }
+  }
+  return answer;
+}
+
+
 // 1번 Reference
 // function solution(arr) {
 //   var answer = [];

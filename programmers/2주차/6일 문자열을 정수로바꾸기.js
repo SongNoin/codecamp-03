@@ -11,14 +11,16 @@
 // 예를들어 str이 "1234"이면 1234를 반환하고, "-1234"이면 -1234를 반환하면 됩니다.
 // str은 부호(+,-)와 숫자로만 구성되어 있고, 잘못된 값이 입력되는 경우는 없습니다.
 
+// 내 풀이 1
+
 function solution(s) {
-    var answer = 0;
-    answer = Number(s);
-    return answer;
+  var answer = 0;
+  answer = Number(s);
+  return answer;
 }
 
-console.log(solution("1234")) // 1234
-console.log(solution("-1234")) // -1234
+console.log(solution("1234")); // 1234
+console.log(solution("-1234")); // -1234
 
 // 1번 Reference function solution(s) {
 //     console.log(typeof Number(s))
