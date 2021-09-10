@@ -1,13 +1,17 @@
 import NewWriteUI from "./New.presenter";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { CREATE_BOARD, UPDATE_BOARD } from "./New.queries";
+import { useMutation, useQuery } from "@apollo/client";
+import { CREATE_BOARD, UPDATE_BOARD, FETCH_BOARD } from "./New.queries";
 
 export default function NewWrite(props) {
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
+
+  const { data } = useQuery(FETCH_BOARD, {
+    variables: { boardId: router.query.number },
+  });
 
   // 빈칸 에러 useState
   const [writerError, setWriterError] = useState("");
@@ -114,11 +118,11 @@ export default function NewWrite(props) {
           },
         },
       });
-      console.log(result.data.createBoard._id);
+      alert("게시물을 등록합니다~");
       // router.push("/boards/detail/" + result.data.createBoard._id); // 옛날방식
       router.push(`/boards/detail/${result.data.createBoard._id}`);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   }
 
@@ -134,9 +138,10 @@ export default function NewWrite(props) {
           boardId: router.query.number,
         },
       });
+      alert("게시물을 수정합니다~");
       router.push(`/boards/detail/${router.query.number}/`);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   }
 
@@ -154,6 +159,7 @@ export default function NewWrite(props) {
       color={color}
       isEdit={props.isEdit}
       onClickEdit={onClickEdit}
+      data={data}
       // 함수 변수 를 넘어주는 작업
     />
   );

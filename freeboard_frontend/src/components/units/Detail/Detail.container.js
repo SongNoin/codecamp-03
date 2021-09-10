@@ -1,7 +1,6 @@
 import DetailUI from "./Detail.presenter";
 import { useQuery, useMutation } from "@apollo/client";
-import { FETCH_BOARD } from "./Detail.queries";
-import { DELETE_BOARD } from "./Detail.queries";
+import { FETCH_BOARD, DELETE_BOARD } from "./Detail.queries";
 import { useRouter } from "next/router";
 
 export default function Detail() {

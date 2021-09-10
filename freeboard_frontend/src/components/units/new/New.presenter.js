@@ -36,6 +36,7 @@ export default function NewWriteUI(props) {
             type="text"
             placeholder="이름을 적어주세요."
             onChange={props.onChangeWriter}
+            defaultValue={props.data?.fetchBoard.writer}
           />
           <Error>{props.writerError}</Error>
         </TextWrapper>
@@ -57,6 +58,7 @@ export default function NewWriteUI(props) {
           type="text"
           placeholder="제목을 작성해주세요."
           onChange={props.onChangeTitle}
+          defaultValue={props.data?.fetchBoard.title}
         />
         <Error>{props.titleError}</Error>
       </TextWrapper>
@@ -66,6 +68,7 @@ export default function NewWriteUI(props) {
           name="contents"
           placeholder="내용을 작성해주세요."
           onChange={props.onChangeContents}
+          defaultValue={props.data?.fetchBoard.contents}
         />
         <Error>{props.contentsError}</Error>
       </TextWrapper>
