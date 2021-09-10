@@ -1,0 +1,10 @@
+schema: http://example.codebootcamp.co.kr/graphql
+generates:
+  ./src/commons/types/generated/types.d.ts:
+    plugins:
+      - typescript
+
+    config:
+      typesPrefix : I 
+      
+    # 모든 type 앞에 I 붙여주기 띄어쓰기 잘해야한다 부모자식관계가 중요하다

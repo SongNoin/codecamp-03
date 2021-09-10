@@ -119,7 +119,7 @@ export default function NewWriteUI(props) {
         {props.isEdit && (
           <SubmitButton
             color={props.color}
-            onClick={props.onClickMoveToEdit}
+            onClick={props.onClickEdit}
             disabled={!props.color}
           >
             수정하기

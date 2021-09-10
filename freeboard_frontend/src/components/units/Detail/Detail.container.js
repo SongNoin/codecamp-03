@@ -26,7 +26,7 @@ export default function Detail() {
     });
   }
 
-  async function onClickEdit() {
+  async function onClickMoveToEdit() {
     router.push(`${router.query.number}/edit`);
   }
 
@@ -36,7 +36,7 @@ export default function Detail() {
       data={data}
       onClickList={onClickList}
       onClickDelete={onClickDelete}
-      onClickEdit={onClickEdit}
+      onClickMoveToEdit={onClickMoveToEdit}
     />
   );
 }

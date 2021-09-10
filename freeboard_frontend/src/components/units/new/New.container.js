@@ -122,7 +122,7 @@ export default function NewWrite(props) {
     }
   }
 
-  async function onClickMoveToEdit() {
+  async function onClickEdit() {
     try {
       await updateBoard({
         variables: {
@@ -153,7 +153,7 @@ export default function NewWrite(props) {
       onClickCorrect={onClickCorrect}
       color={color}
       isEdit={props.isEdit}
-      onClickMoveToEdit={onClickMoveToEdit}
+      onClickEdit={onClickEdit}
       // 함수 변수 를 넘어주는 작업
     />
   );

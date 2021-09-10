@@ -273,6 +273,8 @@ export const TitleToDetail = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  cursor: pointer;
 `;
 
 export const WrapperFooter = styled.div`
