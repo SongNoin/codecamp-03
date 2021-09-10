@@ -7,11 +7,9 @@ export default function Comments() {
   const router = useRouter();
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
 
-
   const [myWriter, setWriter] = useState("");
   const [myPassword, setPassword] = useState("");
   const [myContents, setContents] = useState("");
-  const [myRating, setRating] = useState("");
 
   function onChangeWriter(event) {
     setWriter(event.target.value);
@@ -23,24 +21,27 @@ export default function Comments() {
     setContents(event.target.value);
   }
 
-  function onChangeRating(event) {
-    setRating(event.target.value);
-  }
-
   async function onClickRegister() {
     try {
       const result = await createBoardComment({
         variables: {
+          boardId: router.query.number,
           createBoardCommentInput: {
             writer: myWriter,
             password: myPassword,
             contents: myContents,
-            rating: myRating,
+            rating: 1,
           },
         },
+        // refetchQueries: [
+        //   {
+        //     query: FETCH_BOARD_COMMENTS,
+        //     variables: { boardId: router.query.number },
+        //   },
+        // ],
       });
       alert("댓글을 등록합니다~");
-    //   router.push(`boards/detail/${result.data.createBoardComment._id}`);
+      //   router.push(`boards/detail/${result.data.createBoardComment._id}`);
     } catch (error) {
       console.log(error.message);
     }
@@ -50,7 +51,6 @@ export default function Comments() {
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       onChangeContents={onChangeContents}
-      onChangeRating={onChangeRating}
       onClickRegister={onClickRegister}
     />
   );
