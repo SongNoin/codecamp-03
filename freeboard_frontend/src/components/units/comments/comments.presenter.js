@@ -1,4 +1,3 @@
-import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 import {
   Wrapper,
   CommentsTitle,
@@ -16,10 +15,7 @@ import {
   CommentsInfo,
   CommentsPhoto,
   CommentsText,
-  RatingWrapper,
   CommentsWriter,
-  RatingInput,
-  CommentsRating,
   Comments,
   CommentsDate,
   CommentsButtonWrapper,
@@ -49,7 +45,6 @@ export default function CommentsUI(props) {
           placeholder="비밀번호"
           onChange={props.onChangePassword}
         ></PasswordInput>
-        <RatingInput name="ratinginput" type="text"></RatingInput>
       </WriterInfo>
       <CommentsContents>
         <CommentsInput
@@ -65,29 +60,28 @@ export default function CommentsUI(props) {
         </CommentsRegister>
       </CommentsContents>
       <WrapperFooter>
-        <CommentsWrapper>
-          <CommentsInfo>
-            <CommentsPhoto>
-              <img src="/images/photo.png" />
-            </CommentsPhoto>
-            <CommentsText>
-              <RatingWrapper>
-                <CommentsWriter>노원두</CommentsWriter>
-              </RatingWrapper>
-              <Comments>어쩌구 저쩌구</Comments>
-              <CommentsDate>2021.02.22</CommentsDate>
-            </CommentsText>
-          </CommentsInfo>
-          <CommentsButtonWrapper>
-            <CommentsEditButton>
-              <img src="/images/editicon.png" />
-            </CommentsEditButton>
-            <CommentsDeleteButton>
-              <img src="/images/deleteicon.png" />
-            </CommentsDeleteButton>
-          </CommentsButtonWrapper>
-        </CommentsWrapper>
-        <hr />
+        {props.data?.fetchBoardComments.map((el) => (
+          <CommentsWrapper key={el._id}>
+            <CommentsInfo>
+              <CommentsPhoto>
+                <img src="/images/photo.png" />
+              </CommentsPhoto>
+              <CommentsText>
+                <CommentsWriter>{el.writer}</CommentsWriter>
+                <Comments>{el.contents}</Comments>
+                <CommentsDate>{el.createdAt}</CommentsDate>
+              </CommentsText>
+            </CommentsInfo>
+            <CommentsButtonWrapper>
+              <CommentsEditButton>
+                <img src="/images/editicon.png" />
+              </CommentsEditButton>
+              <CommentsDeleteButton>
+                <img src="/images/deleteicon.png" />
+              </CommentsDeleteButton>
+            </CommentsButtonWrapper>
+          </CommentsWrapper>
+        ))}
       </WrapperFooter>
     </Wrapper>
   );

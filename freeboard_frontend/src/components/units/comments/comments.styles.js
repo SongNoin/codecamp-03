@@ -179,6 +179,9 @@ export const CommentsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-bottom: 1px solid #bdbdbd;
+
+  margin-top: 20px;
 `;
 
 export const CommentsInfo = styled.div`
@@ -246,7 +249,3 @@ export const CommentsDeleteButton = styled.button`
   width: 18px;
   height: 18px;
 `;
-export const RatingInput = styled.input``;
-export const RatingWrapper = styled.div``;
-
-export const CommentsRating = styled.div``;

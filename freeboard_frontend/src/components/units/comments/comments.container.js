@@ -1,4 +1,4 @@
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import CommentsUI from "./comments.presenter";
@@ -6,6 +6,10 @@ import { CREATE_BOARD_COMMENT, FETCH_BOARD_COMMENTS } from "./comments.queries";
 export default function Comments() {
   const router = useRouter();
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
+
+  const { data } = useQuery(FETCH_BOARD_COMMENTS, {
+    variables: { boardId: router.query.number },
+  });
 
   const [myWriter, setWriter] = useState("");
   const [myPassword, setPassword] = useState("");
@@ -23,7 +27,7 @@ export default function Comments() {
 
   async function onClickRegister() {
     try {
-      const result = await createBoardComment({
+      await createBoardComment({
         variables: {
           boardId: router.query.number,
           createBoardCommentInput: {
@@ -33,21 +37,21 @@ export default function Comments() {
             rating: 1,
           },
         },
-        // refetchQueries: [
-        //   {
-        //     query: FETCH_BOARD_COMMENTS,
-        //     variables: { boardId: router.query.number },
-        //   },
-        // ],
+        refetchQueries: [
+          {
+            query: FETCH_BOARD_COMMENTS,
+            variables: { boardId: router.query.number },
+          },
+        ],
       });
       alert("댓글을 등록합니다~");
-      //   router.push(`boards/detail/${result.data.createBoardComment._id}`);
     } catch (error) {
       console.log(error.message);
     }
   }
   return (
     <CommentsUI
+      data={data}
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       onChangeContents={onChangeContents}
