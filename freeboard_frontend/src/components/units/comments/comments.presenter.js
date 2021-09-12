@@ -21,6 +21,8 @@ import {
   CommentsButtonWrapper,
   CommentsEditButton,
   CommentsDeleteButton,
+  EditComments,
+  EditButton,
 } from "./comments.styles";
 
 export default function CommentsUI(props) {
@@ -59,6 +61,35 @@ export default function CommentsUI(props) {
           </RegisterButton>
         </CommentsRegister>
       </CommentsContents>
+      {props.isCommentEdit && (
+        <EditComments>
+          <WriterInfo>
+            <WriterInput
+              name="writeredit"
+              type="text"
+              placeholder="작성자"
+              onChange={props.onChangeWriter}
+            ></WriterInput>
+            <PasswordInput
+              name="passwordedit"
+              type="password"
+              placeholder="비밀번호"
+              onChange={props.onChangePassword}
+            ></PasswordInput>
+          </WriterInfo>
+          <CommentsContents>
+            <CommentsInput
+              name="commentsedit"
+              placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+              onChange={props.onChangeContents}
+            ></CommentsInput>
+            <CommentsRegister>
+              <CommentsCount>0/100</CommentsCount>
+              <EditButton onClick={props.onClickRegister}>수정하기</EditButton>
+            </CommentsRegister>
+          </CommentsContents>
+        </EditComments>
+      )}
       <WrapperFooter>
         {props.data?.fetchBoardComments.map((el) => (
           <CommentsWrapper key={el._id}>
@@ -73,7 +104,7 @@ export default function CommentsUI(props) {
               </CommentsText>
             </CommentsInfo>
             <CommentsButtonWrapper>
-              <CommentsEditButton>
+              <CommentsEditButton onClick={props.onClickShowEdit}>
                 <img src="/images/editicon.png" />
               </CommentsEditButton>
               <CommentsDeleteButton>

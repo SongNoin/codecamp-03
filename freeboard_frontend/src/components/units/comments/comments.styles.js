@@ -165,7 +165,6 @@ export const RegisterButton = styled.button`
   flex: none;
   order: 0;
   flex-grow: 0;
-  margin: 0px 10px;
   cursor: pointer;
 `;
 
@@ -248,4 +247,27 @@ export const CommentsEditButton = styled.button`
 export const CommentsDeleteButton = styled.button`
   width: 18px;
   height: 18px;
+`;
+
+export const EditComments = styled.div``;
+
+export const EditButton = styled.button`
+  width: 91px;
+  height: 52px;
+  background: #ffd600;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  text-align: center;
+
+  /* Black */
+
+  color: #000000;
+
+  cursor: pointer;
 `;

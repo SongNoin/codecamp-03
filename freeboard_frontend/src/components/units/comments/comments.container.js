@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import CommentsUI from "./comments.presenter";
 import { CREATE_BOARD_COMMENT, FETCH_BOARD_COMMENTS } from "./comments.queries";
+
 export default function Comments() {
   const router = useRouter();
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
@@ -15,6 +16,8 @@ export default function Comments() {
   const [myPassword, setPassword] = useState("");
   const [myContents, setContents] = useState("");
 
+  const [isCommentEdit, setCommentEdit] = useState(false);
+
   function onChangeWriter(event) {
     setWriter(event.target.value);
   }
@@ -23,6 +26,10 @@ export default function Comments() {
   }
   function onChangeContents(event) {
     setContents(event.target.value);
+  }
+
+  function onClickShowEdit() {
+    setCommentEdit(true);
   }
 
   async function onClickRegister() {
@@ -56,6 +63,8 @@ export default function Comments() {
       onChangePassword={onChangePassword}
       onChangeContents={onChangeContents}
       onClickRegister={onClickRegister}
+      onClickShowEdit={onClickShowEdit}
+      isCommentEdit={isCommentEdit}
     />
   );
 }
