@@ -85,7 +85,12 @@ export default function CommentsUI(props) {
             ></CommentsInput>
             <CommentsRegister>
               <CommentsCount>0/100</CommentsCount>
-              <EditButton onClick={props.onClickRegister}>수정하기</EditButton>
+              <EditButton
+                id={props.data?.fetchBoardComments._id}
+                onClick={props.onClickEdit}
+              >
+                수정하기
+              </EditButton>
             </CommentsRegister>
           </CommentsContents>
         </EditComments>
@@ -107,7 +112,7 @@ export default function CommentsUI(props) {
               <CommentsEditButton onClick={props.onClickShowEdit}>
                 <img src="/images/editicon.png" />
               </CommentsEditButton>
-              <CommentsDeleteButton>
+              <CommentsDeleteButton id={el._id} onClick={props.onClickDelete}>
                 <img src="/images/deleteicon.png" />
               </CommentsDeleteButton>
             </CommentsButtonWrapper>

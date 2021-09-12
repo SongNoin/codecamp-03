@@ -2,11 +2,18 @@ import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import CommentsUI from "./comments.presenter";
-import { CREATE_BOARD_COMMENT, FETCH_BOARD_COMMENTS } from "./comments.queries";
+import {
+  CREATE_BOARD_COMMENT,
+  FETCH_BOARD_COMMENTS,
+  DELETE_BOARD_COMMENT,
+  UPDATE_BOARD_COMMENT,
+} from "./comments.queries";
 
 export default function Comments() {
   const router = useRouter();
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
+  const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
+  const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENT);
 
   const { data } = useQuery(FETCH_BOARD_COMMENTS, {
     variables: { boardId: router.query.number },
@@ -56,6 +63,50 @@ export default function Comments() {
       console.log(error.message);
     }
   }
+
+  async function onClickDelete(event) {
+    try {
+      await deleteBoardComment({
+        variables: {
+          boardCommentId: event.target.id,
+          password: myPassword,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_BOARD_COMMENTS,
+            variables: { boardId: router.query.number },
+          },
+        ],
+      });
+      alert("댓글을 삭제합니다~");
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  async function onClickEdit(event) {
+    try {
+      await updateBoardComment({
+        variables: {
+          updateBoardCommentInput: {
+            contents: myContents,
+            rating: 1,
+          },
+          password: myPassword,
+          boardCommentId: event.target.id,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_BOARD_COMMENTS,
+            variables: { boardId: router.query.number },
+          },
+        ],
+      });
+      alert("댓글을 수정합니다~");
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
   return (
     <CommentsUI
       data={data}
@@ -64,6 +115,8 @@ export default function Comments() {
       onChangeContents={onChangeContents}
       onClickRegister={onClickRegister}
       onClickShowEdit={onClickShowEdit}
+      onClickDelete={onClickDelete}
+      onClickEdit={onClickEdit}
       isCommentEdit={isCommentEdit}
     />
   );
