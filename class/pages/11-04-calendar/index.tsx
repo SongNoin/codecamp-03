@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Calendar } from "antd";
+import { useState } from "react";
 
 const MyCalendar = styled(Calendar)`
   width: 300px;
@@ -10,14 +11,24 @@ const MyCalendar = styled(Calendar)`
 export default function CalendarPage() {
   //   const [value, setValue] = useState("2021-09-13");
   function onPanelChange(value, mode) {
-    console.log(value, mode);
+    console.log(value.format("YYYY-MM-DD"), mode);
     // setValue(value);
+  }
+
+  const [data, setData] = useState("");
+
+  function onSelect(value) {
+    setData(value.format("MM"));
   }
 
   return (
     <div>
-      <MyCalendar fullscreen={false} onPanelChange={onPanelChange} />
-      {/* <div>{value}</div> */}
+      <MyCalendar
+        fullscreen={false}
+        onPanelChange={onPanelChange}
+        onSelect={onSelect}
+      />
+      <div>{data}</div>
     </div>
   );
 }

@@ -72,22 +72,29 @@ export default function DetailUI(props) {
           <Contents>{props.data?.fetchBoard.contents}</Contents>
         </ContentsWrapper>
         <YoutubeWrapper>
-          <Youtube>
-            <img src="/images/youtube.png" />
-          </Youtube>
+          <Youtube
+            url={props.data?.fetchBoard.youtubeUrl}
+            width={486}
+            height={240}
+          />
         </YoutubeWrapper>
         <LikeWrapper>
           <Like>
-            <LikePhoto>
-              <img src="/images/like.png" />
-            </LikePhoto>
-            <LikeCount>1920</LikeCount>
+            <LikePhoto
+              onClick={props.onClickLike}
+              id={props.data?.fetchBoard._id}
+              src="/images/like.png"
+            />
+
+            <LikeCount>{props.data?.fetchBoard.likeCount}</LikeCount>
           </Like>
           <Dislike>
-            <DislikePhoto>
-              <img src="/images/dislike.png" />
-            </DislikePhoto>
-            <DislikeCount>1920</DislikeCount>
+            <DislikePhoto
+              onClick={props.onClickDislike}
+              id={props.data?.fetchBoard._id}
+              src="/images/dislike.png"
+            />
+            <DislikeCount>{props.data?.fetchBoard.dislikeCount}</DislikeCount>
           </Dislike>
         </LikeWrapper>
       </BoardsWrapper>

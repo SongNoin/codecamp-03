@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import ReactPlayer from "react-player";
 export const Wrapper = styled.div`
   width: 1920px;
   padding-top: 80px;
@@ -108,9 +109,8 @@ export const Contents = styled.div`
 export const YoutubeWrapper = styled.div`
   margin-top: 120px;
 `;
-export const Youtube = styled.div`
-  width: 486px;
-  height: 240px;
+export const Youtube = styled(ReactPlayer)`
+  
 `;
 export const LikeWrapper = styled.div`
   width: 120px;
@@ -128,9 +128,10 @@ export const Like = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-export const LikePhoto = styled.div`
+export const LikePhoto = styled.img`
   width: 20px;
   height: 18px;
+  cursor: pointer;
 `;
 export const LikeCount = styled.div`
   font-family: Noto Sans CJK KR;
@@ -153,9 +154,10 @@ export const Dislike = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-export const DislikePhoto = styled.div`
+export const DislikePhoto = styled.img`
   width: 20px;
   height: 18px;
+  cursor: pointer;
 `;
 export const DislikeCount = styled.div`
   font-family: Noto Sans CJK KR;

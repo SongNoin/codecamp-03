@@ -117,6 +117,8 @@ export const CommentsInput = styled.textarea`
   /* Gray 4 */
 
   color: #bdbdbd;
+
+  resize: none;
 `;
 
 export const CommentsRegister = styled.div`
@@ -238,15 +240,17 @@ export const CommentsButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
-export const CommentsEditButton = styled.button`
+export const CommentsEditButton = styled.img`
   width: 18px;
   height: 18px;
 
   margin-right: 16px;
+  cursor: pointer;
 `;
-export const CommentsDeleteButton = styled.button`
+export const CommentsDeleteButton = styled.img`
   width: 18px;
   height: 18px;
+  cursor: pointer;
 `;
 
 export const EditComments = styled.div``;

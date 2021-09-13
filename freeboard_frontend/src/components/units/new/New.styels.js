@@ -6,6 +6,13 @@ export const Wrapper = styled.div`
   padding-right: 100px;
   padding-left: 100px;
   padding-bottom: 100px;
+
+  margin-top: 80px;
+  margin-left: 360px;
+  margin-right: 360px;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
 `;
 export const Title = styled.div`
   font-family: Noto Sans CJK KR;
@@ -61,6 +68,7 @@ export const Contents = styled.textarea`
   height: 480px;
   border: 1px solid #bdbdbd;
   padding-left: 16px;
+  resize: none;
 `;
 export const AddressWrapper = styled.div``;
 export const AddressNumber = styled.input`

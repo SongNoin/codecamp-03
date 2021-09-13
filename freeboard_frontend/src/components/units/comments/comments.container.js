@@ -65,6 +65,7 @@ export default function Comments() {
   }
 
   async function onClickDelete(event) {
+    const myPassword = prompt("비밀번호를 입력해 주세요");
     try {
       await deleteBoardComment({
         variables: {
@@ -85,12 +86,19 @@ export default function Comments() {
   }
 
   async function onClickEdit(event) {
+    if (!myContents) {
+      alert("내용이 수정되지 않았습니다.");
+      return;
+    }
+    if (!myPassword) {
+      alert("비밀번호가 입력되지 않았습니다.");
+      return;
+    }
     try {
       await updateBoardComment({
         variables: {
           updateBoardCommentInput: {
             contents: myContents,
-            rating: 1,
           },
           password: myPassword,
           boardCommentId: event.target.id,
@@ -102,6 +110,7 @@ export default function Comments() {
           },
         ],
       });
+      props.setCommentEdit?.(false);
       alert("댓글을 수정합니다~");
     } catch (error) {
       console.log(error.message);
@@ -118,6 +127,7 @@ export default function Comments() {
       onClickDelete={onClickDelete}
       onClickEdit={onClickEdit}
       isCommentEdit={isCommentEdit}
+      // el={props.el}
     />
   );
 }

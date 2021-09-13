@@ -170,7 +170,7 @@ export default function ListUI(props) {
                 {el.title}
               </TitleToDetail>
               <Column>{el.writer}</Column>
-              <Column>{el.createdAt}</Column>
+              <Column>{el.createdAt.slice(0, 10)}</Column>
             </Row>
           ))}
         </ListWrapper>

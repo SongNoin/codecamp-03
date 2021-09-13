@@ -83,7 +83,12 @@ export default function NewWriteUI(props) {
       </TextWrapper>
       <TextWrapper>
         <Label>유튜브</Label>
-        <Youtube name="youtube" placeholder="링크를 복사해주세요." />
+        <Youtube
+          name="youtube"
+          placeholder="링크를 복사해주세요."
+          onChange={props.onChangeYoutube}
+          defaultValue={props.data?.fetchBoard.youtubeUrl}
+        />
       </TextWrapper>
       <PhotoWrapper>
         <Label>사진첨부</Label>
@@ -108,7 +113,7 @@ export default function NewWriteUI(props) {
         <RadioLabel>사진</RadioLabel>
       </OptionWrapper>
       <ButtonWrapper>
-        <CancelButton>취소하기</CancelButton>
+        <CancelButton onClick={props.onClickList}>취소하기</CancelButton>
         {!props.isEdit && (
           <SubmitButton
             color={props.color}

@@ -25,6 +25,7 @@ export default function NewWrite(props) {
   const [myPassword, setPassword] = useState("");
   const [myTitle, setTitle] = useState("");
   const [myContents, setContents] = useState("");
+  const [myYoutube, setYoutube] = useState("");
 
   const [color, setColor] = useState(false);
   // 색 바꾸기 함수
@@ -90,6 +91,10 @@ export default function NewWrite(props) {
     }
   }
 
+  function onChangeYoutube(event) {
+    setYoutube(event.target.value);
+  }
+
   async function onClickCorrect() {
     if (myWriter == "") {
       setWriterError("입력되지 않았습니다!");
@@ -115,6 +120,7 @@ export default function NewWrite(props) {
             password: myPassword,
             title: myTitle,
             contents: myContents,
+            youtubeUrl: myYoutube,
           },
         },
       });
@@ -145,6 +151,10 @@ export default function NewWrite(props) {
     }
   }
 
+  function onClickList() {
+    router.push(`/boards/list/`);
+  }
+
   return (
     <NewWriteUI
       writerError={writerError}
@@ -155,10 +165,12 @@ export default function NewWrite(props) {
       onChangePassword={onChangePassword}
       onChangeTitle={onChangeTitle}
       onChangeContents={onChangeContents}
+      onChangeYoutube={onChangeYoutube}
       onClickCorrect={onClickCorrect}
       color={color}
       isEdit={props.isEdit}
       onClickEdit={onClickEdit}
+      onClickList={onClickList}
       data={data}
       // 함수 변수 를 넘어주는 작업
     />
