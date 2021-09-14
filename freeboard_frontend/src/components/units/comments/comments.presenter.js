@@ -28,14 +28,12 @@ import {
 export default function CommentsUI(props) {
   return (
     <Wrapper>
-      {!props.isCommentEdit && (
-        <CommentsTitle>
-          <CommentsIcon>
-            <img src="/images/commentsicon.png" />
-          </CommentsIcon>
-          댓글
-        </CommentsTitle>
-      )}
+      <CommentsTitle>
+        <CommentsIcon>
+          <img src="/images/commentsicon.png" />
+        </CommentsIcon>
+        댓글
+      </CommentsTitle>
       <WriterInfo>
         <WriterInput
           name="writerinput"

@@ -127,7 +127,6 @@ export default function Comments() {
       onClickDelete={onClickDelete}
       onClickEdit={onClickEdit}
       isCommentEdit={isCommentEdit}
-      // el={props.el}
     />
   );
 }

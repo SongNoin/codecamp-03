@@ -18,7 +18,7 @@ export default function CalendarPage() {
   const [data, setData] = useState("");
 
   function onSelect(value) {
-    setData(value.format("MM"));
+    setData(value.format("YYYY-MM-DD"));
   }
 
   return (

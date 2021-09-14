@@ -9,20 +9,18 @@
 // "Zbcdefg"	"gfedcbZ"
 
 // Reference 1
-function solution (s){
-
-    let answer = "";
-    const arr = []
-    for(let i= 0; i <s.length; i++){
-
-        arr.push(s[i])
-    }
-    arr.sort((a,b) => {
-        // 배열을 내림차순으로 정렬하는 식 //arr.sort().reverse()
-         return a > b ? -1 : 1
-        })
-        console.log(arr)
-        return arr.join(""); // 문자열 형태 만들기
+function solution(s) {
+  let answer = "";
+  const arr = [];
+  for (let i = 0; i < s.length; i++) {
+    arr.push(s[i]);
+  }
+  arr.sort((a, b) => {
+    // 배열을 내림차순으로 정렬하는 식 //arr.sort().reverse()
+    return a > b ? -1 : 1;
+  });
+  console.log(arr);
+  return arr.join(""); // 문자열 형태 만들기
 }
 
 // Reference 2
