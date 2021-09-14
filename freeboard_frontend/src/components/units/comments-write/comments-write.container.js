@@ -1,15 +1,15 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import CommentsUI from "./comments.presenter";
+import CommentsWriteUI from "./comments-write.presenter";
 import {
   CREATE_BOARD_COMMENT,
   FETCH_BOARD_COMMENTS,
   DELETE_BOARD_COMMENT,
   UPDATE_BOARD_COMMENT,
-} from "./comments.queries";
+} from "./comments-write.queries";
 
-export default function Comments() {
+export default function CommentsWrite() {
   const router = useRouter();
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
   const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
@@ -117,7 +117,7 @@ export default function Comments() {
     }
   }
   return (
-    <CommentsUI
+    <CommentsWriteUI
       data={data}
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
