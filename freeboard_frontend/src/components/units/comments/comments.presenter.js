@@ -21,8 +21,6 @@ import {
   CommentsButtonWrapper,
   CommentsEditButton,
   CommentsDeleteButton,
-  EditComments,
-  EditButton,
 } from "./comments.styles";
 
 export default function CommentsUI(props) {
