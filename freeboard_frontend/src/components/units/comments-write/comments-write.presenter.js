@@ -10,28 +10,19 @@ import {
   RegisterButton,
   CommentsRegister,
   CommentsCount,
-  WrapperFooter,
-  CommentsWrapper,
-  CommentsInfo,
-  CommentsPhoto,
-  CommentsText,
-  CommentsWriter,
-  Comments,
-  CommentsDate,
-  CommentsButtonWrapper,
-  CommentsEditButton,
-  CommentsDeleteButton,
 } from "./comments-write.styles";
 
 export default function CommentsWriteUI(props) {
   return (
     <Wrapper>
-      <CommentsTitle>
-        <CommentsIcon>
-          <img src="/images/commentsicon.png" />
-        </CommentsIcon>
-        댓글
-      </CommentsTitle>
+      {!props.isCommentEdit && (
+        <CommentsTitle>
+          <CommentsIcon>
+            <img src="/images/commentsicon.png" />
+          </CommentsIcon>
+          댓글
+        </CommentsTitle>
+      )}
       <WriterInfo>
         <WriterInput
           name="writerinput"
@@ -54,38 +45,16 @@ export default function CommentsWriteUI(props) {
         ></CommentsInput>
         <CommentsRegister>
           <CommentsCount>0/100</CommentsCount>
-          <RegisterButton onClick={props.onClickRegister}>
-            등록하기
+          <RegisterButton
+            id={props.el?._id}
+            onClick={
+              props.isCommentEdit ? props.onClickEdit : props.onClickRegister
+            }
+          >
+            {props.isCommentEdit ? "수정하기" : "등록하기"}
           </RegisterButton>
         </CommentsRegister>
       </CommentsContents>
-      <WrapperFooter>
-        {props.data?.fetchBoardComments.map((el) => (
-          <CommentsWrapper key={el._id}>
-            <CommentsInfo>
-              <CommentsPhoto>
-                <img src="/images/photo.png" />
-              </CommentsPhoto>
-              <CommentsText>
-                <CommentsWriter>{el.writer}</CommentsWriter>
-                <Comments>{el.contents}</Comments>
-                <CommentsDate>{el.createdAt.slice(0, 10)}</CommentsDate>
-              </CommentsText>
-            </CommentsInfo>
-            <CommentsButtonWrapper>
-              <CommentsEditButton
-                src="/images/editicon.png"
-                onClick={props.onClickShowEdit}
-              ></CommentsEditButton>
-              <CommentsDeleteButton
-                src="/images/deleteicon.png"
-                id={el._id}
-                onClick={props.onClickDelete}
-              ></CommentsDeleteButton>
-            </CommentsButtonWrapper>
-          </CommentsWrapper>
-        ))}
-      </WrapperFooter>
     </Wrapper>
   );
 }

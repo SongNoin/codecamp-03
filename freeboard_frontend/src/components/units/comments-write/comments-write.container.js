@@ -1,29 +1,21 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import CommentsWriteUI from "./comments-write.presenter";
 import {
   CREATE_BOARD_COMMENT,
-  FETCH_BOARD_COMMENTS,
-  DELETE_BOARD_COMMENT,
   UPDATE_BOARD_COMMENT,
 } from "./comments-write.queries";
+import { FETCH_BOARD_COMMENTS } from "../comments-list/comments-list.queries";
 
-export default function CommentsWrite() {
+export default function CommentsWrite(props) {
   const router = useRouter();
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
-  const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
   const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENT);
-
-  const { data } = useQuery(FETCH_BOARD_COMMENTS, {
-    variables: { boardId: router.query.number },
-  });
 
   const [myWriter, setWriter] = useState("");
   const [myPassword, setPassword] = useState("");
   const [myContents, setContents] = useState("");
-
-  const [isCommentEdit, setCommentEdit] = useState(false);
 
   function onChangeWriter(event) {
     setWriter(event.target.value);
@@ -33,10 +25,6 @@ export default function CommentsWrite() {
   }
   function onChangeContents(event) {
     setContents(event.target.value);
-  }
-
-  function onClickShowEdit() {
-    setCommentEdit(true);
   }
 
   async function onClickRegister() {
@@ -59,27 +47,6 @@ export default function CommentsWrite() {
         ],
       });
       alert("댓글을 등록합니다~");
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-
-  async function onClickDelete(event) {
-    const myPassword = prompt("비밀번호를 입력해 주세요");
-    try {
-      await deleteBoardComment({
-        variables: {
-          boardCommentId: event.target.id,
-          password: myPassword,
-        },
-        refetchQueries: [
-          {
-            query: FETCH_BOARD_COMMENTS,
-            variables: { boardId: router.query.number },
-          },
-        ],
-      });
-      alert("댓글을 삭제합니다~");
     } catch (error) {
       console.log(error.message);
     }
@@ -110,7 +77,7 @@ export default function CommentsWrite() {
           },
         ],
       });
-      props.setCommentEdit?.(false);
+      props.setIsCommentEdit?.(false);
       alert("댓글을 수정합니다~");
     } catch (error) {
       console.log(error.message);
@@ -118,15 +85,13 @@ export default function CommentsWrite() {
   }
   return (
     <CommentsWriteUI
-      data={data}
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       onChangeContents={onChangeContents}
       onClickRegister={onClickRegister}
-      onClickShowEdit={onClickShowEdit}
-      onClickDelete={onClickDelete}
+      isCommentEdit={props.isCommentEdit}
       onClickEdit={onClickEdit}
-      isCommentEdit={isCommentEdit}
+      el={props.el}
     />
   );
 }
