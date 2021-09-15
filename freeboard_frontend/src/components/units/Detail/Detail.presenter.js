@@ -32,6 +32,7 @@ import {
   EditButton,
   BottomLine,
 } from "./Detail.styles";
+import { Tooltip } from "antd";
 
 export default function DetailUI(props) {
   return (
@@ -52,9 +53,12 @@ export default function DetailUI(props) {
             <Link>
               <img src="/images/link.png" />
             </Link>
-            <Map>
-              <img src="/images/map2.png" />
-            </Map>
+            <Tooltip
+              placement="topRight"
+              title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
+            >
+              <Map src="/images/map2.png" />
+            </Tooltip>
           </Info>
         </ProfileWrapper>
         <Line>

@@ -8,7 +8,6 @@ import {
 } from "./comments-write.queries";
 import { FETCH_BOARD_COMMENTS } from "../comments-list/comments-list.queries";
 
-const desc = [1, 2, 3, 4, 5];
 
 export default function CommentsWrite(props) {
   const router = useRouter();

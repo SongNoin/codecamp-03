@@ -80,10 +80,16 @@ export default function NewWriteUI(props) {
           <AddressNumber
             name="addressnumber"
             placeholder="07250"
-            onChange={props.onChangeZipcode}
+            readOnly
+            value={
+              props.myZipcode || props.data?.fetchBoard.boardAddress?.address
+            }
           />
 
-          <SearchButton onClick={props.onTogleAddress}>
+          <SearchButton
+            onClick={props.onTogleAddress}
+            onComplete={props.onCompleteAddressSearch}
+          >
             우편번호 검색
           </SearchButton>
           {props.isOpen && (
@@ -92,8 +98,14 @@ export default function NewWriteUI(props) {
             </Modal>
           )}
         </AddressWrapper>
-        <Address onChange={props.onChangeAddress} />
-        <Address />
+        <Address
+          readOnly
+          value={
+            props.myAddress ||
+            props.data?.fetchBoard.boardAddress?.addressDetail
+          }
+        />
+        <Address onChange={props.onChangeAddressDetail} />
       </TextWrapper>
       <TextWrapper>
         <Label>유튜브</Label>

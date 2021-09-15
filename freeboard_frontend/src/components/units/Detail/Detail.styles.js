@@ -75,7 +75,7 @@ export const Line = styled.div`
   border-color: #bdbdbd;
 `;
 export const Link = styled.div``;
-export const Map = styled.div`
+export const Map = styled.img`
   margin-left: 29.33px;
 `;
 export const TitleWrapper = styled.div``;
@@ -109,9 +109,7 @@ export const Contents = styled.div`
 export const YoutubeWrapper = styled.div`
   margin-top: 120px;
 `;
-export const Youtube = styled(ReactPlayer)`
-  
-`;
+export const Youtube = styled(ReactPlayer)``;
 export const LikeWrapper = styled.div`
   width: 120px;
   height: 49px;

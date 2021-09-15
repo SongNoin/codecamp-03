@@ -28,6 +28,7 @@ export default function NewWrite(props) {
   const [myYoutube, setYoutube] = useState("");
   const [myZipcode, setMyZipcode] = useState("");
   const [myAddress, setMyAddress] = useState("");
+  const [myAddressDetail, setMyAddressDetail] = useState("");
 
   // 색 바꾸기 함수
 
@@ -112,13 +113,16 @@ export default function NewWrite(props) {
     setYoutube(event.target.value);
   }
 
-  function onChangeZipcode() {
-    setMyZipcode(myZipcode);
+  function onChangeAddressDetail(event) {
+    setMyAddressDetail(event.target.value);
   }
 
-  function onChangeAddress() {
-    setMyAddress(myAddress);
+  function onCompleteAddressSearch(data) {
+    setMyAddress(data.address);
+    setMyZipcode(data.zonecode);
+    setIsOpen(false);
   }
+
   async function onClickCorrect() {
     if (myWriter == "") {
       setWriterError("입력되지 않았습니다!");
@@ -148,6 +152,7 @@ export default function NewWrite(props) {
             boardAddress: {
               zipcode: myZipcode,
               address: myAddress,
+              addressDetail: myAddressDetail,
             },
           },
         },
@@ -202,8 +207,8 @@ export default function NewWrite(props) {
       data={data}
       handleComplete={handleComplete}
       onTogleAddress={onTogleAddress}
-      onChangeZipcode={onChangeZipcode}
-      onChangeAddress={onChangeAddress}
+      onChangeAddressDetail={onChangeAddressDetail}
+      onCompleteAddressSearch={onCompleteAddressSearch}
       isOpen={isOpen}
       myZipcode={myZipcode}
       myAddress={myAddress}
