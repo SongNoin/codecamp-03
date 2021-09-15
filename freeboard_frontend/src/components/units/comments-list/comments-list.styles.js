@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Rate } from "antd";
 
 export const CommentsWrapper = styled.div`
   height: 130px;
@@ -36,6 +37,8 @@ export const CommentsWriter = styled.div`
 
   color: #000000;
 `;
+
+export const CommentsRate = styled(Rate)``;
 export const Comments = styled.div`
   margin-top: 4px;
 

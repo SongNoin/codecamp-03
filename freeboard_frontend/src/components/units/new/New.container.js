@@ -26,9 +26,26 @@ export default function NewWrite(props) {
   const [myTitle, setTitle] = useState("");
   const [myContents, setContents] = useState("");
   const [myYoutube, setYoutube] = useState("");
+  const [myZipcode, setMyZipcode] = useState("");
+  const [myAddress, setMyAddress] = useState("");
+
+  // 색 바꾸기 함수
 
   const [color, setColor] = useState(false);
-  // 색 바꾸기 함수
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleComplete = (data) => {
+    setMyZipcode(data.zonecode);
+    setMyAddress(data.address);
+    console.log(data.zonecode);
+    console.log(data.address);
+
+    setIsOpen((prev) => !prev);
+  };
+  function onTogleAddress() {
+    setIsOpen((prev) => !prev);
+  }
 
   // 빈칸 에러 메시지 함수
   function onChangeWriter(event) {
@@ -95,6 +112,13 @@ export default function NewWrite(props) {
     setYoutube(event.target.value);
   }
 
+  function onChangeZipcode() {
+    setMyZipcode(myZipcode);
+  }
+
+  function onChangeAddress() {
+    setMyAddress(myAddress);
+  }
   async function onClickCorrect() {
     if (myWriter == "") {
       setWriterError("입력되지 않았습니다!");
@@ -121,6 +145,10 @@ export default function NewWrite(props) {
             title: myTitle,
             contents: myContents,
             youtubeUrl: myYoutube,
+            boardAddress: {
+              zipcode: myZipcode,
+              address: myAddress,
+            },
           },
         },
       });
@@ -172,6 +200,14 @@ export default function NewWrite(props) {
       onClickEdit={onClickEdit}
       onClickList={onClickList}
       data={data}
+      handleComplete={handleComplete}
+      onTogleAddress={onTogleAddress}
+      onChangeZipcode={onChangeZipcode}
+      onChangeAddress={onChangeAddress}
+      isOpen={isOpen}
+      myZipcode={myZipcode}
+      myAddress={myAddress}
+
       // 함수 변수 를 넘어주는 작업
     />
   );

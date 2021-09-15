@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import CommentsWrite from "../comments-write/comments-write.container";
@@ -14,6 +14,7 @@ import {
   CommentsPhoto,
   CommentsText,
   CommentsWriter,
+  CommentsRate,
   Comments,
   CommentsDate,
   CommentsButtonWrapper,
@@ -63,6 +64,7 @@ export default function CommentsListUIItem(props) {
             <CommentsText>
               <CommentsWriter>{props.el?.writer}</CommentsWriter>
               <Comments>{props.el?.contents}</Comments>
+              <CommentsRate value={props.el?.rating} disabled />
               <CommentsDate>{props.el?.createdAt.slice(0, 10)}</CommentsDate>
             </CommentsText>
           </CommentsInfo>

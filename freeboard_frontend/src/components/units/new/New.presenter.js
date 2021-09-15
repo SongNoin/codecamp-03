@@ -23,6 +23,8 @@ import {
   SubmitButton,
   Error,
 } from "./New.styels";
+import { Modal } from "antd";
+import DaumPostcode from "react-daum-postcode";
 
 export default function NewWriteUI(props) {
   return (
@@ -75,10 +77,22 @@ export default function NewWriteUI(props) {
       <TextWrapper>
         <Label>주소</Label>
         <AddressWrapper>
-          <AddressNumber name="addressnumber" placeholder="07250" />
-          <SearchButton>우편번호 검색</SearchButton>
+          <AddressNumber
+            name="addressnumber"
+            placeholder="07250"
+            onChange={props.onChangeZipcode}
+          />
+
+          <SearchButton onClick={props.onTogleAddress}>
+            우편번호 검색
+          </SearchButton>
+          {props.isOpen && (
+            <Modal visible={true} onCancel={props.onTogleAddress}>
+              <DaumPostcode onComplete={props.handleComplete} />
+            </Modal>
+          )}
         </AddressWrapper>
-        <Address />
+        <Address onChange={props.onChangeAddress} />
         <Address />
       </TextWrapper>
       <TextWrapper>

@@ -8,6 +8,8 @@ import {
 } from "./comments-write.queries";
 import { FETCH_BOARD_COMMENTS } from "../comments-list/comments-list.queries";
 
+const desc = [1, 2, 3, 4, 5];
+
 export default function CommentsWrite(props) {
   const router = useRouter();
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
@@ -16,6 +18,12 @@ export default function CommentsWrite(props) {
   const [myWriter, setWriter] = useState("");
   const [myPassword, setPassword] = useState("");
   const [myContents, setContents] = useState("");
+
+  const [myRate, setMyRate] = useState(3);
+  const handleChange = (value) => {
+    setMyRate(value);
+    alert(value + "점");
+  };
 
   function onChangeWriter(event) {
     setWriter(event.target.value);
@@ -36,7 +44,7 @@ export default function CommentsWrite(props) {
             writer: myWriter,
             password: myPassword,
             contents: myContents,
-            rating: 1,
+            rating: myRate,
           },
         },
         refetchQueries: [
@@ -92,6 +100,7 @@ export default function CommentsWrite(props) {
       isCommentEdit={props.isCommentEdit}
       onClickEdit={onClickEdit}
       el={props.el}
+      handleChange={handleChange}
     />
   );
 }

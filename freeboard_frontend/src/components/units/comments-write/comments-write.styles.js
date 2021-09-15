@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Rate } from "antd";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -62,8 +63,6 @@ export const PasswordInput = styled.input`
   width: 180px;
   height: 52px;
   background: #ffffff;
-  /* Gray 4 */
-
   border: 1px solid #bdbdbd;
   box-sizing: border-box;
 
@@ -75,12 +74,12 @@ export const PasswordInput = styled.input`
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  /* identical to box height */
-
-  /* Gray 3 */
 
   color: #828282;
 `;
+export const RateWrapper = styled.div``;
+
+export const RateInput = styled(Rate)``;
 
 export const CommentsContents = styled.div`
   width: 1200px;
