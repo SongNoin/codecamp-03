@@ -38,3 +38,72 @@ function solution(num) {
     }
   }
 }
+
+// **Refernce 1
+
+// function solution(num) {
+//   // 몇번 반복했는지를 저장하는 변수
+//   let count = -1;
+
+//   for (let i = 0; i < 500; i++) {
+//     if (num === 1) {
+//       count = i;
+//       break;
+//     }
+//     console.log;
+//     if (num % 2 === 0) {
+//       //입력된 값이 짝수일때
+//       num = num / 2;
+//     } else if (num % 2 === 1) {
+//       //입력된 값이 홀수 일때
+//       num = num * 3 + 1;
+//     }
+//   }
+//   return count;
+// }
+
+// **While 문 예시 - 끝을 알수가 없을 때 쓰면 좋다
+
+// function solution(num) {
+//   let a = 1;
+//   // 조건식이 true 일 때만 반복문을 실행
+
+//   while (a !== 3) {
+//     console.log(123);
+//     a = a + 1;
+//   }
+// }
+
+// **Reference 2
+
+// function solution(num) {
+//   let count = 0;
+
+//   while (num !== 1) {
+//     if (count >= 500) {
+//       return -1;
+//     }
+//     count = count + 1;
+//     if (num % 2 === 0) {
+//       // 짝수일때
+//       num = num / 2;
+//     } else if (num % 2 === 1) {
+//       // 홀수일때
+//       num = num * 3 + 1;
+//     }
+//   }
+//   return count;
+// }
+
+// **여현님
+// function solution(num) {
+// 	let i = 0
+// 			while(i < 500) {
+// 					if (num === 1) return i;
+// 					num = num % 2 === 0
+// 					? num/2
+// 					: num*3 + 1
+// 					i++;
+// 			}
+// 	return -1
+// }

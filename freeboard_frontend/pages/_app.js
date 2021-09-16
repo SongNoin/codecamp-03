@@ -1,8 +1,12 @@
 import "antd/dist/antd.css";
 
-import "../styles/globals.css";
+import { Global } from "@emotion/react";
+import { globalStyles } from "../src/commons/styles/globalStyles";
+
+// import "../styles/globals.css";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
+import Layout from "../src/components/commons/layout";
 function MyApp({ Component, pageProps }) {
   const client = new ApolloClient({
     uri: "http://backend03.codebootcamp.co.kr/graphql",
@@ -10,9 +14,14 @@ function MyApp({ Component, pageProps }) {
   });
 
   return (
-    <ApolloProvider client={client}>
-      <Component {...pageProps} />
-    </ApolloProvider>
+    <>
+      <Global styles={globalStyles} />
+      <ApolloProvider client={client}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ApolloProvider>
+    </>
   );
 }
 

@@ -1,13 +1,11 @@
 export default function ModalAlertPage(){
 
-
     function onClickSuccess(){
         try{
             alert("게시물 등록에 성공했습니다")
         } catch (error) { 
             alert("게시물 등록에 실패했습니다.")
         }
-
     }
 
     function onClickFail(){
@@ -17,13 +15,11 @@ export default function ModalAlertPage(){
         } catch (error) { 
             alert("게시물 등록에 실패했습니다.")
         }
-
     }
-
 
     return (
         <>
-            <button onClick ={onClickSuccess}> 알림창 (실패했을때)</button>
+            <button onClick ={onClickSuccess}> 알림창 (성공했을때)</button>
          <button onClick={onClickFail}> 알림창 (실패했을때)</button>
         </>
     );

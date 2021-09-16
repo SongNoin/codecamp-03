@@ -140,6 +140,7 @@ export default function NewWriteUI(props) {
       </OptionWrapper>
       <ButtonWrapper>
         <CancelButton onClick={props.onClickList}>취소하기</CancelButton>
+
         {!props.isEdit && (
           <SubmitButton
             color={props.color}
