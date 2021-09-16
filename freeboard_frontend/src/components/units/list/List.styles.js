@@ -342,5 +342,6 @@ export const Page = styled.div`
   margin-right: 10px;
   margin-left: 10px;
   cursor: pointer;
-  background-color: ${(props) => (props.isColor === true ? "yellow" : "gray")};
+  color:${(props)=> (props.current === true ? "red" : "black")}
 `;
+

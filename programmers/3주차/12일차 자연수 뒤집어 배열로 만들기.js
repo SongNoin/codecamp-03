@@ -7,15 +7,24 @@
 // n	return
 // 12345	[5,4,3,2,1]
 
-// 내 풀이 1
 function solution(n) {
   let answer = [];
-  let number = String(n);
-  for (let i = 0; i < number.length; i++) {
-    answer.push(Number(number[number.length - 1 - i]));
+  n = String(n);
+  for (let i = n.length - 1; i > -1; i--) {
+    answer.push(Number(n[i]));
   }
   return answer;
 }
+
+// 내 풀이 1
+// function solution(n) {
+//   let answer = [];
+//   let number = String(n);
+//   for (let i = 0; i < number.length; i++) {
+//     answer.push(Number(number[number.length - 1 - i]));
+//   }
+//   return answer;
+// }
 
 // Reference 1
 

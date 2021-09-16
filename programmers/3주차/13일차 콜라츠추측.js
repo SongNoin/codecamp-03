@@ -23,6 +23,25 @@
 // 626331은 500번을 시도해도 1이 되지 못하므로 -1을 리턴해야합니다.
 
 function solution(num) {
+  if (num === 1) {
+    return 0;
+  }
+  for (let i = 0; i < 500; i++) {
+    if (num % 2 === 0) {
+      num = num / 2;
+    } else {
+      num = num * 3 + 1;
+    }
+    if (num === 1) {
+      return i + 1;
+    } else if (i === 499) {
+      return -1;
+    }
+  }
+}
+
+// 내 풀이1
+function solution(num) {
   for (let i = 0; i < 500; i++) {
     if (num === 1) {
       return i;

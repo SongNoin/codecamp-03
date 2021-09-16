@@ -22,7 +22,6 @@
 // 입출력 예#3
 // 3, 2, 6은 10으로 나누어 떨어지지 않습니다. 나누어 떨어지는 원소가 없으므로 [-1]을 리턴합니다.
 
-// 내 풀이 1
 function solution(arr, divisor) {
   let answer = [];
   for (let i = 0; i < arr.length; i++) {
@@ -30,14 +29,29 @@ function solution(arr, divisor) {
       answer.push(arr[i]);
     }
   }
+  answer = answer.sort((a, b) => a - b);
   if (answer.length === 0) {
     answer = [-1];
   }
-  answer.sort((a, b) => {
-    return a - b;
-  });
   return answer;
 }
+
+// 내 풀이 1
+// function solution(arr, divisor) {
+//   let answer = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] % divisor === 0) {
+//       answer.push(arr[i]);
+//     }
+//   }
+//   if (answer.length === 0) {
+//     answer = [-1];
+//   }
+//   answer.sort((a, b) => {
+//     return a - b;
+//   });
+//   return answer;
+// }
 
 //Reference 1
 

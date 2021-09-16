@@ -19,11 +19,11 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {/* <Global styles={globalStyles} /> */}
+      <Global styles={globalStyles} />
       <ApolloProvider client={client}>
-        {/* <Layout> */}
-        <Component {...pageProps} />
-        {/* </Layout> */}
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ApolloProvider>
     </>
   );

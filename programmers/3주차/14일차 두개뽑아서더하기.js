@@ -27,6 +27,27 @@
 // 9 = 2 + 7 입니다.
 // 12 = 5 + 7 입니다.
 // 따라서 [2,5,7,9,12] 를 return 해야 합니다.
+
+function solution(numbers) {
+  let answer = [];
+  let arr = [];
+  for (let i = 0; i < numbers.length; i++) {
+    for (let is = i + 1; is < numbers.length; is++) {
+      arr.push(numbers[i] + numbers[is]);
+    }
+  }
+
+  arr = arr.sort((a, b) => a - b);
+
+  for (let iss = 0; iss < arr.length; iss++) {
+    if (arr[iss] !== arr[iss + 1]) {
+      answer.push(arr[iss]);
+    }
+  }
+  return answer;
+}
+
+// 내 풀이
 function solution(numbers) {
   let answer = [];
   let arr = [];
@@ -38,11 +59,7 @@ function solution(numbers) {
   arr.sort((a, b) => {
     return a - b;
   });
-  for (let iss = 0; iss < arr.length; iss++) {
-    if (arr[iss] !== arr[iss + 1]) {
-      answer.push(arr[iss]);
-    }
-  }
+  answer = [...new Set(arr)];
   return answer;
 }
 
@@ -79,7 +96,6 @@ function solution(numbers) {
 //   });
 //   return answer.sort((a,b) => a-b )
 // }
-
 
 //공부해야할 함수
 // Set()

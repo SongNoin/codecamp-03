@@ -10,5 +10,9 @@ export default function LayoutBanner() {
 
     className: "carecel",
   };
-  return <BannerUI settings={settings} />;
+  return (
+    <BannerUI
+    // settings={settings}
+    />
+  );
 }

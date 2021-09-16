@@ -4,6 +4,7 @@ import LayoutFooter from "./footer/LayoutFooter.container";
 import LayoutHeader from "./header/LayoutHeader.container";
 import LayoutNavi from "./navi/LayoutNavi.container";
 import LayoutBanner from "./banner/LayoutBanner.container";
+import LayoutSide from "./side/LayoutSide.container";
 
 const Wrapper = styled.div``;
 
@@ -23,12 +24,6 @@ const SidebarWrapper = styled.div`
   display: flex;
 `;
 
-const Sidebar = styled.div`
-  width: 600px;
-  height: 700px;
-  background-color: skyblue;
-`;
-
 const HIDDEN_FOOTER = ["/13-01-layout-hidden"];
 
 export default function Layout(props) {
@@ -42,7 +37,7 @@ export default function Layout(props) {
       <LayoutBanner />
       <LayoutNavi />
       <SidebarWrapper>
-        <Sidebar>여기는 사이드바 영역입니다.</Sidebar>
+        <LayoutSide />
         <Body>{props.children}</Body>
       </SidebarWrapper>
       {!isHiddenFooter && <LayoutFooter />}

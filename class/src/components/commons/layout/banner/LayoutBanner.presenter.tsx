@@ -8,7 +8,7 @@ import {
 export default function BannerUI(props) {
   return (
     <Wrapper>
-      <CareselWrapper>
+      {/* <CareselWrapper>
         <h2> Single Item</h2>
         <Caresel {...props.settings}>
           <div>
@@ -37,7 +37,7 @@ export default function BannerUI(props) {
             </div>
           </div>
         </Caresel>
-      </CareselWrapper>
+      </CareselWrapper> */}
     </Wrapper>
   );
 }
