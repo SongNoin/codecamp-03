@@ -30,12 +30,10 @@ import {
   ListName,
   Row,
   Column,
-  TitleToDetail,
   WrapperFooter,
   PageNumber,
   ArrowPhoto,
-  Number1,
-  Number2,
+  Page,
   RegisterBoardButton,
 } from "./List.styles";
 
@@ -163,12 +161,10 @@ export default function ListUI(props) {
             <ListName>날짜</ListName>
           </ListNameList>
           {props.data?.fetchBoards.map((el, index) => (
-            <Row key={el._id}>
+            <Row key={el._id} id={el._id} onClick={props.onClickDetail}>
               <Column>{10 - index}</Column>{" "}
               {/* 10-index 를 해줘야 10부터 숫자가 시작된다. 1 부터 시작하고 싶으면 index + 1*/}
-              <TitleToDetail id={el._id} onClick={props.onClickDetail}>
-                {el.title}
-              </TitleToDetail>
+              <Column>{el.title}</Column>
               <Column>{el.writer}</Column>
               <Column>{el.createdAt.slice(0, 10)}</Column>
             </Row>
@@ -177,12 +173,24 @@ export default function ListUI(props) {
       </WrapperBody>
       <WrapperFooter>
         <PageNumber>
-          <ArrowPhoto>
+          <ArrowPhoto onClick={props.onClickPrevPage}>
             <img src="/images/listleft.png" />
           </ArrowPhoto>
-          <Number1>1</Number1>
-          <Number2>2</Number2>
-          <ArrowPhoto>
+
+          {new Array(10).fill(1).map(
+            (_, index) =>
+              props.startPage + index <= props.lastPage && (
+                <Page
+                  isColor={props.isColor}
+                  key={props.startPage + index}
+                  onClick={props.onClickPage}
+                  id={String(props.startPage + index)}
+                >
+                  {props.startPage + index}
+                </Page>
+              )
+          )}
+          <ArrowPhoto onClick={props.onClickNextPage}>
             <img src="/images/listright.png" />
           </ArrowPhoto>
         </PageNumber>

@@ -258,6 +258,7 @@ export const Row = styled.div`
   flex-direction: row;
   justify-content: space-between;
   border-top: 1px solid #bdbdbd;
+  cursor: pointer;
 `;
 export const Column = styled.div`
   width: 20%;
@@ -265,16 +266,6 @@ export const Column = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-export const TitleToDetail = styled.div`
-  width: 20%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  cursor: pointer;
 `;
 
 export const WrapperFooter = styled.div`
@@ -285,6 +276,7 @@ export const WrapperFooter = styled.div`
   justify-content: flex-end;
   align-items: center;
 `;
+
 export const PageNumber = styled.div`
   width: 120px;
   height: 20px;
@@ -292,7 +284,11 @@ export const PageNumber = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
-export const ArrowPhoto = styled.div``;
+
+export const ArrowPhoto = styled.div`
+  cursor: pointer;
+`;
+
 export const Number1 = styled.div`
   font-family: Spoqa Han Sans Neo;
   font-style: normal;
@@ -340,4 +336,11 @@ export const RegisterBoardButton = styled.button`
   margin-left: 370px;
 
   cursor: pointer;
+`;
+
+export const Page = styled.div`
+  margin-right: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  background-color: ${(props) => (props.isColor === true ? "yellow" : "gray")};
 `;
