@@ -65,37 +65,37 @@ function solution(numbers) {
 
 // Reference 1
 
-// function solution(numbers) {
-//   let answer = [];
-//   for (let i = 0; i < numbers.length; i++) {
-//     for (let j = i + 1; j < numbers.length; j++) {
-//       //서로 다른 인덱스 값을 더해서 저장하는 함수
-//       const sum = numbers[i] + numbers[j];
+function solution(numbers) {
+  let answer = [];
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = i + 1; j < numbers.length; j++) {
+      //서로 다른 인덱스 값을 더해서 저장하는 함수
+      const sum = numbers[i] + numbers[j];
 
-//       if (answer.includes(sum) === false) {
-//         answer.push(sum);
-//       }
-//     }
-//   }
-//   return answer.sort((a, b) => a - b);
-// }
+      if (answer.includes(sum) === false) {
+        answer.push(sum);
+      }
+    }
+  }
+  return answer.sort((a, b) => a - b);
+}
 
 // Reference 2
 
-// function solution(numbers) {
-//   let answer = [];
+function solution(numbers) {
+  let answer = [];
 
-//   numbers.forEach((num1, i) => {
-//     numbers.slice(i + 1, numbers.length).forEach((num2) => {
-//       const sum = num1 + num2;
+  numbers.forEach((num1, i) => {
+    numbers.slice(i + 1, numbers.length).forEach((num2) => {
+      const sum = num1 + num2;
 
-//       if (answer.includes(sum) === false) {
-//         answer.push(sum);
-//       }
-//     });
-//   });
-//   return answer.sort((a,b) => a-b )
-// }
+      if (answer.includes(sum) === false) {
+        answer.push(sum);
+      }
+    });
+  });
+  return answer.sort((a,b) => a-b )
+}
 
 //공부해야할 함수
 // Set()

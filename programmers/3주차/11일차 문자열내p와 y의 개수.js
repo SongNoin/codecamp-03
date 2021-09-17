@@ -22,7 +22,6 @@
 // ※ 공지 - 2021년 8월 23일 테스트케이스가 추가되었습니다.
 
 function solution(s) {
-  let answer = true;
   let Ps = 0;
   let Ys = 0;
   s = s.toUpperCase();
