@@ -184,8 +184,7 @@ export default function ListUI(props) {
                   key={props.startPage + index}
                   onClick={props.onClickPage}
                   id={String(props.startPage + index)}
-                  // isAct={props.isAct}
-                  current={props.startPage + index===props.current}
+                  current={props.startPage + index === props.current}
                 >
                   {props.startPage + index}
                 </Page>

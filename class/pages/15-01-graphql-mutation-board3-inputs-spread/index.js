@@ -29,8 +29,8 @@ export default function GraphqlMutationBoard3Page() {
       // writer: "철수"
     });
 
-    event.target.name;
-    event.target.value;
+    // event.target.name;
+    // event.target.value;
   }
 
   // function onChangeMyWriter(event) {

@@ -9,14 +9,13 @@ export default function List(props) {
   const { data, refetch } = useQuery(FETCH_BOARDS, {
     variables: { page: startPage },
   });
-  const [isAct, setIsAct] = useState(false);
   const router = useRouter();
 
   const { data: dataBoardsCount } = useQuery(FETCH_BOARDS_COUNT);
 
   const lastPage = Math.ceil(dataBoardsCount?.fetchBoardsCount / 10);
 
-  const [current , setCurrent] = useState(1)
+  const [current, setCurrent] = useState(1);
 
   function onClickWrite() {
     router.push(`/boards/new/`);
@@ -29,13 +28,13 @@ export default function List(props) {
   function onClickPrevPage() {
     if (startPage === 1) return;
     setStartPage((prev) => prev - 10);
-    setCurrent(current-10)
+    setCurrent(current - 10);
   }
 
   function onClickNextPage() {
     if (startPage + 10 > lastPage) return;
     setStartPage((prev) => prev + 10);
-    setCurrent(current+10)
+    setCurrent(current + 10);
   }
 
   function onClickPage(event) {
@@ -43,7 +42,7 @@ export default function List(props) {
       page: Number(event.target.id),
     });
     // setIsAct(true);
-    setCurrent(Number(event.target.id))
+    setCurrent(Number(event.target.id));
   }
 
   return (
@@ -56,7 +55,6 @@ export default function List(props) {
       onClickNextPage={onClickNextPage}
       startPage={startPage}
       lastPage={lastPage}
-      isAct={isAct}
       current={current}
     />
   );
