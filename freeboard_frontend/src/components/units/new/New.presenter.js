@@ -38,6 +38,7 @@ export default function NewWriteUI(props) {
             type="text"
             placeholder="이름을 적어주세요."
             onChange={props.onChangeWriter}
+            readOnly={Boolean(props.data?.fetchBoard.writer)}
             defaultValue={props.data?.fetchBoard.writer}
           />
           <Error>{props.writerError}</Error>
@@ -153,9 +154,9 @@ export default function NewWriteUI(props) {
 
         {props.isEdit && (
           <SubmitButton
-            color={props.color}
+            color={true}
             onClick={props.onClickEdit}
-            disabled={!props.color}
+            // disabled={!props.color}
           >
             수정하기
           </SubmitButton>

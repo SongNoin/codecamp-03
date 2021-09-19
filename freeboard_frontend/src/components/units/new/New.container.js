@@ -99,8 +99,8 @@ export default function NewWrite(props) {
     if (
       myWriter !== "" &&
       myPassword !== "" &&
-      event.target.value !== "" &&
-      myContents !== ""
+      myTitle !== "" &&
+      event.target.value !== ""
     ) {
       setContentsError("");
       setColor(true);
@@ -166,6 +166,17 @@ export default function NewWrite(props) {
   }
 
   async function onClickEdit() {
+    if (
+      !myTitle &&
+      !myContents &&
+      !myYoutube &&
+      !myZipcode &&
+      !myAddress &&
+      !myAddressDetail
+    ) {
+      alert("수정된 내용이 없습니다.");
+      return;
+    }
     try {
       await updateBoard({
         variables: {
@@ -180,7 +191,7 @@ export default function NewWrite(props) {
       alert("게시물을 수정합니다~");
       router.push(`/boards/detail/${router.query.number}/`);
     } catch (error) {
-      console.log(error.message);
+      alert(error.message);
     }
   }
 
