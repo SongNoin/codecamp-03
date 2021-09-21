@@ -14,11 +14,11 @@ export const Wrapper = styled.div`
 `;
 export const WrapperHeader = styled.div`
   width: 100%;
-  height: 739px;
+  height: 539px;
 `;
 export const TitleWrapper = styled.div`
   width: 100%;
-  height: 400px;
+  height: 200px;
   display: flex;
   justify-content: center;
 `;
@@ -276,6 +276,15 @@ export const Row = styled.div`
   :hover {
     background-color: #81d8b1;
   }
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  text-align: center;
 `;
 export const Column = styled.div`
   width: 10%;
@@ -296,7 +305,7 @@ export const WrapperFooter = styled.div`
   height: 52px;
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 `;
 
@@ -356,7 +365,6 @@ export const RegisterBoardButton = styled.button`
   border: 1px solid #f2f2f2;
   box-sizing: border-box;
   border-radius: 10px;
-  margin-left: 370px;
 
   cursor: pointer;
   :hover {
@@ -368,5 +376,5 @@ export const Page = styled.div`
   margin-right: 10px;
   margin-left: 10px;
   cursor: pointer;
-  color: ${(props) => (props.current === true ? "red" : "black")};
+  color: ${(props) => (props.current === true ? "#81d8b1" : "black")};
 `;

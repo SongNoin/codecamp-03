@@ -19,7 +19,9 @@ const LayoutWrapper = styled.div``;
 // const BannerWrapper = styled.div``;
 const Body = styled.div``;
 
-// const Footer = styled.div``;
+const Footer = styled.div`
+  height: 100px;
+`;
 
 export default function Layout(props) {
   return (
@@ -34,7 +36,7 @@ export default function Layout(props) {
         <Body>{props.children}</Body>
         {/* </BannerWrapper> */}
         {/* </SidebarWrapper> */}
-        {/* <Footer /> */}
+        <Footer />
       </LayoutWrapper>
     </Wrapper>
   );

@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   width: 1200px;
   margin-top: 40px;
   margin-left: 360px;
+  margin-bottom: 40px;
 `;
 
 export const CommentsTitle = styled.div`

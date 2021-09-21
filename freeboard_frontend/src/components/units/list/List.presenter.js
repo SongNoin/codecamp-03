@@ -178,6 +178,7 @@ export default function ListUI(props) {
         </ListWrapper>
       </WrapperBody>
       <WrapperFooter>
+        <div></div>
         <PageNumber>
           <ArrowPhoto onClick={props.onClickPrevPage}>
             <img src="/images/listleft.png" />
