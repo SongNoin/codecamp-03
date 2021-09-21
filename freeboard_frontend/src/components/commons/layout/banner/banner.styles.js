@@ -1,6 +1,30 @@
 import styled from "@emotion/styled";
+import Slider from "react-slick";
 
 export const Wrapper = styled.div`
-  height: 500px;
-  background-color: yellowgreen;
+  height: 715px;
+  /* background-color: yellowgreen; */
+`;
+
+export const CareselWrapper = styled.div``;
+
+export const CardImg = styled.img`
+  width: 100%;
+  width: 100%;
+`;
+
+export const Caresel = styled(Slider)`
+  .slick-list {
+    width: 1915px;
+    margin: 0 auto;
+  }
+  .slick-slide div {
+    /* cursor: pointer; */
+  }
+  .slick-dots {
+    margin-top: 200px;
+  }
+  .slick-track {
+    /* overflow-x: hidden; */
+  }
 `;

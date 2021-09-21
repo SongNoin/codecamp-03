@@ -177,6 +177,7 @@ export default function NewWrite(props) {
       alert("수정된 내용이 없습니다.");
       return;
     }
+
     try {
       await updateBoard({
         variables: {

@@ -1,6 +1,7 @@
 import {
   Wrapper,
   WrapperHeader,
+  TitleWrapper,
   BestBoardTitle,
   BestBoardContents,
   BestBoardBox,
@@ -28,8 +29,10 @@ import {
   ListWrapper,
   ListNameList,
   ListName,
+  ListNameTitle,
   Row,
   Column,
+  ColumnTitle,
   WrapperFooter,
   PageNumber,
   ArrowPhoto,
@@ -41,7 +44,10 @@ export default function ListUI(props) {
   return (
     <Wrapper>
       <WrapperHeader>
-        <BestBoardTitle>베스트 게시글</BestBoardTitle>
+        <TitleWrapper>
+          <BestBoardTitle src="/images/bestboard.png"></BestBoardTitle>
+        </TitleWrapper>
+
         <BestBoardContents>
           <BestBoardBox>
             <BestPhoto1></BestPhoto1>
@@ -156,7 +162,7 @@ export default function ListUI(props) {
         <ListWrapper>
           <ListNameList>
             <ListName>번호</ListName>
-            <ListName>제목</ListName>
+            <ListNameTitle>제목</ListNameTitle>
             <ListName>작성자</ListName>
             <ListName>날짜</ListName>
           </ListNameList>
@@ -164,7 +170,7 @@ export default function ListUI(props) {
             <Row key={el._id} id={el._id} onClick={props.onClickDetail}>
               <Column>{10 - index}</Column>{" "}
               {/* 10-index 를 해줘야 10부터 숫자가 시작된다. 1 부터 시작하고 싶으면 index + 1*/}
-              <Column>{el.title}</Column>
+              <ColumnTitle>{el.title}</ColumnTitle>
               <Column>{el.writer}</Column>
               <Column>{el.createdAt.slice(0, 10)}</Column>
             </Row>

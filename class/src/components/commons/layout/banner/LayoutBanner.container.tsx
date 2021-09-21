@@ -12,7 +12,7 @@ export default function LayoutBanner() {
   };
   return (
     <BannerUI
-    // settings={settings}
+    settings={settings}
     />
   );
 }

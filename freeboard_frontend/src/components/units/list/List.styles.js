@@ -14,28 +14,21 @@ export const Wrapper = styled.div`
 `;
 export const WrapperHeader = styled.div`
   width: 100%;
-  height: 339px;
+  height: 739px;
 `;
-export const BestBoardTitle = styled.div`
+export const TitleWrapper = styled.div`
+  width: 100%;
+  height: 400px;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 42px;
-  text-align: center;
-
-  /* Black */
-
-  color: #000000;
+`;
+export const BestBoardTitle = styled.img`
+  height: 100%;
 `;
 export const BestBoardContents = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-top: 40px;
+  margin-top: 80px;
 `;
 export const BestBoardBox = styled.div`
   width: 282px;
@@ -231,7 +224,28 @@ export const ListNameList = styled.div`
 `;
 
 export const ListName = styled.div`
-  width: 1200px;
+  width: 10%;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Black */
+
+  color: #000000;
+`;
+
+export const ListNameTitle = styled.div`
+  width: 70%;
 
   font-family: Noto Sans CJK KR;
   font-style: normal;
@@ -259,15 +273,24 @@ export const Row = styled.div`
   justify-content: space-between;
   border-top: 1px solid #bdbdbd;
   cursor: pointer;
+  :hover {
+    background-color: #81d8b1;
+  }
 `;
 export const Column = styled.div`
-  width: 20%;
+  width: 10%;
 
   display: flex;
   justify-content: center;
   align-items: center;
 `;
+export const ColumnTitle = styled.div`
+  width: 70%;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 export const WrapperFooter = styled.div`
   width: 100%;
   height: 52px;
@@ -336,12 +359,14 @@ export const RegisterBoardButton = styled.button`
   margin-left: 370px;
 
   cursor: pointer;
+  :hover {
+    background-color: #81d8b1;
+  }
 `;
 
 export const Page = styled.div`
   margin-right: 10px;
   margin-left: 10px;
   cursor: pointer;
-  color:${(props)=> (props.current === true ? "red" : "black")}
+  color: ${(props) => (props.current === true ? "red" : "black")};
 `;
-

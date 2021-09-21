@@ -1,5 +1,28 @@
-import { Wrapper } from "./header.styles";
+import {
+  Wrapper,
+  TitleWrapper,
+  Title,
+  MenuWrapper,
+  Menu,
+  MyWrapper,
+  My,
+} from "./header.styles";
 
-export default function HeaderUI() {
-  return <Wrapper></Wrapper>;
+export default function HeaderUI(props) {
+  return (
+    <Wrapper>
+      <TitleWrapper>
+        <Title src="/images/songny2.png" onClick={props.onClickList}></Title>
+        <MenuWrapper>
+          <Menu src="/images/board.png" onClick={props.onClickList}></Menu>
+          <Menu src="/images/market.png"></Menu>
+        </MenuWrapper>
+      </TitleWrapper>
+      <MyWrapper>
+        <My src="/images/login.png"></My>
+        <My src="/images/my.png"></My>
+        <My src="/images/signup.png"></My>
+      </MyWrapper>
+    </Wrapper>
+  );
 }
