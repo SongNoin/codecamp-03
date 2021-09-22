@@ -146,6 +146,9 @@ export const CancelButton = styled.button`
   cursor: pointer;
 
   margin-right: 24px;
+  :hover {
+    background-color: #cd5c5c;
+  }
 `;
 export const SubmitButton = styled.button`
   width: 179px;

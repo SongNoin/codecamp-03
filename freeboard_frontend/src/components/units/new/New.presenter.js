@@ -83,7 +83,7 @@ export default function NewWriteUI(props) {
             placeholder="07250"
             readOnly
             value={
-              props.myZipcode || props.data?.fetchBoard.boardAddress?.address
+              props.myZipcode || props.data?.fetchBoard.boardAddress?.zipcode
             }
           />
 
@@ -102,11 +102,16 @@ export default function NewWriteUI(props) {
         <Address
           readOnly
           value={
-            props.myAddress ||
+            props.myAddress || props.data?.fetchBoard.boardAddress?.address
+          }
+        />
+        <Address
+          onChange={props.onChangeAddressDetail}
+          defaultValue={
+            props.myAddressDetail ||
             props.data?.fetchBoard.boardAddress?.addressDetail
           }
         />
-        <Address onChange={props.onChangeAddressDetail} />
       </TextWrapper>
       <TextWrapper>
         <Label>유튜브</Label>

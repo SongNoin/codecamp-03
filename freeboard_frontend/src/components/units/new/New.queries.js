@@ -43,6 +43,11 @@ export const FETCH_BOARD = gql`
       title
       contents
       youtubeUrl
+      boardAddress {
+        zipcode
+        address
+        addressDetail
+      }
     }
   }
 `;

@@ -184,6 +184,11 @@ export default function NewWrite(props) {
           updateBoardInput: {
             title: myTitle,
             contents: myContents,
+            boardAddress: {
+              zipcode: myZipcode,
+              address: myAddress,
+              addressDetail: myAddressDetail,
+            },
           },
           password: myPassword,
           boardId: router.query.number,

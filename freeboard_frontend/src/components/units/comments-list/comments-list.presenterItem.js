@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import CommentsWrite from "../comments-write/comments-write.container";
-
+import { Modal } from "antd";
 import {
   DELETE_BOARD_COMMENT,
   FETCH_BOARD_COMMENTS,
@@ -20,16 +20,19 @@ import {
   CommentsButtonWrapper,
   CommentsEditButton,
   CommentsDeleteButton,
+  PasswordInput,
 } from "./comments-list.styles";
 
 export default function CommentsListUIItem(props) {
   const router = useRouter();
   const [isCommentEdit, setIsCommentEdit] = useState(false);
+  const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
+  const [myPassword, setMyPassword] = useState("");
 
   const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
 
-  async function onClickDelete(event) {
-    const myPassword = prompt("비밀번호를 입력해 주세요");
+  async function onClickDelete() {
+    // const myPassword = prompt("비밀번호를 입력해 주세요");
     try {
       await deleteBoardComment({
         variables: {
@@ -45,7 +48,7 @@ export default function CommentsListUIItem(props) {
       });
       alert("댓글을 삭제합니다~");
     } catch (error) {
-      console.log(error.message);
+      alert(error.message);
     }
   }
 
@@ -53,8 +56,26 @@ export default function CommentsListUIItem(props) {
     setIsCommentEdit(true);
   }
 
+  function onClickOpenDeleteModal() {
+    setIsOpenDeleteModal(true);
+  }
+
+  function onChangeDeletePassword(event) {
+    setMyPassword(event.target.value);
+  }
+
+  function closeModal() {
+    setIsOpenDeleteModal(false);
+  }
+
   return (
     <>
+      {isOpenDeleteModal && (
+        <Modal visible={true} onOk={onClickDelete} onCancel={closeModal}>
+          <div>비밀번호 입력: </div>
+          <PasswordInput type="password" onChange={onChangeDeletePassword} />
+        </Modal>
+      )}
       {!isCommentEdit && (
         <CommentsWrapper>
           <CommentsInfo>
@@ -76,7 +97,7 @@ export default function CommentsListUIItem(props) {
             <CommentsDeleteButton
               src="/images/deleteicon.png"
               id={props.el?._id}
-              onClick={onClickDelete}
+              onClick={onClickOpenDeleteModal}
             ></CommentsDeleteButton>
           </CommentsButtonWrapper>
         </CommentsWrapper>

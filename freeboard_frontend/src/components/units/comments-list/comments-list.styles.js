@@ -106,3 +106,8 @@ export const EditButton = styled.button`
 
   cursor: pointer;
 `;
+
+export const PasswordInput = styled.input`
+  width: 100%;
+  margin-top: 10px;
+`;

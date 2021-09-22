@@ -202,6 +202,9 @@ export const ListButton = styled.button`
 
   color: #000000;
   cursor: pointer;
+  :hover {
+    background-color: #81d8b1;
+  }
 `;
 export const DeleteButton = styled.button`
   width: 179px;
@@ -226,12 +229,14 @@ export const DeleteButton = styled.button`
 
   color: #000000;
   cursor: pointer;
+  :hover {
+    background-color: #cd5c5c;
+  }
 `;
 export const EditButton = styled.button`
   width: 179px;
   height: 52px;
   background: #ffffff;
-  /* Gray 4 */
 
   border: 1px solid #bdbdbd;
 
@@ -242,14 +247,13 @@ export const EditButton = styled.button`
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  /* identical to box height */
 
   text-align: center;
-
-  /* Black */
-
   color: #000000;
   cursor: pointer;
+  :hover {
+    background-color: #81d8b1;
+  }
 `;
 
 export const BottomLine = styled.hr`
