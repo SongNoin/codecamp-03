@@ -6,5 +6,9 @@ export default function Header() {
   function onClickList() {
     router.push(`/boards/list/`);
   }
-  return <HeaderUI onClickList={onClickList} />;
+
+  function onClickGames() {
+    router.push(`/games/`);
+  }
+  return <HeaderUI onClickList={onClickList} onClickGames={onClickGames} />;
 }

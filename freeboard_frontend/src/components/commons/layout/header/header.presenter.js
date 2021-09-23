@@ -16,6 +16,7 @@ export default function HeaderUI(props) {
         <MenuWrapper>
           <Menu src="/images/board.png" onClick={props.onClickList}></Menu>
           <Menu src="/images/market.png"></Menu>
+          <Menu src="/images/games.png" onClick={props.onClickGames}></Menu>
         </MenuWrapper>
       </TitleWrapper>
       <MyWrapper>
