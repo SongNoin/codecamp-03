@@ -23,16 +23,21 @@ const Footer = styled.div`
   height: 100px;
 `;
 
+const Navi = styled.div`
+  height: 35px;
+  background-color: black;
+`;
+
 export default function Layout(props) {
   return (
     <Wrapper>
       <LayoutWrapper>
+        <Navi />
         <Header />
         {/* <SidebarWrapper> */}
         {/* <Sidebar /> */}
         {/* <BannerWrapper> */}
         <Banner />
-        {/* <Navi /> */}
         <Body>{props.children}</Body>
         {/* </BannerWrapper> */}
         {/* </SidebarWrapper> */}

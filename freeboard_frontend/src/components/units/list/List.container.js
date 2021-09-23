@@ -28,13 +28,13 @@ export default function List(props) {
   function onClickPrevPage() {
     if (startPage === 1) return;
     setStartPage((prev) => prev - 10);
-    setCurrent(current - 10);
+    setCurrent(startPage - 10);
   }
 
   function onClickNextPage() {
     if (startPage + 10 > lastPage) return;
     setStartPage((prev) => prev + 10);
-    setCurrent(current + 10);
+    setCurrent(startPage + 10);
   }
 
   function onClickPage(event) {

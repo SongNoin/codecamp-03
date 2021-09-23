@@ -178,6 +178,25 @@ export default function NewWrite(props) {
       return;
     }
 
+    // const myVariables = {
+    //   boardId: router.query.number,
+    //   password: myPassword,
+    //   updateBoardInput: {},
+    // };
+    // if (myTitle) myVariables.updateBoardInput.title = myTitle; // 만약 title에 값이 입력되면, variables에 title을 title로 한다(제목을 입력값으로 수정한다)
+    // if (myContents) myVariables.updateBoardInput.contents = myContents;
+    // if (myYoutube) myVariables.updateBoardInput.youtubeUrl = myYoutube;
+    // if (myZipcode || myAddress || myAddressDetail) {
+    //   myVariables.updateBoardInput.boardAddress = {};
+    //   if (myZipcode)
+    //     myVariables.updateBoardInput.boardAddress.zipcode = myZipcode;
+    //   if (myAddress)
+    //     myVariables.updateBoardInput.boardAddress.address = myAddress;
+    //   if (myAddressDetail)
+    //     myVariables.updateBoardInput.boardAddress.addressDetail =
+    //       myAddressDetail;
+    // }
+
     try {
       await updateBoard({
         variables: {

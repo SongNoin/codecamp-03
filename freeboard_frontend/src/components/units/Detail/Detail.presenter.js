@@ -46,7 +46,10 @@ export default function DetailUI(props) {
             </Photo>
             <Profile>
               <Name>{props.data?.fetchBoard.writer}</Name>
-              <Date>Date : 2021.02.18</Date>
+              <Date>
+                {props.data?.fetchBoard.createdAt.slice(0, 10) + " "}
+                {props.data?.fetchBoard.createdAt.slice(11, 19)}
+              </Date>
             </Profile>
           </ProfileInfo>
           <Info>
