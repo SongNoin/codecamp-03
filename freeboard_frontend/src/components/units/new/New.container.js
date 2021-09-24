@@ -166,55 +166,40 @@ export default function NewWrite(props) {
   }
 
   async function onClickEdit() {
-    if (
-      !myTitle &&
-      !myContents &&
-      !myYoutube &&
-      !myZipcode &&
-      !myAddress &&
-      !myAddressDetail
-    ) {
-      alert("수정된 내용이 없습니다.");
-      return;
-    }
-
-    // const myVariables = {
-    //   boardId: router.query.number,
-    //   password: myPassword,
-    //   updateBoardInput: {},
-    // };
-    // if (myTitle) myVariables.updateBoardInput.title = myTitle; // 만약 title에 값이 입력되면, variables에 title을 title로 한다(제목을 입력값으로 수정한다)
-    // if (myContents) myVariables.updateBoardInput.contents = myContents;
-    // if (myYoutube) myVariables.updateBoardInput.youtubeUrl = myYoutube;
-    // if (myZipcode || myAddress || myAddressDetail) {
-    //   myVariables.updateBoardInput.boardAddress = {};
-    //   if (myZipcode)
-    //     myVariables.updateBoardInput.boardAddress.zipcode = myZipcode;
-    //   if (myAddress)
-    //     myVariables.updateBoardInput.boardAddress.address = myAddress;
-    //   if (myAddressDetail)
-    //     myVariables.updateBoardInput.boardAddress.addressDetail =
-    //       myAddressDetail;
+    // if (
+    //   !myTitle &&
+    //   !myContents &&
+    //   !myYoutube &&
+    //   !myZipcode &&
+    //   !myAddress &&
+    //   !myAddressDetail
+    // ) {
+    //   alert("수정된 내용이 없습니다.");
+    //   return;
     // }
 
+    const variables = {
+      updateBoardInput: {},
+      boardId: router.query.number,
+    };
+
+    if (myTitle) variables.updateBoardInput.title = myTitle;
+    if (myContents) variables.updateBoardInput.contents = myContents;
+    if (myYoutube) variables.updateBoardInput.youtubeUrl = myYoutube;
+    if (myZipcode || myAddress || myAddressDetail) {
+      variables.updateBoardInput.boardAddress = {};
+      if (myZipcode)
+        variables.updateBoardInput.boardAddress.zipcode = myZipcode;
+      if (myAddress)
+        variables.updateBoardInput.boardAddress.address = myAddress;
+      if (myAddressDetail)
+        variables.updateBoardInput.boardAddress.addressDetail = myAddressDetail;
+    }
+    if (myPassword) variables.password = myPassword;
+
     try {
-      await updateBoard({
-        variables: {
-          updateBoardInput: {
-            title: myTitle,
-            contents: myContents,
-            boardAddress: {
-              zipcode: myZipcode,
-              address: myAddress,
-              addressDetail: myAddressDetail,
-            },
-          },
-          password: myPassword,
-          boardId: router.query.number,
-        },
-      });
-      alert("게시물을 수정합니다~");
-      router.push(`/boards/detail/${router.query.number}/`);
+      await updateBoard({ variables });
+      router.push(`/boards/detail/${router.query.number}`);
     } catch (error) {
       alert(error.message);
     }

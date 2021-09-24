@@ -10,7 +10,6 @@
 
 // Reference 1
 function solution(s) {
-  let answer = "";
   const arr = [];
   for (let i = 0; i < s.length; i++) {
     arr.push(s[i]);

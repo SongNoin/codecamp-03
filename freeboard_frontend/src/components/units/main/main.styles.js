@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
 
 export const MainTitle = styled.img`
   width: 70%;
+  :hover {
+    width: 100%;
+    /* background-color: red; */
+  }
 `;
 
 // export const Welcome = styled.img`
