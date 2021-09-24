@@ -32,7 +32,8 @@ export default function FunctioanlComponentLifecyclePage() {
   // setState 와 useEffect
   //   useEffect(() => {
   //     setCount((prev) => prev + 1);
-  //   }, []); // 왠만하면 안쓰는 것이 좋은 함수 이유 : 다시 그려질때 재로딩이 된다.
+  //   }, []); // 왠만하면 안쓰는 것이 좋은 함수인 이유 :
+  // 추가적인 렌더링이 발생할 수 있으므로 성능에 좋지 않은 영향을 끼칠 수 있다
 
   // setState 와 useEffect의 dependency-array
   //   useEffect(() => {
