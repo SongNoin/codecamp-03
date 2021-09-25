@@ -10,8 +10,11 @@ export const Wrapper = styled.div`
 
 export const Title = styled.img`
   margin-left: 40px;
-  height: 100%;
+  height: 90%;
   cursor: pointer;
+  :hover {
+    height: 100%;
+  }
 `;
 
 export const TitleWrapper = styled.div`
@@ -31,10 +34,13 @@ export const MenuWrapper = styled.div`
 `;
 
 export const Menu = styled.img`
-  height: 100%;
+  height: 90%;
   margin-left: 10px;
   margin-top: 10px;
   cursor: pointer;
+  :hover {
+    height: 100%;
+  }
 `;
 
 export const MyWrapper = styled.div`
@@ -50,4 +56,7 @@ export const My = styled.img`
   margin-right: 20px;
   margin-top: 10px;
   cursor: pointer;
+  :hover {
+    height: 90%;
+  }
 `;

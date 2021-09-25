@@ -12,7 +12,7 @@ export default function HeaderUI(props) {
   return (
     <Wrapper>
       <TitleWrapper>
-        <Title src="/images/songny2.png" onClick={props.onClickList}></Title>
+        <Title src="/images/songny2.png" onClick={props.onClickMain}></Title>
         <MenuWrapper>
           <Menu src="/images/board.png" onClick={props.onClickList}></Menu>
           <Menu src="/images/market.png"></Menu>
