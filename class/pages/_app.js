@@ -10,6 +10,18 @@ import "antd/dist/antd.css";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client"; // apollo 세팅
 
 import Layout from "../src/components/commons/layout/";
+import { initializeApp } from "firebase/app";
+
+export const firebaseApp = initializeApp({
+  apiKey: "AIzaSyAfov2zzOKvEz1I4hgOqu-Pn_nvxVugY5Y",
+  authDomain: "codecamp-03.firebaseapp.com",
+  projectId: "codecamp-03",
+  storageBucket: "codecamp-03.appspot.com",
+  messagingSenderId: "918360583688",
+  appId: "1:918360583688:web:9d1749c7130757ead02bbd",
+  measurementId: "G-ZJNJYG4YB6",
+});
+
 function MyApp({ Component, pageProps }) {
   const client = new ApolloClient({
     uri: "http://backend03.codebootcamp.co.kr/graphql",
