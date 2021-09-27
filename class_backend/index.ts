@@ -1,6 +1,7 @@
 import { createConnection } from "typeorm";
 import { ApolloServer, gql } from "apollo-server";
 import Board from "./Board.postgres";
+import Product from "./Product.postgres";
 
 const typeDefs = gql`
   input CreateBoardInput {
@@ -9,7 +10,20 @@ const typeDefs = gql`
     age: Int
   }
 
+  input CreateProductInput {
+    name: String
+    detail: String
+    price: Int
+  }
+
+  input UpdateProductInput {
+    name: String
+    detail: String
+    price: Int
+  }
+
   type Return {
+    _id: String
     message: String
     number: Int
   }
@@ -21,17 +35,40 @@ const typeDefs = gql`
     age: Int
   }
 
+  type Product {
+    number: Int
+    seller: String
+    name: String
+    detail: String
+    price: Int
+    _id: String
+  }
+
   type Query {
     fetchBoard: Board
     fetchBoards: [Board]
+
+    fetchProduct(productId: ID): Product
+    fetchProducts: [Product]
   }
 
   type Mutation {
     # 주석입니다 createBoard(writer: String, title: String, age: Int): Return
     createBoard(createBoardInput: CreateBoardInput): Return
-
     updateBoard: Return
     deleteBoard: Return
+
+    createProduct(
+      seller: String
+      createProductInput: CreateProductInput
+    ): Return
+
+    updateProduct(
+      productId: ID
+      updateProductInput: UpdateProductInput!
+    ): Return
+
+    deleteProduct(productId: ID): Return
   }
 `;
 
@@ -52,8 +89,23 @@ const resolvers = {
       // return { writer: result?.writer, title: result?.title, age: result?.age };
       return result;
     },
+
     fetchBoards: async () => {
       const result = await Board.find({ where: { deletedAt: null } });
+      return result;
+    },
+
+    fetchProduct: async (_: any, args: any) => {
+      const result = await Product.findOne({
+        where: { _id: args.productId, deletedAt: null },
+      });
+      return result;
+    },
+
+    fetchProducts: async (_: any, args: any) => {
+      const result = await Product.find({
+        where: { deletedAt: null },
+      });
       return result;
     },
   },
@@ -91,6 +143,39 @@ const resolvers = {
       // await Board.delete({ number: 4 });
       await Board.update({ number: 5 }, { deletedAt: new Date() });
       return { message: "삭제완료!" };
+    },
+
+    createProduct: async (_: any, args: any) => {
+      const result = await Product.insert({
+        seller: args.seller,
+        ...args.createProductInput,
+      });
+
+      return {
+        message: "상품이 등록되었습니다.",
+        number: result.identifiers[0].number,
+        _id: result.identifiers[0]._id,
+      };
+    },
+
+    updateProduct: async (_: any, args: any) => {
+      const result = await Product.update(
+        {
+          _id: args.productId,
+        },
+        {
+          ...args.updateProductInput,
+        }
+      );
+      return {
+        message: " 상품이 수정되었습니다.",
+        _id: args.productId,
+      };
+    },
+
+    deleteProduct: async (_: any, args: any) => {
+      await Product.update({ _id: args.productId }, { deletedAt: new Date() });
+      return { message: "상품을 삭제했습니다.", _id: args.productId };
     },
   },
 };

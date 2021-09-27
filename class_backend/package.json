@@ -10,7 +10,8 @@
     "apollo-server": "^3.3.0",
     "graphql": "^15.6.0",
     "pg": "^8.7.1",
-    "typeorm": "^0.2.37"
+    "typeorm": "^0.2.37",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "ts-node": "^10.2.1",
