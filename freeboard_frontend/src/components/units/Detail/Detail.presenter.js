@@ -71,7 +71,7 @@ export default function DetailUI(props) {
           <TitleWrapper>
             <Title>{props.data?.fetchBoard.title}</Title>
           </TitleWrapper>
-          <Image
+          {/* <Image
             src={`https://storage.googleapis.com/${props.data?.fetchBoard.images[0]}`}
           />
           <Image
@@ -79,7 +79,10 @@ export default function DetailUI(props) {
           />
           <Image
             src={`https://storage.googleapis.com/${props.data?.fetchBoard.images[2]}`}
-          />
+          /> */}
+          {props.data?.fetchBoard.images.map((el, idx) => (
+            <Image src={`https://storage.googleapis.com/${el}`} key={idx} />
+          ))}
         </ImageWrapper>
         <ContentsWrapper>
           <Contents>{props.data?.fetchBoard.contents}</Contents>
