@@ -41,7 +41,7 @@ export default function DetailUI(props) {
         <ProfileWrapper>
           <ProfileInfo>
             <Photo>
-              <img src="/images/photo.png" />{" "}
+              <img src="/images/photo.png" />
               {/*  img에도 상수이름을 지을 수 있다.  ex ) <Photo =img src="/images/photo.png" />  */}
             </Photo>
             <Profile>
@@ -71,9 +71,9 @@ export default function DetailUI(props) {
           <TitleWrapper>
             <Title>{props.data?.fetchBoard.title}</Title>
           </TitleWrapper>
-          <Image>
-            <img src="/images/party.png" />
-          </Image>
+          <Image
+            src={`https://storage.googleapis.com/${props.data?.fetchBoard.images}`}
+          />
         </ImageWrapper>
         <ContentsWrapper>
           <Contents>{props.data?.fetchBoard.contents}</Contents>

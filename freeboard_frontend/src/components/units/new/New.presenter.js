@@ -124,10 +124,16 @@ export default function NewWriteUI(props) {
       </TextWrapper>
       <PhotoWrapper>
         <Label>사진첨부</Label>
-        <UploadButton>
+        <UploadButton onClick={props.onClickUploadImage}>
           <div>+</div>
           <div>Upload</div>
         </UploadButton>
+        <input
+          ref={props.fileRef}
+          style={{ display: "none" }}
+          type="file"
+          onChange={props.onChangeImage}
+        />
         <UploadButton>
           <div>+</div>
           <div>Upload</div>

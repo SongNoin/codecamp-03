@@ -1,13 +1,19 @@
 import NewWriteUI from "./New.presenter";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { CREATE_BOARD, UPDATE_BOARD, FETCH_BOARD } from "./New.queries";
+import {
+  CREATE_BOARD,
+  UPLOAD_FILE,
+  UPDATE_BOARD,
+  FETCH_BOARD,
+} from "./New.queries";
 
 export default function NewWrite(props) {
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
+  const [uploadFile] = useMutation(UPLOAD_FILE);
 
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query.number },
@@ -29,6 +35,9 @@ export default function NewWrite(props) {
   const [myZipcode, setMyZipcode] = useState("");
   const [myAddress, setMyAddress] = useState("");
   const [myAddressDetail, setMyAddressDetail] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+
+  const fileRef = useRef();
 
   // 색 바꾸기 함수
 
@@ -117,10 +126,38 @@ export default function NewWrite(props) {
     setMyAddressDetail(event.target.value);
   }
 
+  async function onChangeImage(event) {
+    const myFile = event.target.files[0];
+    console.log(myFile);
+    if (!myFile) {
+      alert("파일이 없습니다!");
+      return;
+    }
+    if (myFile.size > 5 * 1024 * 1024) {
+      alert("파일 용량이 너무 큽니다. (제한: 5MB");
+      return;
+    }
+    if (!myFile.type.includes("jpeg") && !myFile.type.includes("png")) {
+      alert("jpeg 또는 png만 업로드 가능합니다.");
+      return;
+    }
+    const result = await uploadFile({
+      variables: {
+        file: myFile,
+      },
+    });
+    console.log(result.data.uploadFile.url);
+    setImageUrl(result.data.uploadFile.url);
+  }
+
   function onCompleteAddressSearch(data) {
     setMyAddress(data.address);
     setMyZipcode(data.zonecode);
     setIsOpen(false);
+  }
+
+  function onClickUploadImage() {
+    fileRef.current?.click();
   }
 
   async function onClickCorrect() {
@@ -154,6 +191,7 @@ export default function NewWrite(props) {
               address: myAddress,
               addressDetail: myAddressDetail,
             },
+            images: [imageUrl],
           },
         },
       });
@@ -166,17 +204,17 @@ export default function NewWrite(props) {
   }
 
   async function onClickEdit() {
-    // if (
-    //   !myTitle &&
-    //   !myContents &&
-    //   !myYoutube &&
-    //   !myZipcode &&
-    //   !myAddress &&
-    //   !myAddressDetail
-    // ) {
-    //   alert("수정된 내용이 없습니다.");
-    //   return;
-    // }
+    if (
+      !myTitle &&
+      !myContents &&
+      !myYoutube &&
+      !myZipcode &&
+      !myAddress &&
+      !myAddressDetail
+    ) {
+      alert("수정된 내용이 없습니다.");
+      return;
+    }
 
     const variables = {
       updateBoardInput: {},
@@ -220,7 +258,10 @@ export default function NewWrite(props) {
       onChangeTitle={onChangeTitle}
       onChangeContents={onChangeContents}
       onChangeYoutube={onChangeYoutube}
+      onChangeImage={onChangeImage}
+      onClickUploadImage={onClickUploadImage}
       onClickCorrect={onClickCorrect}
+      fileRef={fileRef}
       color={color}
       isEdit={props.isEdit}
       onClickEdit={onClickEdit}

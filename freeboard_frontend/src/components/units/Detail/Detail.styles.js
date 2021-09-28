@@ -90,7 +90,7 @@ export const Title = styled.div`
 export const ImageWrapper = styled.div`
   margin-top: 40px;
 `;
-export const Image = styled.div`
+export const Image = styled.img`
   width: 996px;
   height: 480px;
   margin-top: 40px;
