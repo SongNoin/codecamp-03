@@ -35,7 +35,7 @@ export default function NewWrite(props) {
   const [myZipcode, setMyZipcode] = useState("");
   const [myAddress, setMyAddress] = useState("");
   const [myAddressDetail, setMyAddressDetail] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState([]);
 
   const fileRef = useRef();
 
@@ -147,7 +147,7 @@ export default function NewWrite(props) {
       },
     });
     console.log(result.data.uploadFile.url);
-    setImageUrl(result.data.uploadFile.url);
+    setImageUrl(imageUrl.concat([result.data.uploadFile.url]));
   }
 
   function onCompleteAddressSearch(data) {
@@ -191,7 +191,7 @@ export default function NewWrite(props) {
               address: myAddress,
               addressDetail: myAddressDetail,
             },
-            images: [imageUrl],
+            images: imageUrl,
           },
         },
       });
@@ -262,6 +262,7 @@ export default function NewWrite(props) {
       onClickUploadImage={onClickUploadImage}
       onClickCorrect={onClickCorrect}
       fileRef={fileRef}
+      imageUrl={imageUrl}
       color={color}
       isEdit={props.isEdit}
       onClickEdit={onClickEdit}

@@ -134,11 +134,11 @@ export default function NewWriteUI(props) {
           type="file"
           onChange={props.onChangeImage}
         />
-        <UploadButton>
+        <UploadButton onClick={props.onClickUploadImage}>
           <div>+</div>
           <div>Upload</div>
         </UploadButton>
-        <UploadButton>
+        <UploadButton onClick={props.onClickUploadImage}>
           <div>+</div>
           <div>Upload</div>
         </UploadButton>
