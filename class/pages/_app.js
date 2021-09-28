@@ -7,10 +7,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import "antd/dist/antd.css";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client"; // apollo 세팅
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+  ApolloLink,
+} from "@apollo/client"; // apollo 세팅
 
 import Layout from "../src/components/commons/layout/";
 import { initializeApp } from "firebase/app";
+
+import { createUploadLink } from "apollo-upload-client";
 
 export const firebaseApp = initializeApp({
   apiKey: "AIzaSyAfov2zzOKvEz1I4hgOqu-Pn_nvxVugY5Y",
@@ -23,9 +30,12 @@ export const firebaseApp = initializeApp({
 });
 
 function MyApp({ Component, pageProps }) {
-  const client = new ApolloClient({
-    uri: "http://backend03.codebootcamp.co.kr/graphql",
+  const uploadLink = createUploadLink({
+    uri: "http://backend02.codebootcamp.co.kr/graphql",
+  });
 
+  const client = new ApolloClient({
+    link: ApolloLink.from([uploadLink]),
     cache: new InMemoryCache(),
   });
 

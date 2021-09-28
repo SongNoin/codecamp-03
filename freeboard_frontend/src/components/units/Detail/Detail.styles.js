@@ -110,6 +110,7 @@ export const YoutubeWrapper = styled.div`
   margin-top: 120px;
 `;
 export const Youtube = styled(ReactPlayer)``;
+
 export const LikeWrapper = styled.div`
   width: 120px;
   height: 49px;
