@@ -76,7 +76,7 @@ export default function ImageUploadPreviewPage() {
     ]);
 
     // [result1, result2, result3 ...]
-    const urls = result.map((el) => el.data.uploadFile.url);
+    // const urls = result.map((el) => el.data.uploadFile.url);
     // const result1 = await uploadFile({
     //   variables: {
     //     file: myFile,
