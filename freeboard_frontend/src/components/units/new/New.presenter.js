@@ -25,6 +25,7 @@ import {
 } from "./New.styels";
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
+import Uploads01 from "../../commons/uploads/01/Uploads01.container";
 
 export default function NewWriteUI(props) {
   return (
@@ -124,25 +125,14 @@ export default function NewWriteUI(props) {
       </TextWrapper>
       <PhotoWrapper>
         <Label>사진첨부</Label>
-        <UploadButton onClick={props.onClickUploadImage}>
-          <div>+</div>
-          <div>Upload</div>
-        </UploadButton>
-        <input
-          ref={props.fileRef}
-          style={{ display: "none" }}
-          type="file"
-          onChange={props.onChangeImage}
-        />
-        <UploadButton onClick={props.onClickUploadImage}>
-          <div>+</div>
-          <div>Upload</div>
-        </UploadButton>
-
-        <UploadButton onClick={props.onClickUploadImage}>
-          <div>+</div>
-          <div>Upload</div>
-        </UploadButton>
+        {props.fileUrls.map((el, index) => (
+          <Uploads01
+            key={`${el}_${index}`}
+            index={index}
+            fileUrl={el}
+            onChangeFileUrls={props.onChangeFileUrls}
+          />
+        ))}
       </PhotoWrapper>
       <OptionWrapper>
         <Label>메인설정</Label>
