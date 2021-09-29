@@ -138,6 +138,7 @@ export default function NewWriteUI(props) {
           <div>+</div>
           <div>Upload</div>
         </UploadButton>
+
         <UploadButton onClick={props.onClickUploadImage}>
           <div>+</div>
           <div>Upload</div>
