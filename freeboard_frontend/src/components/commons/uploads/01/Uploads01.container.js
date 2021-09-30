@@ -11,22 +11,22 @@ export default function Uploads01(props) {
     fileRef.current?.click();
   }
   async function onChangeImage(event) {
-    const myFile = event.target.files[0];
-    if (!myFile) {
+    const file = event.target.files[0];
+    if (!file) {
       alert("파일이 없습니다!");
       return;
     }
-    if (myFile.size > 5 * 1024 * 1024) {
+    if (file.size > 5 * 1024 * 1024) {
       alert("파일 용량이 너무 큽니다. (제한: 5MB");
       return;
     }
-    if (!myFile.type.includes("jpeg") && !myFile.type.includes("png")) {
+    if (!file.type.includes("jpeg") && !file.type.includes("png")) {
       alert("jpeg 또는 png만 업로드 가능합니다.");
       return;
     }
     const result = await uploadFile({
       variables: {
-        file: myFile,
+        file,
       },
     });
     props.onChangeFileUrls(result.data.uploadFile.url, props.index);

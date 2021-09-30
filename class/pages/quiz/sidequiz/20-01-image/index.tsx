@@ -25,6 +25,8 @@ export default function ImagePage() {
   const [myPassword, setMyPassword] = useState("");
   const [myTitle, setMyTitle] = useState("");
   const [myContents, setMyContents] = useState("");
+
+  // #########################################################
   const [imageUrl, setImageUrl] = useState("");
   const [myFile, setMyFile] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
@@ -41,7 +43,7 @@ export default function ImagePage() {
   function onChangeMyContents(event) {
     setMyContents(event.target.value);
   }
-
+  // #########################################################
   async function onChangeFile(event) {
     const file = event.target.files[0];
     console.log(file);
@@ -116,6 +118,7 @@ export default function ImagePage() {
       내용 :
       <input type="text" onChange={onChangeMyContents} />
       <br />
+      {/* ################################################### */}
       <input
         type="file"
         ref={fileRef}

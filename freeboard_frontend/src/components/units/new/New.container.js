@@ -244,7 +244,6 @@ export default function NewWrite(props) {
       myZipcode={myZipcode}
       myAddress={myAddress}
       fileUrls={fileUrls}
-
       // 함수 변수 를 넘어주는 작업
     />
   );
