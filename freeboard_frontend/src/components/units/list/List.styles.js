@@ -38,27 +38,16 @@ export const BestBoardBox = styled.div`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   /* background-image: url("/images/bestboard1.png"); */
+  cursor: pointer;
+  :hover {
+    background-color: #81d8b1;
+  }
 `;
-export const BestPhoto1 = styled.div`
+export const BestPhoto1 = styled.img`
   width: 282px;
   height: 45%;
-  background-image: url("/images/bestboard1.png");
 `;
-export const BestPhoto2 = styled.div`
-  width: 282px;
-  height: 45%;
-  background-image: url("/images/bestboard2.png");
-`;
-export const BestPhoto3 = styled.div`
-  width: 282px;
-  height: 45%;
-  background-image: url("/images/bestboard3.png");
-`;
-export const BestPhoto4 = styled.div`
-  width: 282px;
-  height: 45%;
-  background-image: url("/images/bestboard4.png");
-`;
+
 export const BestText = styled.div`
   padding-top: 20px;
   padding-right: 20px;

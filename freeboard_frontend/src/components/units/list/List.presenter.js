@@ -6,9 +6,6 @@ import {
   BestBoardContents,
   BestBoardBox,
   BestPhoto1,
-  BestPhoto2,
-  BestPhoto3,
-  BestPhoto4,
   BestText,
   BestTitle,
   BestContents,
@@ -49,98 +46,33 @@ export default function ListUI(props) {
         </TitleWrapper>
 
         <BestBoardContents>
-          <BestBoardBox>
-            <BestPhoto1></BestPhoto1>
-            <BestText>
-              <BestTitle>게시물 제목입니다.</BestTitle>
-              <BestContents>
-                <BestProfile>
-                  <BestName>
-                    <ProfilePhoto>
-                      <img src="/images/bestphoto.png" />
-                    </ProfilePhoto>
-                    <ProfileName>노원두</ProfileName>
-                  </BestName>
-                  <BestDate>Date:2021.02.18</BestDate>
-                </BestProfile>
-                <BestLike>
-                  <LikePhoto>
-                    <img src="/images/bestlike.png" />
-                  </LikePhoto>
-                  <LikeCount>356</LikeCount>
-                </BestLike>
-              </BestContents>
-            </BestText>
-          </BestBoardBox>
-          <BestBoardBox>
-            <BestPhoto2></BestPhoto2>
-            <BestText>
-              <BestTitle>게시물 제목입니다.</BestTitle>
-              <BestContents>
-                <BestProfile>
-                  <BestName>
-                    <ProfilePhoto>
-                      <img src="/images/bestphoto.png" />
-                    </ProfilePhoto>
-                    <ProfileName>노원두</ProfileName>
-                  </BestName>
-                  <BestDate>Date:2021.02.18</BestDate>
-                </BestProfile>
-                <BestLike>
-                  <LikePhoto>
-                    <img src="/images/bestlike.png" />
-                  </LikePhoto>
-                  <LikeCount>356</LikeCount>
-                </BestLike>
-              </BestContents>
-            </BestText>
-          </BestBoardBox>
-          <BestBoardBox>
-            <BestPhoto3></BestPhoto3>
-            <BestText>
-              <BestTitle>게시물 제목입니다.</BestTitle>
-              <BestContents>
-                <BestProfile>
-                  <BestName>
-                    <ProfilePhoto>
-                      <img src="/images/bestphoto.png" />
-                    </ProfilePhoto>
-                    <ProfileName>노원두</ProfileName>
-                  </BestName>
-                  <BestDate>Date:2021.02.18</BestDate>
-                </BestProfile>
-                <BestLike>
-                  <LikePhoto>
-                    <img src="/images/bestlike.png" />
-                  </LikePhoto>
-                  <LikeCount>356</LikeCount>
-                </BestLike>
-              </BestContents>
-            </BestText>
-          </BestBoardBox>
-          <BestBoardBox>
-            <BestPhoto4></BestPhoto4>
-            <BestText>
-              <BestTitle>게시물 제목입니다.</BestTitle>
-              <BestContents>
-                <BestProfile>
-                  <BestName>
-                    <ProfilePhoto>
-                      <img src="/images/bestphoto.png" />
-                    </ProfilePhoto>
-                    <ProfileName>노원두</ProfileName>
-                  </BestName>
-                  <BestDate>Date:2021.02.18</BestDate>
-                </BestProfile>
-                <BestLike>
-                  <LikePhoto>
-                    <img src="/images/bestlike.png" />
-                  </LikePhoto>
-                  <LikeCount>356</LikeCount>
-                </BestLike>
-              </BestContents>
-            </BestText>
-          </BestBoardBox>
+          {props.dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el) => (
+            <BestBoardBox key={el._id} id={el._id} onClick={props.onClickBest}>
+              <BestPhoto1
+                src={`https://storage.googleapis.com/${el.images[0]}`}
+              />
+              <BestText>
+                <BestTitle>{el.title}</BestTitle>
+                <BestContents>
+                  <BestProfile>
+                    <BestName>
+                      <ProfilePhoto>
+                        <img src="/images/bestphoto.png" />
+                      </ProfilePhoto>
+                      <ProfileName>{el.writer}</ProfileName>
+                    </BestName>
+                    <BestDate>{el.createdAt.slice(0, 10)}</BestDate>
+                  </BestProfile>
+                  <BestLike>
+                    <LikePhoto>
+                      <img src="/images/bestlike.png" />
+                    </LikePhoto>
+                    <LikeCount>{el.likeCount}</LikeCount>
+                  </BestLike>
+                </BestContents>
+              </BestText>
+            </BestBoardBox>
+          ))}
         </BestBoardContents>
       </WrapperHeader>
       <WrapperBody>
@@ -149,6 +81,7 @@ export default function ListUI(props) {
             name="searchTitle"
             type="text"
             placeholder="🔎 제목을 검색해주세요."
+            onChange={props.onChangeSearch}
           ></SearchBox>
           <SearchDate
             name="searchDate"
@@ -156,7 +89,7 @@ export default function ListUI(props) {
             placeholder="YYYY.MM.DD ~ YYYY.MM.DD"
           ></SearchDate>
           <SearchButton>
-            <ButtonName>검색하기</ButtonName>
+            <ButtonName onClick={props.onClickSearch}>검색하기</ButtonName>
           </SearchButton>
         </Search>
         <ListWrapper>
