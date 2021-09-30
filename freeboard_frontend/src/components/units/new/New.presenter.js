@@ -125,12 +125,21 @@ export default function NewWriteUI(props) {
       </TextWrapper>
       <PhotoWrapper>
         <Label>사진첨부</Label>
+        {/* 
+        // 1차 이미지 실습
         {props.fileUrls.map((el, index) => (
           <Uploads01
             key={`${el}_${index}`}
             index={index}
             fileUrl={el}
             onChangeFileUrls={props.onChangeFileUrls}
+          />
+        ))} */}
+        {new Array(3).fill(1).map((el, index) => (
+          <Uploads01
+            key={`${el}_${index}`}
+            index={index}
+            onChangeFiles={props.onChangeFiles}
           />
         ))}
       </PhotoWrapper>

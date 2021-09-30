@@ -80,9 +80,11 @@ export default function DetailUI(props) {
           <Image
             src={`https://storage.googleapis.com/${props.data?.fetchBoard.images[2]}`}
           /> */}
-          {props.data?.fetchBoard.images.map((el, idx) => (
-            <Image src={`https://storage.googleapis.com/${el}`} key={idx} />
-          ))}
+          {props.data?.fetchBoard.images
+            ?.filter((el) => el)
+            .map((el) => (
+              <Image key={el} src={`https://storage.googleapis.com/${el}`} />
+            ))}
         </ImageWrapper>
         <ContentsWrapper>
           <Contents>{props.data?.fetchBoard.contents}</Contents>

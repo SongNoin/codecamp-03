@@ -2,12 +2,18 @@ import NewWriteUI from "./New.presenter";
 import { useRouter } from "next/router";
 import { useState, useRef } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { CREATE_BOARD, UPDATE_BOARD, FETCH_BOARD } from "./New.queries";
+import {
+  CREATE_BOARD,
+  UPDATE_BOARD,
+  FETCH_BOARD,
+  UPLOAD_FILE,
+} from "./New.queries";
 
 export default function NewWrite(props) {
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
+  const [uploadFile] = useMutation(UPLOAD_FILE);
 
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query.number },
@@ -29,7 +35,8 @@ export default function NewWrite(props) {
   const [myZipcode, setMyZipcode] = useState("");
   const [myAddress, setMyAddress] = useState("");
   const [myAddressDetail, setMyAddressDetail] = useState("");
-  const [fileUrls, setFileUrls] = useState(["", "", ""]);
+  // const [fileUrls, setFileUrls] = useState(["", "", ""]); // 이미지 1차실습
+  const [files, setFiles] = useState([null, null, null]);
 
   // 색 바꾸기 함수
 
@@ -141,6 +148,12 @@ export default function NewWrite(props) {
       setContentsError("입력되지 않았습니다!");
     }
     try {
+      const uploadFiles = files
+        .filter((el) => el)
+        .map((el) => uploadFile({ variables: { file: el } }));
+      const results = await Promise.all(uploadFiles);
+      const myImages = results.map((el) => el.data.uploadFile.url);
+
       const result = await createBoard({
         // network 창에 뜨는 graphql 과 짝궁 (여기서 graphql 창이 생김)
         variables: {
@@ -155,7 +168,8 @@ export default function NewWrite(props) {
               address: myAddress,
               addressDetail: myAddressDetail,
             },
-            images: [...fileUrls],
+            // images: [...fileUrls], // * 이미지 1차실습
+            images: myImages,
           },
         },
       });
@@ -211,11 +225,19 @@ export default function NewWrite(props) {
     router.push(`/boards/list/`);
   }
 
-  function onChangeFileUrls(fileUrl, index) {
-    const newFileUrls = [...fileUrls];
-    newFileUrls[index] = fileUrl;
-    console.log(newFileUrls);
-    setFileUrls(newFileUrls);
+  // *************** 1차 이미지 실습 **********************
+  // function onChangeFileUrls(fileUrl, index) {
+  //   const newFileUrls = [...fileUrls];
+  //   newFileUrls[index] = fileUrl;
+  //   console.log(newFileUrls);
+  //   setFileUrls(newFileUrls);
+  // }
+
+  // **************** 2차 이미지 실습 *****************
+  function onChangeFiles(file, index) {
+    const newFiles = [...files];
+    newFiles[index] = file;
+    setFiles(newFiles);
   }
 
   return (
@@ -234,7 +256,6 @@ export default function NewWrite(props) {
       isEdit={props.isEdit}
       onClickEdit={onClickEdit}
       onClickList={onClickList}
-      onChangeFileUrls={onChangeFileUrls}
       data={data}
       handleComplete={handleComplete}
       onTogleAddress={onTogleAddress}
@@ -243,7 +264,10 @@ export default function NewWrite(props) {
       isOpen={isOpen}
       myZipcode={myZipcode}
       myAddress={myAddress}
-      fileUrls={fileUrls}
+      // onChangeFileUrls={onChangeFileUrls}
+      // fileUrls={fileUrls}
+      onChangeFiles={onChangeFiles}
+
       // 함수 변수 를 넘어주는 작업
     />
   );
