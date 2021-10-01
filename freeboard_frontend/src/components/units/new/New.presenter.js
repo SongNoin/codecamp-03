@@ -140,6 +140,7 @@ export default function NewWriteUI(props) {
             key={`${el}_${index}`}
             index={index}
             onChangeFiles={props.onChangeFiles}
+            defaultFileUrl={props.data?.fetchBoard.images?.[index]}
           />
         ))}
       </PhotoWrapper>
@@ -156,7 +157,7 @@ export default function NewWriteUI(props) {
         {!props.isEdit && (
           <SubmitButton
             color={props.color}
-            onClick={props.onClickCorrect}
+            onClick={props.onClickSubmit}
             disabled={!props.color}
           >
             등록하기

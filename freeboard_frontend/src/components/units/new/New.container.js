@@ -131,7 +131,7 @@ export default function NewWrite(props) {
     setIsOpen(false);
   }
 
-  async function onClickCorrect() {
+  async function onClickSubmit() {
     if (myWriter == "") {
       setWriterError("입력되지 않았습니다!");
     }
@@ -194,27 +194,42 @@ export default function NewWrite(props) {
       return;
     }
 
-    const variables = {
-      updateBoardInput: {},
-      boardId: router.query.number,
-    };
-
-    if (myTitle) variables.updateBoardInput.title = myTitle;
-    if (myContents) variables.updateBoardInput.contents = myContents;
-    if (myYoutube) variables.updateBoardInput.youtubeUrl = myYoutube;
+    const myUpdateboardInput = {};
+    if (myTitle) myUpdateboardInput.title = myTitle;
+    if (myContents) myUpdateboardInput.contents = myContents;
+    if (myYoutube) myUpdateboardInput.youtubeUrl = myYoutube;
     if (myZipcode || myAddress || myAddressDetail) {
-      variables.updateBoardInput.boardAddress = {};
-      if (myZipcode)
-        variables.updateBoardInput.boardAddress.zipcode = myZipcode;
-      if (myAddress)
-        variables.updateBoardInput.boardAddress.address = myAddress;
+      myUpdateboardInput.boardAddress = {};
+      if (myZipcode) myUpdateboardInput.boardAddress.zipcode = myZipcode;
+      if (myAddress) myUpdateboardInput.boardAddress.address = myAddress;
       if (myAddressDetail)
-        variables.updateBoardInput.boardAddress.addressDetail = myAddressDetail;
+        myUpdateboardInput.boardAddress.addressDetail = myAddressDetail;
     }
-    if (myPassword) variables.password = myPassword;
+
+    const uploadFiles = files.map((el) =>
+      el ? uploadFile({ variables: { file: el } }) : null
+    );
+    const results = await Promise.all(uploadFiles);
+    const nextImages = results.map((el) => el?.data.uploadFile.url || "");
+    myUpdateboardInput.images = nextImages;
+
+    if (props.data?.fetchBoard.images?.length) {
+      const prevImages = [...props.data?.fetchBoard.images];
+      myUpdateboardInput.images = prevImages.map(
+        (el, index) => nextImages[index] || el
+      );
+    } else {
+      myUpdateboardInput.images = nextImages;
+    }
 
     try {
-      await updateBoard({ variables });
+      await updateBoard({
+        variables: {
+          boardId: router.query.number,
+          password: myPassword,
+          updateBoardInput: myUpdateboardInput,
+        },
+      });
       router.push(`/boards/detail/${router.query.number}`);
     } catch (error) {
       alert(error.message);
@@ -251,7 +266,7 @@ export default function NewWrite(props) {
       onChangeTitle={onChangeTitle}
       onChangeContents={onChangeContents}
       onChangeYoutube={onChangeYoutube}
-      onClickCorrect={onClickCorrect}
+      onClickSubmit={onClickSubmit}
       color={color}
       isEdit={props.isEdit}
       onClickEdit={onClickEdit}

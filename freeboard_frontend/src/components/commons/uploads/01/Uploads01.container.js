@@ -45,6 +45,7 @@ export default function Uploads01(props) {
       fileRef={fileRef}
       // fileUrl={props.fileUrl}
       fileUrl={fileUrl}
+      defaultFileUrl={props.defaultFileUrl}
       onClickUploadImage={onClickUploadImage}
       onChangeImage={onChangeImage}
     />

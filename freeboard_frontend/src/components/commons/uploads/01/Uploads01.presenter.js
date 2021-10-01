@@ -7,8 +7,14 @@ import {
 export default function Uploads01UI(props) {
   return (
     <>
-      {props.fileUrl ? (
-        <UploadImage onClick={props.onClickUploadImage} src={props.fileUrl} />
+      {props.fileUrl || props.defaultFileUrl ? (
+        <UploadImage
+          onClick={props.onClickUploadImage}
+          src={
+            props.fileUrl ||
+            `https://storage.googleapis.com/${props.defaultFileUrl}`
+          }
+        />
       ) : (
         <UploadButton onClick={props.onClickUploadImage}>
           <div>+</div>
