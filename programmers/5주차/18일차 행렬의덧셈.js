@@ -23,7 +23,7 @@ function solution(arr1, arr2) {
 }
 
 // Reference 1
-
+ 
 function solution(arr1, arr2) {
   let answer = [[]];
   for (let i = 0; i < arr1.length; i++) {
