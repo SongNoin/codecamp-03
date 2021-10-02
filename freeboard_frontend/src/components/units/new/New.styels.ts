@@ -117,13 +117,6 @@ export const Youtube = styled.input`
   border: 1px solid #bdbdbd;
   padding-left: 16px;
 `;
-export const UploadButton = styled.button`
-  width: 78px;
-  height: 78px;
-  margin-right: 24px;
-  border: none;
-  cursor: pointer;
-`;
 export const PhotoWrapper = styled.div`
   margin-top: 40px;
 `;

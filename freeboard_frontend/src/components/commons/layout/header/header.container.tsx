@@ -1,5 +1,6 @@
 import HeaderUI from "./header.presenter";
 import { useRouter } from "next/router";
+import React from "react";
 
 export default function Header() {
   const router = useRouter();
@@ -14,11 +15,16 @@ export default function Header() {
   function onClickGames() {
     router.push(`/games/`);
   }
+
+  function onClickMoveToSignUp() {
+    router.push(`/signup/`);
+  }
   return (
     <HeaderUI
       onClickMain={onClickMain}
       onClickList={onClickList}
       onClickGames={onClickGames}
+      onClickMoveToSignUp={onClickMoveToSignUp}
     />
   );
 }

@@ -16,7 +16,7 @@ export default function Detail() {
 
   const { data } = useQuery(FETCH_BOARD, {
     variables: {
-      boardId: router.query.number, //number는 폴더 변수 이름
+      boardId: router.query.number, // number는 폴더 변수 이름
     },
   });
 

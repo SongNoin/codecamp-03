@@ -1,3 +1,5 @@
+import React, { Component } from "react";
+
 import {
   Wrapper,
   Title,
@@ -14,7 +16,6 @@ import {
   Address,
   Youtube,
   PhotoWrapper,
-  UploadButton,
   OptionWrapper,
   OptionRadio,
   RadioLabel,
@@ -27,7 +28,7 @@ import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
 import Uploads01 from "../../commons/uploads/01/Uploads01.container";
 
-export default function NewWriteUI(props) {
+export default function NewWriteUI(props: any) {
   return (
     <Wrapper>
       <Title>{props.isEdit ? "게시물 수정" : "게시물 등록"}</Title>

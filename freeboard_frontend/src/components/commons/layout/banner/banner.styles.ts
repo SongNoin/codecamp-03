@@ -3,6 +3,7 @@ import Slider from "react-slick";
 
 export const Wrapper = styled.div`
   height: 715px;
+  width: 1920px;
   /* background-color: yellowgreen; */
 `;
 
@@ -15,7 +16,7 @@ export const CardImg = styled.img`
 
 export const Caresel = styled(Slider)`
   .slick-list {
-    width: 1915px;
+    width: 100%;
     margin: 0 auto;
   }
   .slick-slide div {

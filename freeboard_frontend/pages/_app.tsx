@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import "antd/dist/antd.css";
 
 import "slick-carousel/slick/slick.css";

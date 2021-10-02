@@ -1,3 +1,5 @@
+import React, { Component } from "react";
+
 import {
   Wrapper,
   ProfileWrapper,
@@ -34,7 +36,7 @@ import {
 } from "./Detail.styles";
 import { Tooltip } from "antd";
 
-export default function DetailUI(props) {
+export default function DetailUI(props: any) {
   return (
     <Wrapper>
       <BoardsWrapper>

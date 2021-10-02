@@ -1,22 +1,21 @@
+import React, { Component } from "react";
+import { useRouter } from "next/router";
+
 import styled from "@emotion/styled";
 import Banner from "./banner/banner.container";
 import Header from "./header/header.container";
 
-// import Sidebar from "./side/side.container";
-
 const Wrapper = styled.div`
   margin: 0px;
-  width: 100%;
+  width: 1920px;
   display: flex;
   justify-content: center;
 `;
 
-// const SidebarWrapper = styled.div`
-//   display: flex;
-// `;
-const LayoutWrapper = styled.div``;
+const LayoutWrapper = styled.div`
+  width: 100%;
+`;
 
-// const BannerWrapper = styled.div``;
 const Body = styled.div``;
 
 const Footer = styled.div`
@@ -28,19 +27,19 @@ const Navi = styled.div`
   background-color: black;
 `;
 
-export default function Layout(props) {
+const HiddenBanner = ["/signup"];
+
+export default function Layout(props: any) {
+  const router = useRouter();
+  const isHiddenBanner = HiddenBanner.includes(router.pathname);
+
   return (
     <Wrapper>
       <LayoutWrapper>
         <Navi />
         <Header />
-        {/* <SidebarWrapper> */}
-        {/* <Sidebar /> */}
-        {/* <BannerWrapper> */}
-        <Banner />
+        {!isHiddenBanner && <Banner />}
         <Body>{props.children}</Body>
-        {/* </BannerWrapper> */}
-        {/* </SidebarWrapper> */}
         <Footer />
       </LayoutWrapper>
     </Wrapper>
