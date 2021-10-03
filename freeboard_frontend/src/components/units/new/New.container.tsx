@@ -1,6 +1,7 @@
+import React, { Component, useState } from "react";
+
 import NewWriteUI from "./New.presenter";
 import { useRouter } from "next/router";
-import { useState, useRef } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import {
   CREATE_BOARD,
@@ -65,7 +66,7 @@ export default function NewWrite(props) {
       myTitle !== "" &&
       myContents !== ""
     ) {
-      setWriterError(""); //if 문은 글이 채워졌다면 에러메시지가 안뜨게 해준다.
+      setWriterError(""); // if 문은 글이 채워졌다면 에러메시지가 안뜨게 해준다.
       setColor(true);
     } else {
       setColor(false);
@@ -132,19 +133,19 @@ export default function NewWrite(props) {
   }
 
   async function onClickSubmit() {
-    if (myWriter == "") {
+    if (myWriter === "") {
       setWriterError("입력되지 않았습니다!");
     }
 
-    if (myPassword == "") {
+    if (myPassword === "") {
       setPasswordError("입력되지 않았습니다!");
     }
 
-    if (myTitle == "") {
+    if (myTitle === "") {
       setTitleError("입력되지 않았습니다!");
     }
 
-    if (myContents == "") {
+    if (myContents === "") {
       setContentsError("입력되지 않았습니다!");
     }
     try {

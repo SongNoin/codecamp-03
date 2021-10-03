@@ -1,3 +1,5 @@
+import React, { Component } from "react";
+import { Modal } from "antd";
 import {
   Wrapper,
   TitleWrapper,
@@ -7,8 +9,9 @@ import {
   MyWrapper,
   My,
 } from "./header.styles";
+import LoginPage from "../../../../../pages/login";
 
-export default function HeaderUI(props) {
+export default function HeaderUI(props: any) {
   return (
     <>
       <Wrapper>
@@ -21,7 +24,12 @@ export default function HeaderUI(props) {
           </MenuWrapper>
         </TitleWrapper>
         <MyWrapper>
-          <My src="/images/login.png"></My>
+          <My src="/images/login.png" onClick={props.onTogleLogin}></My>
+          {props.isOpen && (
+            <Modal visible={true} onCancel={props.onTogleLogin}>
+              <LoginPage />
+            </Modal>
+          )}
           <My src="/images/my.png"></My>
           <My src="/images/signup.png" onClick={props.onClickMoveToSignUp}></My>
         </MyWrapper>
