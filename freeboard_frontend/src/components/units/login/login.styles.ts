@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
 `;
 export const Logo = styled.img`
   width: 50%;
-  margin-bottom: 10px;
 `;
 
 export const Title = styled.div`
