@@ -11,16 +11,22 @@ export const PhotoWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
-export const PhotoLine = styled.div``;
+export const PhotoLine = styled.div`
+  height: 650px;
+  margin-left: 5px;
+
+  display: flex;
+  flex-direction: column;
+`;
 export const Photo = styled.img`
   width: 240px;
-  height: 650px;
-
-  margin-left: 5px;
+  margin-bottom: 5px;
 `;
 export const SignUpWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  margin-top: 30px;
 `;
 export const TitleWrapper = styled.div`
   margin-bottom: 30px;
@@ -38,6 +44,17 @@ export const SubTitle = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
+
+  display: flex;
+  align-items: center;
+`;
+
+export const Logo = styled.span`
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  margin-right: 10px;
 `;
 export const TextWrapper = styled.div`
   display: flex;

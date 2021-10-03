@@ -1,5 +1,7 @@
 import DetailUI from "./Detail.presenter";
 import { useQuery, useMutation } from "@apollo/client";
+import React, { Component } from "react";
+
 import {
   FETCH_BOARD,
   DELETE_BOARD,

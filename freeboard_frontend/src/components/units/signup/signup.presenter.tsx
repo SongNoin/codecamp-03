@@ -9,6 +9,7 @@ import {
   TitleWrapper,
   Title,
   SubTitle,
+  Logo,
   TextWrapper,
   Info,
   SignUpButton,
@@ -20,16 +21,23 @@ export default function SignUpUI() {
       <Wrapper>
         <PhotoWrapper>
           <PhotoLine>
-            <Photo src="images/signup/duelsense.jpg" />
+            <Photo src="images/signup/sofa.jpg" />
+            <Photo src="images/signup/ps5cross.jpg" />
+
+            <Photo src="images/signup/women.jpeg" />
           </PhotoLine>
           <PhotoLine>
-            <Photo src="images/giraffe.jpg" />
+            <Photo src="images/signup/pizza.jpg" />
+            <Photo src="images/signup/ps5rounge.jpg" />
+            <Photo src="images/signup/older.jpg" />
           </PhotoLine>
         </PhotoWrapper>
         <SignUpWrapper>
           <TitleWrapper>
             <Title>회원가입</Title>
-            <SubTitle>SONGNY 에 오신걸 환영합니다!</SubTitle>
+            <SubTitle>
+              <Logo>SONGNY </Logo> 에 오신걸 환영합니다!
+            </SubTitle>
           </TitleWrapper>
           <TextWrapper>
             <Info type="text" placeholder="이메일" />
