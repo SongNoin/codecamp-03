@@ -12,6 +12,7 @@ import {
   Logo,
   TextWrapper,
   Info,
+  Error,
   SignUpButton,
 } from "./signup.styels";
 
@@ -45,17 +46,28 @@ export default function SignUpUI(props: any) {
               placeholder="이메일"
               onChange={props.onChangeEmail}
             />
+            <Error>{props.emailError}</Error>
+
             <Info
               type="text"
               placeholder="이름"
               onChange={props.onChangeName}
             />
+            <Error>{props.nameError}</Error>
             <Info
               type="password"
               placeholder="비밀번호"
               onChange={props.onChangePassword}
             />
-            <Info type="password" placeholder="비밀번호확인" />
+            <Error>{props.passwordError}</Error>
+
+            <Info
+              type="password"
+              placeholder="비밀번호확인"
+              onChange={props.onChangeCheckPassword}
+            />
+            <Error>{props.checkPasswordError}</Error>
+
             <SignUpButton onClick={props.onClickRegister}>
               회원가입하기
             </SignUpButton>

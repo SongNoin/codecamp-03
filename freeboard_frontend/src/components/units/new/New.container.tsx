@@ -159,7 +159,7 @@ export default function NewWrite(props) {
         // network 창에 뜨는 graphql 과 짝궁 (여기서 graphql 창이 생김)
         variables: {
           createBoardInput: {
-            writer: myWriter, //이름을 동일하게 줄수도 있음  [키와 밸류가 같으면 생략가능!] ex) writer, 하고 넘어가도 됨
+            writer: myWriter, // 이름을 동일하게 줄수도 있음  [키와 밸류가 같으면 생략가능!] ex) writer, 하고 넘어가도 됨
             password: myPassword,
             title: myTitle,
             contents: myContents,

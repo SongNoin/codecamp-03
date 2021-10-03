@@ -29,7 +29,7 @@ export const SignUpWrapper = styled.div`
   margin-top: 30px;
 `;
 export const TitleWrapper = styled.div`
-  margin-bottom: 30px;
+  margin-top: 30px;
 `;
 export const Title = styled.div`
   font-family: Noto Sans CJK KR;
@@ -68,8 +68,15 @@ export const Info = styled.input`
 
   font-family: Noto Sans CJK KR;
 
-  margin-bottom: 30px;
+  margin-top: 20px;
   padding-left: 20px;
+`;
+
+export const Error = styled.div`
+  font-family: Noto Sans CJK KR;
+  color: red;
+  margin-left: 10px;
+  margin-top: 5px;
 `;
 export const SignUpButton = styled.button`
   width: 420px;
@@ -84,4 +91,9 @@ export const SignUpButton = styled.button`
   border: 0px;
   background-color: #3486ff;
   color: white;
+  margin-top: 30px;
+  cursor: pointer;
+  :hover {
+    background-color: #81d8b1;
+  }
 `;
