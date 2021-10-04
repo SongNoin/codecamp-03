@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   Wrapper,
   CommentsTitle,
@@ -14,7 +16,7 @@ import {
   CommentsCount,
 } from "./comments-write.styles";
 
-export default function CommentsWriteUI(props) {
+export default function CommentsWriteUI(props: any) {
   return (
     <>
       <Wrapper>
@@ -40,7 +42,7 @@ export default function CommentsWriteUI(props) {
             onChange={props.onChangePassword}
           ></PasswordInput>
           <RateWrapper>
-          <RateInput onChange={props.handleChange}/>
+            <RateInput onChange={props.handleChange} />
           </RateWrapper>
         </WriterInfo>
         <CommentsContents>

@@ -17,45 +17,25 @@ export default function SignUp() {
 
   function onChangeEmail(event: any) {
     setMyEmail(event.target.value);
-    if (
-      event.target.value !== "" &&
-      myName !== "" &&
-      myPassword !== "" &&
-      myCheckPassword !== ""
-    ) {
+    if (event.target.value !== "") {
       setEmailError("");
     }
   }
   function onChangeName(event: any) {
     setMyName(event.target.value);
-    if (
-      myEmail !== "" &&
-      event.target.value !== "" &&
-      myPassword !== "" &&
-      myCheckPassword !== ""
-    ) {
+    if (event.target.value !== "") {
       setNameError("");
     }
   }
   function onChangePassword(event: any) {
     setMyPassword(event.target.value);
-    if (
-      myEmail !== "" &&
-      myName !== "" &&
-      event.target.value !== "" &&
-      myCheckPassword !== ""
-    ) {
+    if (event.target.value !== "") {
       setPasswordError("");
     }
   }
   function onChangeCheckPassword(event: any) {
     setMyCheckPassword(event.target.value);
-    if (
-      myEmail !== "" &&
-      myName !== "" &&
-      myPassword !== "" &&
-      event.target.value !== ""
-    ) {
+    if (event.target.value !== "") {
       setCheckPasswordError("");
     }
   }

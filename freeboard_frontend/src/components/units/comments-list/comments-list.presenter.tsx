@@ -1,3 +1,5 @@
+import React from "react";
+
 import CommentsListUIItem from "./comments-list.presenterItem";
 import InfiniteScroll from "react-infinite-scroller";
 

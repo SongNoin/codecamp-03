@@ -1,3 +1,5 @@
+import React, { Component, useState } from "react";
+
 import { useQuery } from "@apollo/client";
 import ListUI from "./List.presenter";
 import {
@@ -6,10 +8,9 @@ import {
   FETCH_BOARDS_OF_THE_BEST,
 } from "./List.queries";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import _ from "lodash";
 
-export default function List(props) {
+export default function List() {
   const [startPage, setStartPage] = useState(1);
   const { data, refetch } = useQuery(FETCH_BOARDS, {
     variables: { page: startPage },

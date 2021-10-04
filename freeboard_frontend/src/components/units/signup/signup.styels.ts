@@ -59,6 +59,7 @@ export const Logo = styled.span`
 export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 60px;
 `;
 export const Info = styled.input`
   width: 420px;

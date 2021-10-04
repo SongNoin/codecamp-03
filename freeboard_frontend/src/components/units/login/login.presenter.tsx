@@ -19,7 +19,7 @@ export default function LoginUI() {
   return (
     <>
       <Wrapper>
-        <Logo src="images/songny2.png" />
+        <Logo src="/images/songny2.png" />
         <Title>로그인하기</Title>
         <TextWrapper>
           <Info type="text" placeholder="이메일" />

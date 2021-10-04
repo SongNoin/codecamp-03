@@ -1,4 +1,6 @@
-import { Wrapper, MainTitle, TitleWrapper, Welcome } from "./main.styles";
+import React from "react";
+
+import { Wrapper, MainTitle } from "./main.styles";
 
 export default function MainUI() {
   return (

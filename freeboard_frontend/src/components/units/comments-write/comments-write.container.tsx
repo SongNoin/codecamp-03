@@ -1,13 +1,12 @@
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import React, { useState } from "react";
 import CommentsWriteUI from "./comments-write.presenter";
 import {
   CREATE_BOARD_COMMENT,
   UPDATE_BOARD_COMMENT,
 } from "./comments-write.queries";
 import { FETCH_BOARD_COMMENTS } from "../comments-list/comments-list.queries";
-
 
 export default function CommentsWrite(props) {
   const router = useRouter();
