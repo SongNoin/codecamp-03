@@ -1,14 +1,34 @@
 import HeaderUI from "./header.presenter";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { GlobalContext } from "../../../../../pages/_app";
+import { FETCH_USER_LOGGED_IN } from "./header.queies";
+import { useQuery } from "@apollo/client";
 
 export default function Header() {
+  const { setUserInfo, userInfo } = useContext(GlobalContext);
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const { data } = useQuery(FETCH_USER_LOGGED_IN);
+
+  useEffect(() => {
+    // if (!accessToken) {
+    //   alert("로그인을 먼저 해주세요.");
+    //   router.push("/quiz/sidequiz/23-01-login");
+    // }
+    if (userInfo.email) return;
+
+    setUserInfo({
+      email: data?.fetchUserLoggedIn.email,
+      name: data?.fetchUserLoggedIn.name,
+      picture: data?.fetchUserLoggedIn.picture,
+    });
+  }, [data]);
 
   function onClickMain() {
     router.push(`/`);
   }
+
   function onClickList() {
     router.push(`/boards/list/`);
   }
@@ -24,6 +44,7 @@ export default function Header() {
   function onTogleLogin() {
     setIsOpen((prev) => !prev);
   }
+
   return (
     <HeaderUI
       onClickMain={onClickMain}
@@ -32,6 +53,7 @@ export default function Header() {
       onClickMoveToSignUp={onClickMoveToSignUp}
       isOpen={isOpen}
       onTogleLogin={onTogleLogin}
+      userInfo={userInfo}
     />
   );
 }

@@ -31,6 +31,7 @@ export const firebaseApp = initializeApp({
 });
 
 export const GlobalContext = createContext(null);
+
 function MyApp({ Component, pageProps }) {
   const [accessToken, setAccessToken] = useState("");
   const [userInfo, setUserInfo] = useState("");
@@ -42,6 +43,7 @@ function MyApp({ Component, pageProps }) {
   };
 
   useEffect(() => {
+    // localStorage.clear();
     const accessToken = localStorage.getItem("accessToken") || "";
     setAccessToken(accessToken);
   });

@@ -24,14 +24,22 @@ export default function HeaderUI(props: any) {
           </MenuWrapper>
         </TitleWrapper>
         <MyWrapper>
-          <My src="/images/login.png" onClick={props.onTogleLogin}></My>
+          {props.userInfo.email && <My src="/images/user.png"></My>}
+          {!props.userInfo.email && (
+            <My src="/images/login.png" onClick={props.onTogleLogin}></My>
+          )}
           {props.isOpen && (
             <Modal visible={true} onCancel={props.onTogleLogin}>
               <LoginPage />
             </Modal>
           )}
           <My src="/images/my.png"></My>
-          <My src="/images/signup.png" onClick={props.onClickMoveToSignUp}></My>
+          {!props.userInfo.email && (
+            <My
+              src="/images/signup.png"
+              onClick={props.onClickMoveToSignUp}
+            ></My>
+          )}
         </MyWrapper>
       </Wrapper>
       <hr />

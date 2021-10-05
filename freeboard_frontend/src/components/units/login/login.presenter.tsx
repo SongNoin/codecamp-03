@@ -15,20 +15,28 @@ import {
   MenuLine,
 } from "./login.styles";
 
-export default function LoginUI() {
+export default function LoginUI(props) {
   return (
     <>
       <Wrapper>
         <Logo src="/images/songny2.png" />
         <Title>로그인하기</Title>
         <TextWrapper>
-          <Info type="text" placeholder="이메일" />
-          <Info type="password" placeholder="비밀번호" />
+          <Info
+            type="text"
+            placeholder="이메일"
+            onChange={props.onChangeEmail}
+          />
+          <Info
+            type="password"
+            placeholder="비밀번호"
+            onChange={props.onChangePassword}
+          />
           <StayWraaper>
             <StayLogin type="checkbox" />
             <StayLoginText>로그인 상태 유지하기</StayLoginText>
           </StayWraaper>
-          <LoginButton>로그인하기</LoginButton>
+          <LoginButton onClick={props.onClickLogin}>로그인하기</LoginButton>
         </TextWrapper>
         <Line />
         <MenuWrapper>
