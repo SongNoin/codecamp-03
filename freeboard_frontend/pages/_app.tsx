@@ -22,7 +22,7 @@ export const GlobalContext = createContext(null);
 
 function MyApp({ Component, pageProps }) {
   const [accessToken, setAccessToken] = useState("");
-  const [userInfo, setUserInfo] = useState("");
+  const [userInfo, setUserInfo] = useState({});
   const value = {
     accesstoken: accessToken,
     setAccessToken: setAccessToken,
@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken") || "";
     setAccessToken(accessToken);
-  });
+  }, []);
 
   const uploadLink = createUploadLink({
     uri: "http://backend03.codebootcamp.co.kr/graphql",
