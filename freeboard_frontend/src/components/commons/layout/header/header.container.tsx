@@ -41,6 +41,9 @@ export default function Header() {
     router.push(`/signup/`);
   }
 
+  function onClickMoveToMarket() {
+    router.push(`/market/market-write`);
+  }
   function onTogleLogin() {
     setIsOpen((prev) => !prev);
   }
@@ -51,6 +54,7 @@ export default function Header() {
       onClickList={onClickList}
       onClickGames={onClickGames}
       onClickMoveToSignUp={onClickMoveToSignUp}
+      onClickMoveToMarket={onClickMoveToMarket}
       isOpen={isOpen}
       onTogleLogin={onTogleLogin}
       userInfo={userInfo}

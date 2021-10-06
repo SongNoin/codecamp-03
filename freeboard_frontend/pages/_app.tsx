@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
   const [accessToken, setAccessToken] = useState("");
   const [userInfo, setUserInfo] = useState({});
   const value = {
-    accesstoken: accessToken,
+    accessToken: accessToken,
     setAccessToken: setAccessToken,
     userInfo: userInfo,
     setUserInfo: setUserInfo,
