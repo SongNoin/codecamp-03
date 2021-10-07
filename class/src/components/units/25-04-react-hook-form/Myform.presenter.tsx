@@ -14,7 +14,7 @@ export default function MyformUI(props) {
       <br />
       <Button01
         name="로그인하기"
-        type="submit"
+        type="submit" 
         isValid={props.formState.isValid}
       />
     </form>

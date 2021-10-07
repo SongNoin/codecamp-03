@@ -29,12 +29,11 @@ import {
   DislikeCount,
   BoardsWrapper,
   ButtonWrapper,
-  ListButton,
-  DeleteButton,
-  EditButton,
   BottomLine,
 } from "./Detail.styles";
 import { Tooltip } from "antd";
+import CommonButton from "../../commons/buttons/01/CommonButton";
+import RedButton from "../../commons/buttons/02/RedButton";
 
 export default function DetailUI(props: any) {
   return (
@@ -121,14 +120,13 @@ export default function DetailUI(props: any) {
         </LikeWrapper>
       </BoardsWrapper>
       <ButtonWrapper>
-        <ListButton onClick={props.onClickList}>목록으로</ListButton>
-        <DeleteButton
+        <CommonButton name="목록으로" onClick={props.onClickList} />
+        <RedButton
           id={props.data?.fetchBoard._id}
           onClick={props.onClickDelete}
-        >
-          삭제하기
-        </DeleteButton>
-        <EditButton onClick={props.onClickMoveToEdit}>수정하기</EditButton>
+          name="삭제하기"
+        />
+        <CommonButton name="수정하기" onClick={props.onClickMoveToEdit} />
       </ButtonWrapper>
       <BottomLine></BottomLine>
     </Wrapper>

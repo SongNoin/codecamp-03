@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import CommonButton from "../../commons/buttons/01/CommonButton";
 
 import {
   Wrapper,
@@ -136,9 +137,7 @@ export default function ListUI(props: any) {
             <img src="/images/listright.png" />
           </ArrowPhoto>
         </PageNumber>
-        <RegisterBoardButton onClick={props.onClickWrite}>
-          ✏ 게시물 등록하기
-        </RegisterBoardButton>
+        <CommonButton name="✏ 게시물 등록하기" onClick={props.onClickWrite} />
       </WrapperFooter>
     </Wrapper>
   );

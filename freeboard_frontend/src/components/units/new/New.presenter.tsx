@@ -27,6 +27,9 @@ import {
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
 import Uploads01 from "../../commons/uploads/01/Uploads01.container";
+import CommonButton from "../../commons/buttons/01/CommonButton";
+import RedButton from "../../commons/buttons/02/RedButton";
+import CommonLabel from "../../commons/texts/01/CommonLabel";
 
 export default function NewWriteUI(props: any) {
   return (
@@ -34,7 +37,7 @@ export default function NewWriteUI(props: any) {
       <Title>{props.isEdit ? "게시물 수정" : "게시물 등록"}</Title>
       <WriterWrapper>
         <TextWrapper>
-          <Label>작성자</Label>
+          <CommonLabel name="작성자" />
           <Writer
             name="writer"
             type="text"
@@ -46,7 +49,7 @@ export default function NewWriteUI(props: any) {
           <Error>{props.writerError}</Error>
         </TextWrapper>
         <TextWrapper>
-          <Label>비밀번호</Label>
+          <CommonLabel name="비밀번호" />
           <Password
             name="password"
             type="password"
@@ -57,7 +60,7 @@ export default function NewWriteUI(props: any) {
         </TextWrapper>
       </WriterWrapper>
       <TextWrapper>
-        <Label>제목</Label>
+        <CommonLabel name="제목" />
         <Subject
           name="subject"
           type="text"
@@ -68,7 +71,7 @@ export default function NewWriteUI(props: any) {
         <Error>{props.titleError}</Error>
       </TextWrapper>
       <TextWrapper>
-        <Label>내용</Label>
+        <CommonLabel name="내용" />
         <Contents
           name="contents"
           placeholder="내용을 작성해주세요."
@@ -78,7 +81,7 @@ export default function NewWriteUI(props: any) {
         <Error>{props.contentsError}</Error>
       </TextWrapper>
       <TextWrapper>
-        <Label>주소</Label>
+        <CommonLabel name="주소" />
         <AddressWrapper>
           <AddressNumber
             name="addressnumber"
@@ -116,7 +119,7 @@ export default function NewWriteUI(props: any) {
         />
       </TextWrapper>
       <TextWrapper>
-        <Label>유튜브</Label>
+        <CommonLabel name="유튜브" />
         <Youtube
           name="youtube"
           placeholder="링크를 복사해주세요."
@@ -125,7 +128,7 @@ export default function NewWriteUI(props: any) {
         />
       </TextWrapper>
       <PhotoWrapper>
-        <Label>사진첨부</Label>
+        <CommonLabel name="유튜브" />
         {/* 
         // 1차 이미지 실습
         {props.fileUrls.map((el, index) => (
@@ -153,26 +156,22 @@ export default function NewWriteUI(props: any) {
         <RadioLabel>사진</RadioLabel>
       </OptionWrapper>
       <ButtonWrapper>
-        <CancelButton onClick={props.onClickList}>취소하기</CancelButton>
+        <RedButton onClick={props.onClickList} name="취소하기" />
 
         {!props.isEdit && (
-          <SubmitButton
-            color={props.color}
+          <CommonButton
             onClick={props.onClickSubmit}
             disabled={!props.color}
-          >
-            등록하기
-          </SubmitButton>
+            name="등록하기"
+          />
         )}
 
         {props.isEdit && (
-          <SubmitButton
-            color={true}
+          <CommonButton
             onClick={props.onClickEdit}
             // disabled={!props.color}
-          >
-            수정하기
-          </SubmitButton>
+            name="수정하기"
+          />
         )}
       </ButtonWrapper>
     </Wrapper>
