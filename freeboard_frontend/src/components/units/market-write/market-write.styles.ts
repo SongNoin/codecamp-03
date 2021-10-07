@@ -33,17 +33,7 @@ export const WrapperBody = styled.div`
 export const InputWrapper = styled.div`
   padding-top: 40px;
 `;
-export const InputName = styled.div`
-  font-family: Noto Sans CJK KR;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  padding-bottom: 16px;
-  /* Black */
 
-  color: #000000;
-`;
 export const DetailWrapper = styled.div`
   padding-top: 40px;
 `;
@@ -137,16 +127,4 @@ export const ButtonWrapper = styled.div`
 
   display: flex;
   justify-content: center;
-`;
-export const UploadButton = styled.button`
-  width: 179px;
-  height: 52px;
-  background: #bdbdbd;
-  border: none;
-  cursor: pointer;
-
-  margin-right: 24px;
-  :hover {
-    background-color: #ffd600;
-  }
 `;

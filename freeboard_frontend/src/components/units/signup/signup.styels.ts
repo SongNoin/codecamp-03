@@ -79,22 +79,3 @@ export const Error = styled.div`
   margin-left: 10px;
   margin-top: 5px;
 `;
-export const SignUpButton = styled.button`
-  width: 420px;
-  height: 52px;
-
-  font-family: Noto Sans CJK KR;
-  font-weight: 600;
-
-  font-size: 20px;
-
-  border-radius: 5px;
-  border: 0px;
-  background-color: #3486ff;
-  color: white;
-  margin-top: 30px;
-  cursor: pointer;
-  :hover {
-    background-color: #81d8b1;
-  }
-`;

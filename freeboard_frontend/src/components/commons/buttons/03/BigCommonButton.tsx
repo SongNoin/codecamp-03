@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 const MyButton = styled.button`
-  width: 179px;
+  width: 420px;
   height: 52px;
   background-image: linear-gradient(
     to right,
@@ -9,7 +9,7 @@ const MyButton = styled.button`
     #35c584 90%,
     #35c584 100%
   );
-  margin: 0px 30px;
+  margin-top: 30px;
   /* padding: 15px 45px; */
   text-align: center;
   text-transform: uppercase;
@@ -32,10 +32,6 @@ const MyButton = styled.button`
   }
 `;
 
-export default function CommonButton(props) {
-  return (
-    <MyButton id={props.id} onClick={props.onClick}>
-      {props.name}
-    </MyButton>
-  );
+export default function BigCommonButton(props) {
+  return <MyButton onClick={props.onClick}> {props.name}</MyButton>;
 }

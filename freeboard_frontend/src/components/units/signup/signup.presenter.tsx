@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BigCommonButton from "../../commons/buttons/03/BigCommonButton";
 
 import {
   Wrapper,
@@ -13,7 +14,6 @@ import {
   TextWrapper,
   Info,
   Error,
-  SignUpButton,
 } from "./signup.styels";
 
 export default function SignUpUI(props: any) {
@@ -68,9 +68,10 @@ export default function SignUpUI(props: any) {
             />
             <Error>{props.checkPasswordError}</Error>
 
-            <SignUpButton onClick={props.onClickRegister}>
-              회원가입하기
-            </SignUpButton>
+            <BigCommonButton
+              name="회원가입하기"
+              onClick={props.onClickRegister}
+            />
           </TextWrapper>
         </SignUpWrapper>
       </Wrapper>

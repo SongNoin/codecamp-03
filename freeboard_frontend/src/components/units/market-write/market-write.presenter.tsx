@@ -1,3 +1,5 @@
+import CommonButton from "../../commons/buttons/01/CommonButton";
+import CommonLabel from "../../commons/texts/01/CommonLabel";
 import {
   Wrapper,
   WrapperHeader,
@@ -5,7 +7,6 @@ import {
   Title,
   WrapperBody,
   InputWrapper,
-  InputName,
   InputText,
   DetailWrapper,
   DetailText,
@@ -26,7 +27,6 @@ import {
   RadioName,
   WrapperFooter,
   ButtonWrapper,
-  UploadButton,
 } from "./market-write.styles";
 
 export default function MarketWriteUI() {
@@ -40,54 +40,60 @@ export default function MarketWriteUI() {
         </WrapperHeader>
         <WrapperBody>
           <InputWrapper>
-            <InputName>상품명</InputName>
+            <CommonLabel name="상품명" />
             <InputText type="text" />
           </InputWrapper>
           <InputWrapper>
-            <InputName>한줄요약</InputName>
+            <CommonLabel name="한줄요약" />
+
             <InputText type="text" />
           </InputWrapper>
           <DetailWrapper>
-            <InputName>상품설명</InputName>
+            <CommonLabel name="상품설명" />
+
             <DetailText />
           </DetailWrapper>
           <InputWrapper>
-            <InputName>판매가격</InputName>
+            <CommonLabel name="판매가격" />
             <InputText type="text" />
           </InputWrapper>
           <InputWrapper>
-            <InputName>태그입력</InputName>
+            <CommonLabel name="태그입력" />
             <InputText type="text" />
           </InputWrapper>
           <MapWrapper>
             <LocationWrapper>
-              <InputName>거래위치</InputName>
+              <CommonLabel name="거래위치" />
+
               <Location></Location>
             </LocationWrapper>
             <AddressWrapper>
               <GPSWrapper>
-                <InputName>GPS</InputName>
+                <CommonLabel name="GPS" />
+
                 <GPSTextWrapper>
                   <GPSText type="text" />
                   <GPSText type="text" />
                 </GPSTextWrapper>
               </GPSWrapper>
               <Address>
-                <InputName>주소</InputName>
+                <CommonLabel name="주소" />
+
                 <AddressText type="text" />
                 <AddressText type="text" />
               </Address>
             </AddressWrapper>
           </MapWrapper>
           <PhotoWrapper>
-            <InputName>사진 첨부</InputName>
+            <CommonLabel name="사진 첨부" />
+
             <ProductPhotoWrapper>
               <ProductPhoto></ProductPhoto>
               <ProductPhoto></ProductPhoto>
             </ProductPhotoWrapper>
           </PhotoWrapper>
           <OptionWrapper>
-            <InputName>메인 사진 설정</InputName>
+            <CommonLabel name="메인사진설정" />
             <Option name="optionradio" type="radio" />
             <RadioName>사진 1</RadioName>
             <Option name="optionradio" type="radio" />
@@ -96,7 +102,7 @@ export default function MarketWriteUI() {
         </WrapperBody>
         <WrapperFooter>
           <ButtonWrapper>
-            <UploadButton>등록하기</UploadButton>
+            <CommonButton name="등록하기" />
           </ButtonWrapper>
         </WrapperFooter>
       </Wrapper>

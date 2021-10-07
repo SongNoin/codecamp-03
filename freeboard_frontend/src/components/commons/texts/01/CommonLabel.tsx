@@ -7,8 +7,6 @@ const MyText = styled.div`
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 16px;
-  /* Black */
-
   color: #000000;
 `;
 

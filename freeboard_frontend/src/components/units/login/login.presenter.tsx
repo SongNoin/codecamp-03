@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BigCommonButton from "../../commons/buttons/03/BigCommonButton";
 import {
   Wrapper,
   Logo,
@@ -9,7 +10,6 @@ import {
   StayWraaper,
   StayLogin,
   StayLoginText,
-  LoginButton,
   MenuWrapper,
   Menu,
   MenuLine,
@@ -36,7 +36,7 @@ export default function LoginUI(props) {
             <StayLogin type="checkbox" />
             <StayLoginText>로그인 상태 유지하기</StayLoginText>
           </StayWraaper>
-          <LoginButton onClick={props.onClickLogin}>로그인하기</LoginButton>
+          <BigCommonButton name="로그인하기" onClick={props.onClickLogin} />
         </TextWrapper>
         <Line />
         <MenuWrapper>

@@ -29,7 +29,7 @@ export default function Login() {
     });
     localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
     setAccessToken(result.data?.loginUser.accessToken);
-    router.push("/");
+    location.reload();
   }
   return (
     <LoginUI

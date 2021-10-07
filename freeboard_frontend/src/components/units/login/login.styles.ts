@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 export const Logo = styled.img`
-  width: 50%;
+  width: 250px;
 `;
 
 export const Title = styled.div`
@@ -14,7 +14,6 @@ export const Title = styled.div`
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
-  margin-bottom: 30px;
 `;
 
 export const TextWrapper = styled.div`
@@ -29,7 +28,7 @@ export const Info = styled.input`
   height: 52px;
   border: 1px solid #bdbdbd;
   border-radius: 5px;
-  margin-bottom: 30px;
+  margin-top: 30px;
   padding-left: 20px;
 
   font-family: Noto Sans CJK KR;
@@ -39,7 +38,7 @@ export const Info = styled.input`
 `;
 
 export const StayWraaper = styled.div`
-  margin-bottom: 30px;
+  margin-top: 30px;
 
   display: flex;
   flex-direction: row;
@@ -55,26 +54,13 @@ export const StayLoginText = styled.div`
   font-weight: 400;
   font-size: 15px;
 `;
-export const LoginButton = styled.button`
-  width: 420px;
-  height: 52px;
-  border-radius: 5px;
-  border: 0px;
-  background-color: #3486ff;
-  color: white;
-  margin-bottom: 30px;
-
-  font-family: Noto Sans CJK KR;
-  font-weight: 600;
-
-  font-size: 20px;
-`;
 export const Line = styled.hr`
   width: 90%;
   border: 1px solid #bdbdbd;
-  margin-bottom: 30px;
+  margin-top: 30px;
 `;
 export const MenuWrapper = styled.div`
+  margin-top: 30px;
   display: flex;
 `;
 export const Menu = styled.div`
