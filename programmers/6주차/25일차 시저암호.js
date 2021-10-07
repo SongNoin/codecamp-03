@@ -15,38 +15,106 @@
 // "a B z"	4	"e F d"
 
 // 내풀이 1 (아스키코드로 시도해보았지만 Z 에서 A로 돌아가기 힘들어서 실패 -> 대문자 소문자 남아서 이중 if문 해주니 성공 다만 너무길다..)
-// 아스키 코드 사용법 
+// 아스키 코드 사용법
 // console.log("az".charCodeAt(1)) 문자를 아스키코드로 변환
 // console.log(String.fromCharCode(65)) 아스키코드를 문자로 변환
 
 function solution(s, n) {
-    let answer = [];
-    let number = [];
-    let result = [];
-    for(let i = 0 ; i < s.length ; i++){
-        number.push(s.charCodeAt(i))
+  let answer = [];
+  let number = [];
+  let result = [];
+  for (let i = 0; i < s.length; i++) {
+    number.push(s.charCodeAt(i));
+  }
+  for (let is = 0; is < number.length; is++) {
+    if (number[is] === 32) {
+      answer.push(32);
+    } else if (97 <= number[is] && number[is] <= 122) {
+      if (number[is] + n > 122) {
+        answer.push(number[is] + n - 26);
+      } else {
+        answer.push(number[is] + n);
+      }
+    } else {
+      if (number[is] + n > 90) {
+        answer.push(number[is] + n - 26);
+      } else {
+        answer.push(number[is] + n);
+      }
     }
-    for(let is= 0 ; is< number.length ; is ++){
-        if(number[is] === 32){
-            answer.push(32)
-        } else if(97<= number[is] && number[is]<=122){
-            if(number[is]+n >122){
-                answer.push (number[is]+n-26)
-            } else{
-                answer.push (number[is]+n)
-            }
-        } else {
-            if(number[is]+n >90){
-                answer.push(number[is]+n-26)
-            } else{
-                answer.push (number[is]+n)
-            }
-        }
+  }
+  for (let iss = 0; iss < answer.length; iss++) {
+    result.push(String.fromCharCode(answer[iss]).toString());
+  }
+  // console.log("az".charCodeAt(1))
+  // console.log(String.fromCharCode(65))
+  return result.join("");
+}
+
+// Reference 1 ( for 반복문 )
+
+const lower = "abcdefghijklmnopqrstuvwxyz"; // 소문자 알파벳만 저장
+const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // 대문자 알파벳만 저장
+
+function solution(s, n) {
+  let result = "";
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === " ") {
+      result += " ";
+    } else {
+      const text = lower.includes(s[i]) ? lower : upper;
+      let index = text.indexOf(s[i]) + n;
+
+      if (index >= 26) {
+        index = index - 26;
+      }
+      result += text[index];
     }
-    for (let iss = 0 ; iss < answer.length ; iss ++){
-        result.push((String.fromCharCode(answer[iss])).toString())
+  }
+
+  return result;
+}
+
+// Reference 2 ( map )
+
+const lower = "abcdefghijklmnopqrstuvwxyz"; // 소문자 알파벳만 저장
+const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // 대문자 알파벳만 저장
+
+function solution(s, n) {
+  const answer = s.split("").map((str) => {
+    if (str === " ") {
+      return " ";
     }
-    // console.log("az".charCodeAt(1))
-    // console.log(String.fromCharCode(65))
-    return result.join("");
+    const text = lower.includes(str) === true ? lower : upper;
+    let index = text.indexOf(str) + n;
+    if (text[index] === undefined) {
+      index = index - 26;
+    }
+    return text[index];
+  });
+  return answer.join("");
+}
+
+// Reference 3 ( charcode )
+
+function solution(s, n) {
+  let result = "";
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === " ") {
+      result += " ";
+    } else {
+      let charcode = s.charCodeAt(i) + n;
+
+      if (charcode > 122 || (charcode > 90 && charcode - n < 97)) {
+        // 소문자 z (122) 이상을 넘어가거나
+        // 대문자 Z (90) 를 넘어가면서
+        // 기존의 charcode 의 값이 소문자일 경우
+        charcode = charcode - 26;
+      }
+      result += String.fromCharCode(charcode);
+    }
+  }
+
+  return result;
 }
