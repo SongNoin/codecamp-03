@@ -1,8 +1,10 @@
 import CommonButton from "../../commons/buttons/01/CommonButton";
+import RedButton from "../../commons/buttons/02/RedButton";
 import {
   Wrapper,
   WrapperHeader,
   UserWrapper,
+  IconWrapper,
   UserInfo,
   UserPhoto,
   InfoWrapper,
@@ -12,13 +14,23 @@ import {
   MapIcon,
   WrapperBody,
   TitleWrapper,
+  Title,
+  SubTitle,
+  MainTitle,
+  LikeWrapper,
+  Heart,
+  LikeCount,
   PriceWrapper,
   PhotoWrapper,
+  ProductPhoto,
+  Contents,
   ContentsWrapper,
   TagWrapper,
+  Tag,
   Line,
   MapWrapper,
-  WrapperFooter,
+  Map,
+  ButtonWrapper,
 } from "./market-detail.styles";
 export default function MarketDetailUI() {
   return (
@@ -27,33 +39,52 @@ export default function MarketDetailUI() {
         <WrapperHeader>
           <UserWrapper>
             <UserInfo>
-              <UserPhoto></UserPhoto>
+              <UserPhoto src="/images/photo.png" />
               <InfoWrapper>
                 <Seller>판매자</Seller>
-                <Date>Date:</Date>
+                <Date>Date :</Date>
               </InfoWrapper>
             </UserInfo>
           </UserWrapper>
-          <InfoWrapper>
-            <LinkIcon>링크</LinkIcon>
-            <MapIcon>맵아이콘</MapIcon>
-          </InfoWrapper>
+          <IconWrapper>
+            <LinkIcon src="/images/link.png" />
+            <MapIcon src="/images/map2.png" />
+          </IconWrapper>
         </WrapperHeader>
+        <Line />
+
         <WrapperBody>
-          <TitleWrapper></TitleWrapper>
-          <PriceWrapper>가격</PriceWrapper>
-          <PhotoWrapper>사진</PhotoWrapper>
-          <ContentsWrapper>내용</ContentsWrapper>
-          <TagWrapper>태그</TagWrapper>
+          <TitleWrapper>
+            <Title>
+              <SubTitle>2019 LTE 32GB</SubTitle>
+              <MainTitle>삼성전자 갤럭시탭A 10.1</MainTitle>
+            </Title>
+            <LikeWrapper>
+              <Heart src="/images/heart.png" />
+              <LikeCount>20</LikeCount>
+            </LikeWrapper>
+          </TitleWrapper>
+          <PriceWrapper>240,120원</PriceWrapper>
+          <PhotoWrapper>
+            <ProductPhoto>물품사진</ProductPhoto>
+          </PhotoWrapper>
+          <ContentsWrapper>
+            <Contents>내용</Contents>
+          </ContentsWrapper>
+          <TagWrapper>
+            <Tag># 태그</Tag>
+          </TagWrapper>
           <Line />
-          <MapWrapper>맵</MapWrapper>
-          <Line />
+          <MapWrapper>
+            <Map>맵</Map>
+          </MapWrapper>
         </WrapperBody>
-        <WrapperFooter>
-          <CommonButton name="목록으로" />
-          <CommonButton name="수정하기" />
-        </WrapperFooter>
       </Wrapper>
+      <ButtonWrapper>
+        <CommonButton name="목록으로" />
+        <RedButton name="삭제하기" />
+        <CommonButton name="수정하기" />
+      </ButtonWrapper>
     </>
   );
 }

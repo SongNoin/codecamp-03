@@ -32,7 +32,6 @@
 
 // 내 풀이 1
 function solution(n, lost, reserve) {
-  let answer = 0;
   let student = [];
   for (let i = 1; i <= n; i++) {
     student.push(i);
