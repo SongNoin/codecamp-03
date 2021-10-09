@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 export const TitleWrapper = styled.div``;
 export const Title = styled.div`
   font-family: Roboto;
@@ -69,7 +70,7 @@ export const BestProductPrice = styled.div`
   color: #000000;
 `;
 export const BestProductLikeWrapper = styled.div``;
-export const BestProductHeart = styled.img`
+export const ProductHeart = styled.img`
   width: 20px;
   height: 19px;
 `;
@@ -150,5 +151,147 @@ export const SearchButton = styled.button`
   color: #ffffff;
   margin-left: 24px;
 `;
-export const ProductListWrapper = styled.div``;
-export const ButtonWrapper = styled.div``;
+export const ProductListWrapper = styled.div`
+  margin-top: 40px;
+`;
+
+export const ProductRow = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const Line = styled.hr`
+  width: 1200px;
+  height: 1px;
+
+  background: #bdbdbd;
+`;
+
+export const ProductWrapperBody = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  margin-top: 20px;
+`;
+export const ProductInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+export const ProductPhoto = styled.div`
+  width: 160px;
+  height: 160px;
+
+  background-color: gray;
+`;
+export const ProductInfo = styled.div`
+  margin-left: 40px;
+  margin-top: 8px;
+`;
+export const ProductTitle = styled.div`
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  /* identical to box height */
+
+  /* Black */
+
+  color: #000000;
+`;
+export const ProductSubTitle = styled.div`
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #4f4f4f;
+`;
+export const ProductTag = styled.div`
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #bdbdbd;
+
+  margin-top: 8px;
+`;
+export const ProductInfoFooter = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 25px;
+`;
+export const ProductSellerPhoto = styled.img`
+  width: 20px;
+  height: 20px;
+`;
+
+export const ProductSellerWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const ProductSeller = styled.div`
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+
+  color: #4f4f4f;
+  margin-left: 6px;
+  margin-bottom: 3px;
+`;
+
+export const ProductLikeWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20px;
+`;
+export const ProductLikeCount = styled.div`
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 6px;
+  margin-bottom: 3px;
+  color: #4f4f4f;
+`;
+export const ProductPriceWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-right: 20px;
+`;
+export const Money = styled.img`
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+`;
+export const ProductPrice = styled.div`
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  /* identical to box height */
+
+  text-align: right;
+
+  /* Black */
+
+  color: #000000;
+`;
+export const ButtonWrapper = styled.div`
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+`;

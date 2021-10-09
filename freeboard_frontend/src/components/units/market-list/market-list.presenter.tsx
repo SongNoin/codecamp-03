@@ -1,4 +1,6 @@
+import CommonButton from "../../commons/buttons/01/CommonButton";
 import {
+  Line,
   Wrapper,
   TitleWrapper,
   Title,
@@ -12,7 +14,6 @@ import {
   BestProductSubTitle,
   BestProductPrice,
   BestProductLikeWrapper,
-  BestProductHeart,
   BestProductLikeCount,
   ProductSearchWrapper,
   MenuWrapper,
@@ -23,10 +24,28 @@ import {
   SearchDate,
   SearchButton,
   ProductListWrapper,
+  ProductRow,
+  ProductWrapperBody,
+  ProductInfoWrapper,
+  ProductPhoto,
+  ProductInfo,
+  ProductTitle,
+  ProductSubTitle,
+  ProductTag,
+  ProductInfoFooter,
+  ProductSellerPhoto,
+  ProductSellerWrapper,
+  ProductSeller,
+  ProductHeart,
+  ProductLikeWrapper,
+  ProductLikeCount,
+  ProductPriceWrapper,
+  Money,
+  ProductPrice,
   ButtonWrapper,
 } from "./market-list.styles";
 
-export default function MarKetListUI() {
+export default function MarKetListUI(props) {
   return (
     <>
       <Wrapper>
@@ -44,7 +63,7 @@ export default function MarKetListUI() {
                   <BestProductPrice>240,120원</BestProductPrice>
                 </BestProductInfo>
                 <BestProductLikeWrapper>
-                  <BestProductHeart src="/images/heart.png" />
+                  <ProductHeart src="/images/heart.png" />
                   <BestProductLikeCount>20</BestProductLikeCount>
                 </BestProductLikeWrapper>
               </BoxFooter>
@@ -62,8 +81,43 @@ export default function MarKetListUI() {
             <SearchButton>검색</SearchButton>
           </SearchWrapper>
         </ProductSearchWrapper>
-        <ProductListWrapper></ProductListWrapper>
-        <ButtonWrapper></ButtonWrapper>
+        <ProductListWrapper>
+          <ProductRow>
+            <Line />
+            <ProductWrapperBody>
+              <ProductInfoWrapper>
+                <ProductPhoto></ProductPhoto>
+                <ProductInfo>
+                  <ProductTitle>삼성전자 갤럭시탭A 10.1</ProductTitle>
+                  <ProductSubTitle>2019 LTE 32GB</ProductSubTitle>
+                  <ProductTag>#삼성전자 #갤럭시탭 #갓성비</ProductTag>
+                  <ProductInfoFooter>
+                    <ProductSellerWrapper>
+                      <ProductSellerPhoto src="/images/photo.png" />
+                      <ProductSeller>판매자</ProductSeller>
+                    </ProductSellerWrapper>
+
+                    <ProductLikeWrapper>
+                      <ProductHeart src="/images/heart.png" />
+                      <ProductLikeCount>20</ProductLikeCount>
+                    </ProductLikeWrapper>
+                  </ProductInfoFooter>
+                </ProductInfo>
+              </ProductInfoWrapper>
+              <ProductPriceWrapper>
+                <Money src="/images/money.png" />
+                <ProductPrice>240,120원</ProductPrice>
+              </ProductPriceWrapper>
+            </ProductWrapperBody>
+          </ProductRow>
+        </ProductListWrapper>
+        <ButtonWrapper>
+          <div />
+          <CommonButton
+            onClick={props.onClickMoveToMarketWrite}
+            name="상품 등록하기"
+          />
+        </ButtonWrapper>
       </Wrapper>
     </>
   );
