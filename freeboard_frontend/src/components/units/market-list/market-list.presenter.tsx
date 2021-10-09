@@ -82,34 +82,35 @@ export default function MarKetListUI(props) {
           </SearchWrapper>
         </ProductSearchWrapper>
         <ProductListWrapper>
-          <ProductRow>
-            <Line />
-            <ProductWrapperBody>
-              <ProductInfoWrapper>
-                <ProductPhoto></ProductPhoto>
-                <ProductInfo>
-                  <ProductTitle>삼성전자 갤럭시탭A 10.1</ProductTitle>
-                  <ProductSubTitle>2019 LTE 32GB</ProductSubTitle>
-                  <ProductTag>#삼성전자 #갤럭시탭 #갓성비</ProductTag>
-                  <ProductInfoFooter>
-                    <ProductSellerWrapper>
-                      <ProductSellerPhoto src="/images/photo.png" />
-                      <ProductSeller>판매자</ProductSeller>
-                    </ProductSellerWrapper>
-
-                    <ProductLikeWrapper>
-                      <ProductHeart src="/images/heart.png" />
-                      <ProductLikeCount>20</ProductLikeCount>
-                    </ProductLikeWrapper>
-                  </ProductInfoFooter>
-                </ProductInfo>
-              </ProductInfoWrapper>
-              <ProductPriceWrapper>
-                <Money src="/images/money.png" />
-                <ProductPrice>240,120원</ProductPrice>
-              </ProductPriceWrapper>
-            </ProductWrapperBody>
-          </ProductRow>
+          {props.data?.fetchUseditems.map((el) => (
+            <ProductRow key={el._id}>
+              <Line />
+              <ProductWrapperBody>
+                <ProductInfoWrapper>
+                  <ProductPhoto></ProductPhoto>
+                  <ProductInfo>
+                    <ProductTitle>{el.name}</ProductTitle>
+                    <ProductSubTitle>{el.remarks}</ProductSubTitle>
+                    <ProductTag>#삼성전자 #갤럭시탭 #갓성비</ProductTag>
+                    <ProductInfoFooter>
+                      <ProductSellerWrapper>
+                        <ProductSellerPhoto src="/images/photo.png" />
+                        <ProductSeller>판매자</ProductSeller>
+                      </ProductSellerWrapper>
+                      <ProductLikeWrapper>
+                        <ProductHeart src="/images/heart.png" />
+                        <ProductLikeCount>20</ProductLikeCount>
+                      </ProductLikeWrapper>
+                    </ProductInfoFooter>
+                  </ProductInfo>
+                </ProductInfoWrapper>
+                <ProductPriceWrapper>
+                  <Money src="/images/money.png" />
+                  <ProductPrice>{el.price}</ProductPrice>
+                </ProductPriceWrapper>
+              </ProductWrapperBody>
+            </ProductRow>
+          ))}
         </ProductListWrapper>
         <ButtonWrapper>
           <div />

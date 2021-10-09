@@ -63,7 +63,7 @@ export default function MarketDetailUI(props) {
               <LikeCount>20</LikeCount>
             </LikeWrapper>
           </TitleWrapper>
-          <PriceWrapper>{props.data?.fetchUseditem.price}</PriceWrapper>
+          <PriceWrapper>{props.data?.fetchUseditem.price} 원</PriceWrapper>
           <PhotoWrapper>
             <ProductPhoto>물품사진</ProductPhoto>
           </PhotoWrapper>

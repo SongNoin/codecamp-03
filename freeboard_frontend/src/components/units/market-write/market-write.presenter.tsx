@@ -101,10 +101,10 @@ export default function MarketWriteUI(props) {
         </WrapperBody>
         <WrapperFooter>
           <ButtonWrapper>
-            {/* <RedButton
+            <RedButton
               onClick={props.onClickMoveToMarketList}
               name="취소하기"
-            /> */}
+            />
             <CommonButton type="submit" name="등록하기" />
           </ButtonWrapper>
         </WrapperFooter>

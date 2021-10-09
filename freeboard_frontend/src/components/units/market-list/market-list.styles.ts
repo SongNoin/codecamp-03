@@ -158,6 +158,8 @@ export const ProductListWrapper = styled.div`
 export const ProductRow = styled.div`
   display: flex;
   flex-direction: column;
+
+  margin-bottom: 20px;
 `;
 export const Line = styled.hr`
   width: 1200px;
@@ -169,9 +171,9 @@ export const Line = styled.hr`
 export const ProductWrapperBody = styled.div`
   display: flex;
   flex-direction: row;
+  margin-top: 20px;
 
   justify-content: space-between;
-  margin-top: 20px;
 `;
 export const ProductInfoWrapper = styled.div`
   display: flex;
