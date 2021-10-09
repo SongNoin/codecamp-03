@@ -32,7 +32,7 @@ import {
   Map,
   ButtonWrapper,
 } from "./market-detail.styles";
-export default function MarketDetailUI() {
+export default function MarketDetailUI(props) {
   return (
     <>
       <Wrapper>
@@ -52,7 +52,6 @@ export default function MarketDetailUI() {
           </IconWrapper>
         </WrapperHeader>
         <Line />
-
         <WrapperBody>
           <TitleWrapper>
             <Title>
@@ -81,7 +80,7 @@ export default function MarketDetailUI() {
         </WrapperBody>
       </Wrapper>
       <ButtonWrapper>
-        <CommonButton name="목록으로" />
+        <CommonButton onClick={props.onClickMoveToMarketList} name="목록으로" />
         <RedButton name="삭제하기" />
         <CommonButton name="수정하기" />
       </ButtonWrapper>

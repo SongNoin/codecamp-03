@@ -8,15 +8,6 @@ export const CREATE_BOARD = gql`
   }
 `;
 
-// createBoard gql
-
-//   mutation createBoard($createBoardInput: CreateBoardInput!) {
-//     createBoard(createBoardInput: $createBoardInput) {
-//       _id
-//     }
-//   }
-// `;
-
 export const UPDATE_BOARD = gql`
   mutation updateBoard(
     $updateBoardInput: UpdateBoardInput!

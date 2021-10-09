@@ -42,6 +42,7 @@ export const DetailText = styled.textarea`
   width: 100%;
   height: 320px;
   border: 1px solid #bdbdbd;
+  padding-top: 10px;
   padding-left: 16px;
   resize: none;
 `;

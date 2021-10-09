@@ -34,7 +34,7 @@ const MyButton = styled.button`
 
 export default function CommonButton(props) {
   return (
-    <MyButton id={props.id} onClick={props.onClick}>
+    <MyButton type={props.type} id={props.id} onClick={props.onClick}>
       {props.name}
     </MyButton>
   );

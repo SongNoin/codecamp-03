@@ -1,4 +1,5 @@
 import CommonButton from "../../commons/buttons/01/CommonButton";
+import RedButton from "../../commons/buttons/02/RedButton";
 import CommonLabel from "../../commons/texts/01/CommonLabel";
 import {
   Wrapper,
@@ -29,9 +30,9 @@ import {
   ButtonWrapper,
 } from "./market-write.styles";
 
-export default function MarketWriteUI() {
+export default function MarketWriteUI(props) {
   return (
-    <>
+    <form onSubmit={props.handleSubmit(props.onClickUploadProduct)}>
       <Wrapper>
         <WrapperHeader>
           <TitleWrapper>
@@ -41,21 +42,19 @@ export default function MarketWriteUI() {
         <WrapperBody>
           <InputWrapper>
             <CommonLabel name="상품명" />
-            <InputText type="text" />
+            <InputText type="text" {...props.register("name")} />
           </InputWrapper>
           <InputWrapper>
             <CommonLabel name="한줄요약" />
-
-            <InputText type="text" />
+            <InputText type="text" {...props.register("remarks")} />
           </InputWrapper>
           <DetailWrapper>
             <CommonLabel name="상품설명" />
-
-            <DetailText />
+            <DetailText {...props.register("contents")} />
           </DetailWrapper>
           <InputWrapper>
             <CommonLabel name="판매가격" />
-            <InputText type="text" />
+            <InputText type="text" {...props.register("price")} />
           </InputWrapper>
           <InputWrapper>
             <CommonLabel name="태그입력" />
@@ -102,10 +101,14 @@ export default function MarketWriteUI() {
         </WrapperBody>
         <WrapperFooter>
           <ButtonWrapper>
-            <CommonButton name="등록하기" />
+            {/* <RedButton
+              onClick={props.onClickMoveToMarketList}
+              name="취소하기"
+            /> */}
+            <CommonButton type="submit" name="등록하기" />
           </ButtonWrapper>
         </WrapperFooter>
       </Wrapper>
-    </>
+    </form>
   );
 }
