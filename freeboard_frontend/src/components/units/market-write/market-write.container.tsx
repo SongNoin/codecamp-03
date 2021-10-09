@@ -3,12 +3,12 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import MarketWriteUI from "./market-write.presenter";
-import { CREATE_USED_ITEM } from "./market-write.queries";
+import { CREATE_USEDITEM } from "./market-write.queries";
 import { schema } from "./market-write.validation";
 
 export default function MarketWrite() {
   const router = useRouter();
-  const [createUseditem] = useMutation(CREATE_USED_ITEM);
+  const [createUseditem] = useMutation(CREATE_USEDITEM);
 
   const { handleSubmit, register, formState } = useForm({
     mode: "onChange",

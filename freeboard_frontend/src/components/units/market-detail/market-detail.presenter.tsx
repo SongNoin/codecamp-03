@@ -55,20 +55,20 @@ export default function MarketDetailUI(props) {
         <WrapperBody>
           <TitleWrapper>
             <Title>
-              <SubTitle>2019 LTE 32GB</SubTitle>
-              <MainTitle>삼성전자 갤럭시탭A 10.1</MainTitle>
+              <SubTitle>{props.data?.fetchUseditem.remarks}</SubTitle>
+              <MainTitle>{props.data?.fetchUseditem.name}</MainTitle>
             </Title>
             <LikeWrapper>
               <Heart src="/images/heart.png" />
               <LikeCount>20</LikeCount>
             </LikeWrapper>
           </TitleWrapper>
-          <PriceWrapper>240,120원</PriceWrapper>
+          <PriceWrapper>{props.data?.fetchUseditem.price}</PriceWrapper>
           <PhotoWrapper>
             <ProductPhoto>물품사진</ProductPhoto>
           </PhotoWrapper>
           <ContentsWrapper>
-            <Contents>내용</Contents>
+            <Contents>{props.data?.fetchUseditem.contents}</Contents>
           </ContentsWrapper>
           <TagWrapper>
             <Tag># 태그</Tag>

@@ -78,7 +78,6 @@ export default function Detail() {
 
   return (
     <DetailUI
-      router={router}
       data={data}
       onClickList={onClickList}
       onClickDelete={onClickDelete}
