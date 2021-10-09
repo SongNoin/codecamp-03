@@ -9,12 +9,17 @@ export default function MarKetList() {
     variables: { page: 1 },
   });
 
+  function onClickMoveToProduct(event) {
+    router.push(`/market/market-detail/${event.currentTarget.id}`);
+  }
+
   function onClickMoveToMarketWrite() {
     router.push("/market/market-write");
   }
   return (
     <MarKetListUI
       data={data}
+      onClickMoveToProduct={onClickMoveToProduct}
       onClickMoveToMarketWrite={onClickMoveToMarketWrite}
     />
   );

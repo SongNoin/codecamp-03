@@ -83,7 +83,11 @@ export default function MarKetListUI(props) {
         </ProductSearchWrapper>
         <ProductListWrapper>
           {props.data?.fetchUseditems.map((el) => (
-            <ProductRow key={el._id}>
+            <ProductRow
+              key={el._id}
+              id={el._id}
+              onClick={props.onClickMoveToProduct}
+            >
               <Line />
               <ProductWrapperBody>
                 <ProductInfoWrapper>
@@ -91,7 +95,7 @@ export default function MarKetListUI(props) {
                   <ProductInfo>
                     <ProductTitle>{el.name}</ProductTitle>
                     <ProductSubTitle>{el.remarks}</ProductSubTitle>
-                    <ProductTag>#삼성전자 #갤럭시탭 #갓성비</ProductTag>
+                    <ProductTag>{el.tags}</ProductTag>
                     <ProductInfoFooter>
                       <ProductSellerWrapper>
                         <ProductSellerPhoto src="/images/photo.png" />

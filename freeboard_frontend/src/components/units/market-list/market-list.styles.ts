@@ -160,6 +160,7 @@ export const ProductRow = styled.div`
   flex-direction: column;
 
   margin-bottom: 20px;
+  cursor: pointer;
 `;
 export const Line = styled.hr`
   width: 1200px;

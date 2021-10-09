@@ -8,6 +8,7 @@ export const FETCH_USEDITEMS = gql`
       remarks
       contents
       price
+      tags
     }
   }
 `;

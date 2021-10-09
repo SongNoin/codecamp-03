@@ -71,6 +71,7 @@ export const MapIcon = styled.img`
   margin-left: 15px;
 `;
 export const WrapperBody = styled.div`
+  width: 792px;
   margin-top: 20px;
 `;
 export const TitleWrapper = styled.div`

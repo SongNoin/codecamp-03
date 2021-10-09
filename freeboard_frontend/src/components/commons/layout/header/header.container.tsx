@@ -42,7 +42,7 @@ export default function Header() {
   }
 
   function onClickMoveToMarket() {
-    router.push(`/market/market-write`);
+    router.push(`/market/market-list`);
   }
   function onTogleLogin() {
     setIsOpen((prev) => !prev);

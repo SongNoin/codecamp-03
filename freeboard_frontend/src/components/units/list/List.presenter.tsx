@@ -37,7 +37,6 @@ import {
   PageNumber,
   ArrowPhoto,
   Page,
-  RegisterBoardButton,
 } from "./List.styles";
 
 export default function ListUI(props: any) {

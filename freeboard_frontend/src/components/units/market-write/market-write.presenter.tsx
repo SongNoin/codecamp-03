@@ -1,6 +1,7 @@
 import CommonButton from "../../commons/buttons/01/CommonButton";
 import RedButton from "../../commons/buttons/02/RedButton";
 import CommonLabel from "../../commons/texts/01/CommonLabel";
+import ErrorText from "../../commons/texts/02/ErrorText";
 import {
   Wrapper,
   WrapperHeader,
@@ -44,21 +45,25 @@ export default function MarketWriteUI(props) {
             <CommonLabel name="상품명" />
             <InputText type="text" {...props.register("name")} />
           </InputWrapper>
+          <ErrorText name={props.formState.errors.name?.message} />
           <InputWrapper>
             <CommonLabel name="한줄요약" />
             <InputText type="text" {...props.register("remarks")} />
+            <ErrorText name={props.formState.errors.remarks?.message} />
           </InputWrapper>
           <DetailWrapper>
             <CommonLabel name="상품설명" />
             <DetailText {...props.register("contents")} />
+            <ErrorText name={props.formState.errors.contents?.message} />
           </DetailWrapper>
           <InputWrapper>
             <CommonLabel name="판매가격" />
             <InputText type="text" {...props.register("price")} />
+            <ErrorText name={props.formState.errors.price?.message} />
           </InputWrapper>
           <InputWrapper>
             <CommonLabel name="태그입력" />
-            <InputText type="text" />
+            <InputText type="text" {...props.register("tags")} />
           </InputWrapper>
           <MapWrapper>
             <LocationWrapper>

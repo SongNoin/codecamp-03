@@ -1,5 +1,6 @@
 import CommonButton from "../../commons/buttons/01/CommonButton";
 import RedButton from "../../commons/buttons/02/RedButton";
+
 import {
   Wrapper,
   WrapperHeader,
@@ -71,7 +72,7 @@ export default function MarketDetailUI(props) {
             <Contents>{props.data?.fetchUseditem.contents}</Contents>
           </ContentsWrapper>
           <TagWrapper>
-            <Tag># 태그</Tag>
+            <Tag>{props.data?.fetchUseditem.tags}</Tag>
           </TagWrapper>
           <Line />
           <MapWrapper>

@@ -37,7 +37,7 @@ export default function MarketWrite() {
     <MarketWriteUI
       handleSubmit={handleSubmit}
       register={register}
-      // formState={formState}
+      formState={formState}
       onClickMoveToMarketList={onClickMoveToMarketList}
       onClickUploadProduct={onClickUploadProduct}
     />
