@@ -31,13 +31,17 @@ import {
   ButtonWrapper,
 } from "./market-write.styles";
 
-export default function MarketWriteUI(props) {
+export default function MarketWriteUI(props: any) {
   return (
-    <form onSubmit={props.handleSubmit(props.onClickUploadProduct)}>
+    <form
+      onSubmit={props.handleSubmit(
+        props.isEdit ? props.onClickUploadProduct : props.onClickUploadProduct
+      )}
+    >
       <Wrapper>
         <WrapperHeader>
           <TitleWrapper>
-            <Title>상품 등록하기</Title>
+            <Title>{props.isEdit ? "상품 수정하기" : "상품 등록하기"}</Title>
           </TitleWrapper>
         </WrapperHeader>
         <WrapperBody>
@@ -110,7 +114,10 @@ export default function MarketWriteUI(props) {
               onClick={props.onClickMoveToMarketList}
               name="취소하기"
             />
-            <CommonButton type="submit" name="등록하기" />
+            <CommonButton
+              type="submit"
+              name={props.isEdit ? "수정하기" : "등록하기"}
+            />
           </ButtonWrapper>
         </WrapperFooter>
       </Wrapper>

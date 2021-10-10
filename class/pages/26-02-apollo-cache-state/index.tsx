@@ -63,10 +63,10 @@ export default function ApolloCacheStatePage() {
     createBoard({
       variables: {
         createBoardInput: {
-          writer: "지구",
+          writer: "테스트",
           password: "123",
-          title: "지구입니다",
-          contents: "지구대학교",
+          title: "테스트제목",
+          contents: "테스트내용",
         },
       },
       update(cache, { data }) {

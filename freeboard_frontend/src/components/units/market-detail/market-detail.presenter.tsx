@@ -83,7 +83,7 @@ export default function MarketDetailUI(props) {
       <ButtonWrapper>
         <CommonButton onClick={props.onClickMoveToMarketList} name="목록으로" />
         <RedButton name="삭제하기" />
-        <CommonButton name="수정하기" />
+        <CommonButton onClick={props.onClickMoveToEdit} name="수정하기" />
       </ButtonWrapper>
     </>
   );

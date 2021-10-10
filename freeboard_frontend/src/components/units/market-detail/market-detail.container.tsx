@@ -14,10 +14,15 @@ export default function MarketDetail() {
   function onClickMoveToMarketList() {
     router.push("/market/market-list");
   }
+
+  function onClickMoveToEdit() {
+    router.push(`/market/market-detail/${router.query.number}/edit`);
+  }
   return (
     <MarketDetailUI
       data={data}
       onClickMoveToMarketList={onClickMoveToMarketList}
+      onClickMoveToEdit={onClickMoveToEdit}
     />
   );
 }

@@ -1,4 +1,4 @@
-import Detail from "../../../../src/components/units/detail/Detail.container";
+import Detail from "../../../../src/components/units/Detail/Detail.container";
 import CommentsWrite from "../../../../src/components/units/comments-write/comments-write.container";
 import CommentsList from "../../../../src/components/units/comments-list/comments-list.container";
 
