@@ -22,8 +22,11 @@ export const Title = styled.div`
 `;
 export const BestProductWrapper = styled.div`
   width: 1200px;
-
   margin-top: 40px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 export const BestProductBox = styled.div`
   width: 282px;
@@ -31,6 +34,7 @@ export const BestProductBox = styled.div`
   background: #ffffff;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  cursor: pointer;
 `;
 export const BestProductPhoto = styled.div`
   width: 242px;
@@ -81,6 +85,7 @@ export const BestProductLikeCount = styled.div`
   font-size: 16px;
   line-height: 24px;
   color: #000000;
+  text-align: center;
 `;
 export const ProductSearchWrapper = styled.div`
   margin-top: 80px;

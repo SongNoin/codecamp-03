@@ -94,7 +94,6 @@ export default function MarketWriteUI(props: any) {
           </MapWrapper>
           <PhotoWrapper>
             <CommonLabel name="사진 첨부" />
-
             <ProductPhotoWrapper>
               <ProductPhoto></ProductPhoto>
               <ProductPhoto></ProductPhoto>

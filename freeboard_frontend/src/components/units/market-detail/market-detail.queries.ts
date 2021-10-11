@@ -9,6 +9,20 @@ export const FETCH_USEDITEM = gql`
       contents
       price
       tags
+      createdAt
+      pickedCount
     }
+  }
+`;
+
+export const DELETE_USEDITEM = gql`
+  mutation deleteUseditem($useditemId: ID!) {
+    deleteUseditem(useditemId: $useditemId)
+  }
+`;
+
+export const TOGGLE_USEDITEM_PICK = gql`
+  mutation toggleUseditemPick($useditemId: ID!) {
+    toggleUseditemPick(useditemId: $useditemId)
   }
 `;

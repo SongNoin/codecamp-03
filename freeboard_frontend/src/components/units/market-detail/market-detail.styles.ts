@@ -105,6 +105,7 @@ export const LikeWrapper = styled.div`
 export const Heart = styled.img`
   width: 30px;
   height: 28px;
+  cursor: pointer;
 `;
 export const LikeCount = styled.div`
   font-family: Noto Sans CJK KR;

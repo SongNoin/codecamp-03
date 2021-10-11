@@ -53,22 +53,30 @@ export default function MarKetListUI(props) {
           <Title>베스트 상품</Title>
         </TitleWrapper>
         <BestProductWrapper>
-          <BestProductBox>
-            <BestProductPhoto></BestProductPhoto>
-            <BoxBody>
-              <BestProductName>삼성전자 갤럭시탭A 10.1</BestProductName>
-              <BoxFooter>
-                <BestProductInfo>
-                  <BestProductSubTitle>2019 LTE 32GB</BestProductSubTitle>
-                  <BestProductPrice>240,120원</BestProductPrice>
-                </BestProductInfo>
-                <BestProductLikeWrapper>
-                  <ProductHeart src="/images/heart.png" />
-                  <BestProductLikeCount>20</BestProductLikeCount>
-                </BestProductLikeWrapper>
-              </BoxFooter>
-            </BoxBody>
-          </BestProductBox>
+          {props.dataUseditemsOfTheBest?.fetchUseditemsOfTheBest.map((el) => (
+            <BestProductBox
+              key={el._id}
+              onClick={props.onClickMoveToProduct}
+              id={el._id}
+            >
+              <BestProductPhoto></BestProductPhoto>
+              <BoxBody>
+                <BestProductName>{el.name}</BestProductName>
+                <BoxFooter>
+                  <BestProductInfo>
+                    <BestProductSubTitle>{el.remarks}</BestProductSubTitle>
+                    <BestProductPrice>{el.price} 원</BestProductPrice>
+                  </BestProductInfo>
+                  <BestProductLikeWrapper>
+                    <ProductHeart src="/images/heart.png" />
+                    <BestProductLikeCount>
+                      {el.pickedCount}
+                    </BestProductLikeCount>
+                  </BestProductLikeWrapper>
+                </BoxFooter>
+              </BoxBody>
+            </BestProductBox>
+          ))}
         </BestProductWrapper>
         <ProductSearchWrapper>
           <MenuWrapper>
@@ -103,7 +111,7 @@ export default function MarKetListUI(props) {
                       </ProductSellerWrapper>
                       <ProductLikeWrapper>
                         <ProductHeart src="/images/heart.png" />
-                        <ProductLikeCount>20</ProductLikeCount>
+                        <ProductLikeCount>{el.pickedCount}</ProductLikeCount>
                       </ProductLikeWrapper>
                     </ProductInfoFooter>
                   </ProductInfo>

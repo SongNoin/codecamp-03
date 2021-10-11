@@ -1,10 +1,16 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import MarKetListUI from "./market-list.presenter";
-import { FETCH_USEDITEMS } from "./market-list.queries";
+import {
+  FETCH_USEDITEMS,
+  FETCH_USEDITEMS_OF_THE_BEST,
+} from "./market-list.queries";
 
 export default function MarKetList() {
   const router = useRouter();
+  const { data: dataUseditemsOfTheBest } = useQuery(
+    FETCH_USEDITEMS_OF_THE_BEST
+  );
   const { data, refetch } = useQuery(FETCH_USEDITEMS, {
     variables: { page: 1 },
   });
@@ -19,6 +25,7 @@ export default function MarKetList() {
   return (
     <MarKetListUI
       data={data}
+      dataUseditemsOfTheBest={dataUseditemsOfTheBest}
       onClickMoveToProduct={onClickMoveToProduct}
       onClickMoveToMarketWrite={onClickMoveToMarketWrite}
     />

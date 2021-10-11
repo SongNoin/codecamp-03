@@ -33,7 +33,7 @@ import {
   Map,
   ButtonWrapper,
 } from "./market-detail.styles";
-export default function MarketDetailUI(props) {
+export default function MarketDetailUI(props: any) {
   return (
     <>
       <Wrapper>
@@ -43,7 +43,11 @@ export default function MarketDetailUI(props) {
               <UserPhoto src="/images/photo.png" />
               <InfoWrapper>
                 <Seller>판매자</Seller>
-                <Date>Date :</Date>
+                <Date>
+                  Date :{" "}
+                  {props.data?.fetchUseditem.createdAt.slice(0, 10) + " "}
+                  {props.data?.fetchUseditem.createdAt.slice(11, 19)}
+                </Date>
               </InfoWrapper>
             </UserInfo>
           </UserWrapper>
@@ -60,8 +64,12 @@ export default function MarketDetailUI(props) {
               <MainTitle>{props.data?.fetchUseditem.name}</MainTitle>
             </Title>
             <LikeWrapper>
-              <Heart src="/images/heart.png" />
-              <LikeCount>20</LikeCount>
+              <Heart
+                src="/images/heart.png"
+                id={props.data?.fetchUseditem._id}
+                onClick={props.onClickToggleUseditemPick}
+              />
+              <LikeCount>{props.data?.fetchUseditem.pickedCount}</LikeCount>
             </LikeWrapper>
           </TitleWrapper>
           <PriceWrapper>{props.data?.fetchUseditem.price} 원</PriceWrapper>
@@ -82,7 +90,11 @@ export default function MarketDetailUI(props) {
       </Wrapper>
       <ButtonWrapper>
         <CommonButton onClick={props.onClickMoveToMarketList} name="목록으로" />
-        <RedButton name="삭제하기" />
+        <RedButton
+          id={props.data?.fetchUseditem._id}
+          onClick={props.onClickDeleteProduct}
+          name="삭제하기"
+        />
         <CommonButton onClick={props.onClickMoveToEdit} name="수정하기" />
       </ButtonWrapper>
     </>
