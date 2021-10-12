@@ -6,7 +6,7 @@ import { FETCH_USER_LOGGED_IN } from "./header.queies";
 import { useQuery } from "@apollo/client";
 
 export default function Header() {
-  const { setUserInfo, userInfo } = useContext(GlobalContext);
+  const { accessToken, setUserInfo } = useContext(GlobalContext);
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
@@ -16,7 +16,7 @@ export default function Header() {
     //   alert("로그인을 먼저 해주세요.");
     //   router.push("/quiz/sidequiz/23-01-login");
     // }
-    if (userInfo.email) return;
+    if (accessToken) return;
 
     setUserInfo({
       email: data?.fetchUserLoggedIn.email,
@@ -57,7 +57,7 @@ export default function Header() {
       onClickMoveToMarket={onClickMoveToMarket}
       isOpen={isOpen}
       onTogleLogin={onTogleLogin}
-      userInfo={userInfo}
+      accessToken={accessToken}
     />
   );
 }

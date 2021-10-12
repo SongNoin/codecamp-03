@@ -15,11 +15,11 @@ export default function RecentWatchBox() {
     bottom: 50px;
     left: 3000px;
 
-    border: 1px solid #bdbdbd;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.1);
   `;
   const Title = styled.div`
     font-family: Noto Sans CJK KR;
@@ -32,10 +32,11 @@ export default function RecentWatchBox() {
   const RecentBox = styled.div`
     width: 156px;
     height: 199px;
-    border: 1px solid #bdbdbd;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.1);
+
     :hover {
       background-color: #81d8b1;
     }

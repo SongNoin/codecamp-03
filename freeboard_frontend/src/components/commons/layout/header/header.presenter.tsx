@@ -27,8 +27,8 @@ export default function HeaderUI(props: any) {
           </MenuWrapper>
         </TitleWrapper>
         <MyWrapper>
-          {props.userInfo.email && <My src="/images/user.png"></My>}
-          {!props.userInfo.email && (
+          {props.accessToken && <My src="/images/user.png"></My>}
+          {!props.accessToken && (
             <My src="/images/login.png" onClick={props.onTogleLogin}></My>
           )}
           {props.isOpen && (
@@ -37,7 +37,7 @@ export default function HeaderUI(props: any) {
             </Modal>
           )}
           <My src="/images/my.png"></My>
-          {!props.userInfo.email && (
+          {!props.accessToken && (
             <My
               src="/images/signup.png"
               onClick={props.onClickMoveToSignUp}
