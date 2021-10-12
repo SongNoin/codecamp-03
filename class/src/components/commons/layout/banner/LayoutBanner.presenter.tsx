@@ -18,12 +18,12 @@ export default function BannerUI(props) {
           </div>
           <div>
             <div>
-              <CardImg src="/images/pinkman.png" />
+              <CardImg src="/images/아이유2.jpg" />
             </div>
           </div>
           <div>
             <div>
-              <CardImg src="/images/lotto.png" />
+              <CardImg src="/images/jungah.png" />
             </div>
           </div>
           <div>
