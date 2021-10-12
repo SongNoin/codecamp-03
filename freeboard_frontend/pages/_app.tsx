@@ -1,4 +1,4 @@
-import React, { createContext, Component, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import "antd/dist/antd.css";
 
 import "slick-carousel/slick/slick.css";

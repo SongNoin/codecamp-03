@@ -1,3 +1,4 @@
+import RecentWatchBox from "../../commons/boxes/01/recentwatchbox";
 import CommonButton from "../../commons/buttons/01/CommonButton";
 import {
   Line,
@@ -132,6 +133,7 @@ export default function MarKetListUI(props) {
           />
         </ButtonWrapper>
       </Wrapper>
+      <RecentWatchBox />
     </>
   );
 }

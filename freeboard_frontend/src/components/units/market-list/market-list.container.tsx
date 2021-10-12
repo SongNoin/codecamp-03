@@ -11,7 +11,7 @@ export default function MarKetList() {
   const { data: dataUseditemsOfTheBest } = useQuery(
     FETCH_USEDITEMS_OF_THE_BEST
   );
-  const { data, refetch } = useQuery(FETCH_USEDITEMS, {
+  const { data } = useQuery(FETCH_USEDITEMS, {
     variables: { page: 1 },
   });
 

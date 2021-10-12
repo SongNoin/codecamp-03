@@ -1,15 +1,17 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 70px 350px 0px 230px;
+  padding-top: 90px;
 `;
 export const PhotoWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  margin-right: 600px;
 `;
 export const PhotoLine = styled.div`
   height: 650px;

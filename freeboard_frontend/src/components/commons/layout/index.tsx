@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import { useRouter } from "next/router";
 
 import styled from "@emotion/styled";
@@ -7,13 +6,16 @@ import Header from "./header/header.container";
 
 const Wrapper = styled.div`
   margin: 0px;
-  width: 1920px;
+  width: 100%;
   display: flex;
   justify-content: center;
 `;
 
 const LayoutWrapper = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Body = styled.div``;
@@ -24,6 +26,7 @@ const Footer = styled.div`
 
 const Navi = styled.div`
   height: 35px;
+  width: 100%;
   background-color: black;
 `;
 
