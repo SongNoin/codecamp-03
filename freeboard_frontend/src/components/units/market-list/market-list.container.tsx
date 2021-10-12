@@ -15,9 +15,33 @@ export default function MarKetList() {
     variables: { page: 1 },
   });
 
-  function onClickMoveToProduct(event) {
+  // function onClickMoveToProduct(event) {
+  //   router.push(`/market/market-detail/${event.currentTarget.id}`);
+  // }
+
+  const onClickMoveToProduct = (el) => (event) => {
     router.push(`/market/market-detail/${event.currentTarget.id}`);
-  }
+
+    const baskets = JSON.parse(localStorage.getItem("baskets")) || [];
+
+    let isExists = false;
+    baskets.forEach((basketEl) => {
+      if (el._id === basketEl._id) isExists = true;
+    });
+    if (isExists) {
+      return;
+    }
+
+    const newEl = { ...el };
+    delete newEl.__typename;
+    baskets.push(newEl);
+
+    if (baskets.length > 3) {
+      baskets.shift();
+    }
+
+    localStorage.setItem("baskets", JSON.stringify(baskets));
+  };
 
   function onClickMoveToMarketWrite() {
     router.push("/market/market-write");

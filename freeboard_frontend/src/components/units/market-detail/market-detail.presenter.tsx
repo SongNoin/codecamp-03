@@ -44,8 +44,7 @@ export default function MarketDetailUI(props: any) {
               <InfoWrapper>
                 <Seller>판매자</Seller>
                 <Date>
-                  Date :{" "}
-                  {props.data?.fetchUseditem.createdAt.slice(0, 10) + " "}
+                  Date :{props.data?.fetchUseditem.createdAt.slice(0, 10) + " "}
                   {props.data?.fetchUseditem.createdAt.slice(11, 19)}
                 </Date>
               </InfoWrapper>

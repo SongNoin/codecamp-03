@@ -1,10 +1,18 @@
 import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
+
 export default function RecentWatchBox() {
+  const [basketItems, setBasketItmes] = useState([]);
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("baskets")) || [];
+    setBasketItmes(items);
+  }, []);
+
   const MyBox = styled.div`
     width: 196px;
-    height: 505px;
     position: sticky;
-    bottom: 500px;
+    bottom: 50px;
     left: 3000px;
 
     border: 1px solid #bdbdbd;
@@ -32,6 +40,7 @@ export default function RecentWatchBox() {
       background-color: #81d8b1;
     }
     cursor: pointer;
+    margin-bottom: 20px;
   `;
   const LikeWrapper = styled.div`
     display: flex;
@@ -66,6 +75,7 @@ export default function RecentWatchBox() {
     font-size: 12px;
     line-height: 18px;
     margin-top: 10px;
+    margin-left: 10px;
   `;
   const Subname = styled.div`
     font-family: Noto Sans CJK KR;
@@ -73,6 +83,7 @@ export default function RecentWatchBox() {
     font-weight: normal;
     font-size: 12px;
     line-height: 18px;
+    margin-left: 10px;
   `;
   const Price = styled.div`
     font-family: Noto Sans CJK KR;
@@ -81,6 +92,7 @@ export default function RecentWatchBox() {
     font-size: 16px;
     line-height: 24px;
     margin-top: 5px;
+    margin-left: 10px;
   `;
   const Tag = styled.div`
     font-family: Noto Sans CJK KR;
@@ -89,36 +101,26 @@ export default function RecentWatchBox() {
     font-size: 10px;
     line-height: 15px;
     margin-top: 8px;
+    margin-left: 10px;
   `;
   return (
     <MyBox>
       <Title>오늘 본 상품</Title>
-      <RecentBox>
-        <LikeWrapper>
-          <Heart src="/images/heart.png" />
-          <LikeCount>20</LikeCount>
-        </LikeWrapper>
-        <ProductWrapper>
-          <Photo></Photo>
-        </ProductWrapper>
-        <Name>삼성전자 갤럭시탭A 10.1</Name>
-        <Subname>2019 LTE 32GB</Subname>
-        <Price>240,120원</Price>
-        <Tag>#삼성전자 #갤럭시탭 #갓성비</Tag>
-      </RecentBox>
-      <RecentBox>
-        <LikeWrapper>
-          <Heart src="/images/heart.png" />
-          <LikeCount>20</LikeCount>
-        </LikeWrapper>
-        <ProductWrapper>
-          <Photo></Photo>
-        </ProductWrapper>
-        <Name>삼성전자 갤럭시탭A 10.1</Name>
-        <Subname>2019 LTE 32GB</Subname>
-        <Price>240,120원</Price>
-        <Tag>#삼성전자 #갤럭시탭 #갓성비</Tag>
-      </RecentBox>
+      {basketItems?.map((el: any) => (
+        <RecentBox key={el._id}>
+          <LikeWrapper>
+            <Heart src="/images/heart.png" />
+            <LikeCount>{el.pickedCount}</LikeCount>
+          </LikeWrapper>
+          <ProductWrapper>
+            <Photo></Photo>
+          </ProductWrapper>
+          <Name>{el.name}</Name>
+          <Subname>{el.remarks}</Subname>
+          <Price>{el.price}</Price>
+          <Tag>{el.tags}</Tag>
+        </RecentBox>
+      ))}
     </MyBox>
   );
 }

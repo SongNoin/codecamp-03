@@ -57,7 +57,7 @@ export default function MarKetListUI(props) {
           {props.dataUseditemsOfTheBest?.fetchUseditemsOfTheBest.map((el) => (
             <BestProductBox
               key={el._id}
-              onClick={props.onClickMoveToProduct}
+              onClick={props.onClickMoveToProduct(el)}
               id={el._id}
             >
               <BestProductPhoto></BestProductPhoto>
@@ -95,7 +95,7 @@ export default function MarKetListUI(props) {
             <ProductRow
               key={el._id}
               id={el._id}
-              onClick={props.onClickMoveToProduct}
+              onClick={props.onClickMoveToProduct(el)}
             >
               <Line />
               <ProductWrapperBody>

@@ -17,10 +17,10 @@ export default function MarketDetail() {
     },
   });
 
-  async function onClickToggleUseditemPick(event) {
+  async function onClickToggleUseditemPick() {
     await toggleUseditemPick({
       variables: {
-        useditemId: event.target.id,
+        useditemId: router.query.number,
       },
       refetchQueries: [
         {
@@ -39,11 +39,11 @@ export default function MarketDetail() {
     router.push(`/market/market-detail/${router.query.number}/edit`);
   }
 
-  async function onClickDeleteProduct(event) {
+  async function onClickDeleteProduct() {
     try {
       await deleteUseditem({
         variables: {
-          useditemId: event.target.id,
+          useditemId: router.query.number,
         },
         refetchQueries: [
           {
