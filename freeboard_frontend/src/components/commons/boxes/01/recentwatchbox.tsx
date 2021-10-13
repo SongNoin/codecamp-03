@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function RecentWatchBox() {
   const [basketItems, setBasketItmes] = useState([]);
-
+  const router = useRouter();
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("baskets")) || [];
     setBasketItmes(items);
@@ -104,11 +105,15 @@ export default function RecentWatchBox() {
     margin-top: 8px;
     margin-left: 10px;
   `;
+
+  function onClickMoveToProduct(event) {
+    router.push(`/market/market-detail/${event.currentTarget.id}`);
+  }
   return (
     <MyBox>
       <Title>오늘 본 상품</Title>
       {basketItems?.map((el: any) => (
-        <RecentBox key={el._id}>
+        <RecentBox key={el._id} id={el._id} onClick={onClickMoveToProduct}>
           <LikeWrapper>
             <Heart src="/images/heart.png" />
             <LikeCount>{el.pickedCount}</LikeCount>

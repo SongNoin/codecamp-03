@@ -1,4 +1,4 @@
-import NewWrite from "../../../../../src/components/units/new/New.container";
+import NewWrite from "../../../../../src/components/units/board/new/New.container";
 import { useRouter } from "next/router";
 import { useQuery, gql } from "@apollo/client";
 
