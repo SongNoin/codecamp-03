@@ -63,7 +63,6 @@ export const LocationWrapper = styled.div``;
 export const Location = styled.div`
   width: 384px;
   height: 252px;
-  background-color: gray;
 `;
 
 export const AddressWrapper = styled.div`
@@ -75,12 +74,12 @@ export const GPSWrapper = styled.div``;
 export const GPSTextWrapper = styled.div``;
 
 export const GPSText = styled.input`
-  width: 108px;
+  width: 180px;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
 
-  margin-right: 56px;
+  margin-right: 30px;
 `;
 
 export const Address = styled.div`

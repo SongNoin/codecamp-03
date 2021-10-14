@@ -76,15 +76,15 @@ export default function MarketWriteUI(props: any) {
             <LocationWrapper>
               <CommonLabel name="거래위치" />
 
-              <Location></Location>
+              <Location id="map"></Location>
             </LocationWrapper>
             <AddressWrapper>
               <GPSWrapper>
                 <CommonLabel name="GPS" />
 
                 <GPSTextWrapper>
-                  <GPSText type="text" />
-                  <GPSText type="text" />
+                  <GPSText type="text" defaultValue={props.myLat} readOnly />
+                  <GPSText type="text" defaultValue={props.myLng} readOnly />
                 </GPSTextWrapper>
               </GPSWrapper>
               <Address>
