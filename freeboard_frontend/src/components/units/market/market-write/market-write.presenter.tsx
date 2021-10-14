@@ -83,8 +83,18 @@ export default function MarketWriteUI(props: any) {
                 <CommonLabel name="GPS" />
 
                 <GPSTextWrapper>
-                  <GPSText type="text" defaultValue={props.myLat} readOnly />
-                  <GPSText type="text" defaultValue={props.myLng} readOnly />
+                  <GPSText
+                    type="text"
+                    value={props.myLat}
+                    
+                    readOnly
+                  />
+                  <GPSText
+                    type="text"
+                    value={props.myLng}
+                    
+                    readOnly
+                  />
                 </GPSTextWrapper>
               </GPSWrapper>
               <Address>

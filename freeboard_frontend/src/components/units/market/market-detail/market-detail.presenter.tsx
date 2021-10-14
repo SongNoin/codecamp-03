@@ -34,7 +34,10 @@ import {
   Map,
   ButtonWrapper,
 } from "./market-detail.styles";
+
+
 export default function MarketDetailUI(props: any) {
+
   return (
     <>
       <Wrapper>
@@ -92,7 +95,7 @@ export default function MarketDetailUI(props: any) {
           </TagWrapper>
           <Line />
           <MapWrapper>
-            <Map>맵</Map>
+            <Map id="map"></Map>
           </MapWrapper>
         </WrapperBody>
       </Wrapper>

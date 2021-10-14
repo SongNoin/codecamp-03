@@ -22,5 +22,4 @@ export const schema = yup.object().shape({
     .positive("판매가격은 0보다 큽니다.")
     .required("판매가격을 반드시 입력해주세요!"),
   tags: yup.string(),
-  images: yup.string(),
 });

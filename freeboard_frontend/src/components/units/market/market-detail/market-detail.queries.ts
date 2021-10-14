@@ -14,6 +14,10 @@ export const FETCH_USEDITEM = gql`
       seller {
         name
       }
+      useditemAddress {
+        lat
+        lng
+      }
     }
   }
 `;
