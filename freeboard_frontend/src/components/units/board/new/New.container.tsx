@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import { useState } from "react";
 
 import NewWriteUI from "./New.presenter";
 import { useRouter } from "next/router";

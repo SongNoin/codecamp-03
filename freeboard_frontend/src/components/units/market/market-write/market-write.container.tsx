@@ -58,7 +58,13 @@ export default function MarketWrite(props) {
     try {
       const result = await updateUseditem({
         variables: {
-          updateUseditemInput: { ...data },
+          updateUseditemInput: {
+            ...data,
+            // useditemAddress: {
+            //   lat: myLat,
+            //   lng: myLng,
+            // },
+          },
           useditemId: router.query.number,
         },
       });
