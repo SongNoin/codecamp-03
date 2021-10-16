@@ -89,6 +89,7 @@ export default function CommentsWrite(props) {
       console.log(error.message);
     }
   }
+
   return (
     <CommentsWriteUI
       onChangeWriter={onChangeWriter}
@@ -99,6 +100,7 @@ export default function CommentsWrite(props) {
       onClickEdit={onClickEdit}
       el={props.el}
       handleChange={handleChange}
+
     />
   );
 }

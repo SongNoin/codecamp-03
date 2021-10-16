@@ -1,3 +1,4 @@
+import SmallCommonButton from "../../../commons/buttons/04/SmallCommonButton";
 import {
   Wrapper,
   TitleWrapper,
@@ -7,7 +8,6 @@ import {
   CommentInput,
   CommentInfo,
   CommentCountInput,
-  RegisterButton,
 } from "./market-comments-write.styles";
 
 export default function MarketCommentsWriteUI(props) {
@@ -24,16 +24,15 @@ export default function MarketCommentsWriteUI(props) {
           <CommentInput onChange={props.onChangeContents}></CommentInput>
           <CommentInfo>
             <CommentCountInput></CommentCountInput>
-            <RegisterButton
+            <SmallCommonButton
               onClick={
                 props.isQuestionEdit
                   ? props.onClickUpdateQuestion
                   : props.onClickRegisterComment
               }
               id={props.el?._id}
-            >
-              {props.isQuestionEdit ? "수정하기" : "문의하기"}
-            </RegisterButton>
+              name={props.isQuestionEdit ? "수정하기" : "문의하기"}
+            />
           </CommentInfo>
         </InputCommentBox>
       </Wrapper>

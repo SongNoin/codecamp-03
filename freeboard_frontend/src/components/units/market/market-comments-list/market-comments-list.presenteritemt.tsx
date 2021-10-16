@@ -9,16 +9,25 @@ import {
   CreatedAt,
   ButtonWrapper,
   Button,
+  LineWrapper,
   Line,
 } from "./market-comments-list.styles";
 import { useState } from "react";
+
 import MarketCommentsWrite from "../market-comments-write/market-comments-write.container";
+import MarketAnswerWrite from "../market-answer-write/market-answer-write.container";
+import MarketAnswerList from "../market-answer-list/market-answer-list.container";
 
 export default function MarketCommentListItemUI(props) {
   const [isQuestionEdit, setIsQuestionEdit] = useState(false);
+  const [isOpenAnswer, serIsOpenAnswer] = useState(false);
 
   function onClickUpdate() {
     setIsQuestionEdit(true);
+  }
+
+  function onClickOpenAnswer() {
+    serIsOpenAnswer(true);
   }
   return (
     <>
@@ -37,7 +46,7 @@ export default function MarketCommentListItemUI(props) {
               </UserInfo>
             </UserInfoWrapper>
             <ButtonWrapper>
-              <Button src="/images/comment.png" />
+              <Button onClick={onClickOpenAnswer} src="/images/comment.png" />
               <Button onClick={onClickUpdate} src="/images/editicon.png" />
               <Button
                 onClick={props.onClickDelete(props.el?._id)}
@@ -46,9 +55,10 @@ export default function MarketCommentListItemUI(props) {
               />
             </ButtonWrapper>
           </CommentWrapper>
-          <Line />
         </Wrapper>
       )}
+      <MarketAnswerList el={props.el} />
+
       {isQuestionEdit && (
         <MarketCommentsWrite
           isQuestionEdit={isQuestionEdit}
@@ -56,6 +66,10 @@ export default function MarketCommentListItemUI(props) {
           el={props.el}
         />
       )}
+      {isOpenAnswer && <MarketAnswerWrite el={props.el} />}
+      <LineWrapper>
+        <Line />
+      </LineWrapper>
     </>
   );
 }
