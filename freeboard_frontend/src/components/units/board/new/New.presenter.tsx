@@ -128,7 +128,7 @@ export default function NewWriteUI(props: any) {
         />
       </TextWrapper>
       <PhotoWrapper>
-        <CommonLabel name="유튜브" />
+        <CommonLabel name="사진" />
         {/* 
         // 1차 이미지 실습
         {props.fileUrls.map((el, index) => (
@@ -157,7 +157,6 @@ export default function NewWriteUI(props: any) {
       </OptionWrapper>
       <ButtonWrapper>
         <RedButton onClick={props.onClickList} name="취소하기" />
-
         {!props.isEdit && (
           <CommonButton
             onClick={props.onClickSubmit}
@@ -165,7 +164,6 @@ export default function NewWriteUI(props: any) {
             name="등록하기"
           />
         )}
-
         {props.isEdit && (
           <CommonButton
             onClick={props.onClickEdit}

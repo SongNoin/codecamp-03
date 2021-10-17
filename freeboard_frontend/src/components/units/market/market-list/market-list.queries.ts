@@ -13,6 +13,7 @@ export const FETCH_USEDITEMS = gql`
       seller {
         name
       }
+      images
     }
   }
 `;
@@ -25,6 +26,7 @@ export const FETCH_USEDITEMS_OF_THE_BEST = gql`
       remarks
       price
       pickedCount
+      images
     }
   }
 `;

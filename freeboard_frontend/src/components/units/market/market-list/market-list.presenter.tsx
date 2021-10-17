@@ -60,7 +60,9 @@ export default function MarKetListUI(props) {
               onClick={props.onClickMoveToProduct(el)}
               id={el._id}
             >
-              <BestProductPhoto></BestProductPhoto>
+              <BestProductPhoto
+                src={`https://storage.googleapis.com/${el.images[0]}`}
+              />
               <BoxBody>
                 <BestProductName>{el.name}</BestProductName>
                 <BoxFooter>
@@ -100,7 +102,9 @@ export default function MarKetListUI(props) {
               <Line />
               <ProductWrapperBody>
                 <ProductInfoWrapper>
-                  <ProductPhoto></ProductPhoto>
+                  <ProductPhoto
+                    src={`https://storage.googleapis.com/${el?.images[0]}`}
+                  />
                   <ProductInfo>
                     <ProductTitle>{el.name}</ProductTitle>
                     <ProductSubTitle>{el.remarks}</ProductSubTitle>

@@ -18,6 +18,7 @@ export const FETCH_USEDITEM = gql`
         lat
         lng
       }
+      images
     }
   }
 `;

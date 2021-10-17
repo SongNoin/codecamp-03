@@ -35,9 +35,7 @@ import {
   ButtonWrapper,
 } from "./market-detail.styles";
 
-
 export default function MarketDetailUI(props: any) {
-
   return (
     <>
       <Wrapper>
@@ -77,7 +75,14 @@ export default function MarketDetailUI(props: any) {
           </TitleWrapper>
           <PriceWrapper>{props.data?.fetchUseditem.price} 원</PriceWrapper>
           <PhotoWrapper>
-            <ProductPhoto>물품사진</ProductPhoto>
+            {props.data?.fetchUseditem.images
+              ?.filter((el) => el)
+              .map((el) => (
+                <ProductPhoto
+                  key={el}
+                  src={`https://storage.googleapis.com/${el}`}
+                />
+              ))}
           </PhotoWrapper>
           <ContentsWrapper>
             {process.browser && (

@@ -131,13 +131,15 @@ export const PriceWrapper = styled.div`
 `;
 export const PhotoWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-top: 80px;
+  align-items: center;
+  margin-top: 40px;
 `;
-export const ProductPhoto = styled.div`
+export const ProductPhoto = styled.img`
   width: 384px;
   height: 384px;
-  background-color: gray;
+  margin-top: 80px;
 `;
 export const ContentsWrapper = styled.div`
   margin-top: 80px;

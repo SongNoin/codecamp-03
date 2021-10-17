@@ -103,13 +103,6 @@ export const ProductPhotoWrapper = styled.div`
   display: flex;
 `;
 
-export const ProductPhoto = styled.div`
-  width: 180px;
-  height: 180px;
-  background-color: gray;
-  margin-right: 24px;
-`;
-
 export const OptionWrapper = styled.div`
   padding-top: 40px;
 `;

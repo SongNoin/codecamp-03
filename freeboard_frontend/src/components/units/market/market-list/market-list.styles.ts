@@ -39,7 +39,7 @@ export const BestProductBox = styled.div`
     background-color: #81d8b1;
   }
 `;
-export const BestProductPhoto = styled.div`
+export const BestProductPhoto = styled.img`
   width: 242px;
   height: 242px;
   background-color: gray;
@@ -188,11 +188,9 @@ export const ProductInfoWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
-export const ProductPhoto = styled.div`
+export const ProductPhoto = styled.img`
   width: 160px;
   height: 160px;
-
-  background-color: gray;
 `;
 export const ProductInfo = styled.div`
   margin-left: 40px;

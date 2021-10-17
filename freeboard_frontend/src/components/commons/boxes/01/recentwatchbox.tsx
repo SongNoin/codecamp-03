@@ -65,7 +65,7 @@ export default function RecentWatchBox() {
     flex-direction: column;
     align-items: center;
   `;
-  const Photo = styled.div`
+  const Photo = styled.img`
     width: 60px;
     height: 60px;
     background-color: gray;
@@ -119,7 +119,7 @@ export default function RecentWatchBox() {
             <LikeCount>{el.pickedCount}</LikeCount>
           </LikeWrapper>
           <ProductWrapper>
-            <Photo></Photo>
+            <Photo src={`https://storage.googleapis.com/${el?.images[0]}`} />
           </ProductWrapper>
           <Name>{el.name}</Name>
           <Subname>{el.remarks}</Subname>

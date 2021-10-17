@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import MarketWriteUI from "./market-write.presenter";
 import { CREATE_USEDITEM, UPDATE_USEDITEM } from "./market-write.queries";
 import { schema } from "./market-write.validation";
+import { UPLOAD_FILE } from "../../../commons/uploads/02/Uploads02.queries";
 
 declare const window: typeof globalThis & {
   kakao: any;
@@ -15,8 +16,10 @@ export default function MarketWrite(props) {
   const router = useRouter();
   const [createUseditem] = useMutation(CREATE_USEDITEM);
   const [updateUseditem] = useMutation(UPDATE_USEDITEM);
-  const [myLat, setMyLat] = useState("");
-  const [myLng, setMyLng] = useState("");
+  const [uploadFile] = useMutation(UPLOAD_FILE);
+  const [myLat, setMyLat] = useState(null);
+  const [myLng, setMyLng] = useState(null);
+  const [files, setFiles] = useState([null, null, null]);
 
   const { handleSubmit, register, setValue, trigger, formState } = useForm({
     mode: "onChange",
@@ -33,8 +36,20 @@ export default function MarketWrite(props) {
     router.push("/market/market-list");
   }
 
+  function onChangeFiles(file, index) {
+    const newFiles = [...files];
+    newFiles[index] = file;
+    setFiles(newFiles);
+  }
+
   async function onClickUploadProduct(data) {
     try {
+      const uploadFiles = files
+        .filter((el) => el)
+        .map((el) => uploadFile({ variables: { file: el } }));
+      const results = await Promise.all(uploadFiles);
+      const myImages = results.map((el) => el.data.uploadFile.url);
+
       const result = await createUseditem({
         variables: {
           createUseditemInput: {
@@ -43,6 +58,7 @@ export default function MarketWrite(props) {
               lat: myLat,
               lng: myLng,
             },
+            images: myImages,
           },
         },
       });
@@ -60,10 +76,10 @@ export default function MarketWrite(props) {
         variables: {
           updateUseditemInput: {
             ...data,
-            // useditemAddress: {
-            //   lat: myLat,
-            //   lng: myLng,
-            // },
+            useditemAddress: {
+              lat: myLat,
+              lng: myLng,
+            },
           },
           useditemId: router.query.number,
         },
@@ -155,6 +171,7 @@ export default function MarketWrite(props) {
       onClickUploadProduct={onClickUploadProduct}
       onClickUpdateProduct={onClickUpdateProduct}
       onChangeMyContents={onChangeMyContents}
+      onChangeFiles={onChangeFiles}
       isEdit={props.isEdit}
       modules={modules}
       myLat={myLat}

@@ -2,6 +2,7 @@ import CommonButton from "../../../commons/buttons/01/CommonButton";
 import RedButton from "../../../commons/buttons/02/RedButton";
 import CommonLabel from "../../../commons/texts/01/CommonLabel";
 import ErrorText from "../../../commons/texts/02/ErrorText";
+import Uploads02 from "../../../commons/uploads/02/Uploads02.container";
 import {
   Wrapper,
   WrapperHeader,
@@ -23,7 +24,6 @@ import {
   AddressText,
   PhotoWrapper,
   ProductPhotoWrapper,
-  ProductPhoto,
   OptionWrapper,
   Option,
   RadioName,
@@ -75,31 +75,18 @@ export default function MarketWriteUI(props: any) {
           <MapWrapper>
             <LocationWrapper>
               <CommonLabel name="거래위치" />
-
               <Location id="map"></Location>
             </LocationWrapper>
             <AddressWrapper>
               <GPSWrapper>
                 <CommonLabel name="GPS" />
-
                 <GPSTextWrapper>
-                  <GPSText
-                    type="text"
-                    value={props.myLat}
-                    
-                    readOnly
-                  />
-                  <GPSText
-                    type="text"
-                    value={props.myLng}
-                    
-                    readOnly
-                  />
+                  <GPSText type="text" value={props.myLat} readOnly />
+                  <GPSText type="text" value={props.myLng} readOnly />
                 </GPSTextWrapper>
               </GPSWrapper>
               <Address>
                 <CommonLabel name="주소" />
-
                 <AddressText type="text" />
                 <AddressText type="text" />
               </Address>
@@ -108,8 +95,13 @@ export default function MarketWriteUI(props: any) {
           <PhotoWrapper>
             <CommonLabel name="사진 첨부" />
             <ProductPhotoWrapper>
-              <ProductPhoto></ProductPhoto>
-              <ProductPhoto></ProductPhoto>
+              {new Array(3).fill(1).map((el, index) => (
+                <Uploads02
+                  key={`${el}_${index}`}
+                  index={index}
+                  onChangeFiles={props.onChangeFiles}
+                />
+              ))}
             </ProductPhotoWrapper>
           </PhotoWrapper>
           <OptionWrapper>

@@ -1,17 +1,14 @@
-import Uploads01UI from "./Uploads01.presenter";
-// import { UPLOAD_FILE } from "./Uploads01.queries";
 import { useRef, useState } from "react";
-// import { useMutation } from "@apollo/client";
+import Uploads02UI from "./Uploads02.presenter";
 
-export default function Uploads01(props) {
-  // const [uploadFile] = useMutation(UPLOAD_FILE);
+export default function Uploads02(props) {
   const fileRef = useRef(null);
   const [fileUrl, setFileUrl] = useState("");
 
   function onClickUploadImage() {
     fileRef.current?.click();
   }
-  async function onChangeImage(event) {
+  function onChangeImage(event) {
     const file = event.target.files[0];
     if (!file) {
       alert("파일이 없습니다!");
@@ -25,26 +22,19 @@ export default function Uploads01(props) {
       alert("jpeg 또는 png만 업로드 가능합니다.");
       return;
     }
-    // * 이미지 1차
-    // const result = await uploadFile({
-    //   variables: {
-    //     file,
-    //   },
-    // });
-    // props.onChangeFileUrls(result.data.uploadFile.url, props.index);
+
     const fileReader = new FileReader();
     fileReader.readAsDataURL(file);
     fileReader.onload = (data: any) => {
-      setFileUrl(data.target?.result);
+      setFileUrl(data.target.result);
       props.onChangeFiles(file, props.index);
     };
   }
 
   return (
-    <Uploads01UI
-      fileRef={fileRef}
-      // fileUrl={props.fileUrl}
+    <Uploads02UI
       fileUrl={fileUrl}
+      fileRef={fileRef}
       defaultFileUrl={props.defaultFileUrl}
       onClickUploadImage={onClickUploadImage}
       onChangeImage={onChangeImage}

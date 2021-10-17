@@ -51,11 +51,11 @@ function solution(board, moves) {
   return result;
 }
 
-// 배운점
+//* 배운점
 // 1. 배열의 값을 새로 선언해주면 배열의 값이 바뀐다. ex) board[is][moves[i]-1] = 0
 // 2. 배열을 삭제하는방법 .slice() , .splice() , .pop()
 
-// Reference 1 ( for 반복문 )
+//* Reference 1 ( for 반복문 )
 
 function solution(board, moves) {
   let answer = 0;
@@ -88,7 +88,7 @@ function solution(board, moves) {
   return answer;
 }
 
-// Reference 2 ( forEach )
+//* Reference 2 ( forEach )
 
 function solution(board, moves) {
   let answer = 0;
