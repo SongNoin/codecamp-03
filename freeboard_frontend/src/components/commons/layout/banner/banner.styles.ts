@@ -6,7 +6,9 @@ export const Wrapper = styled.div`
   /* background-color: yellowgreen; */
 `;
 
-export const CareselWrapper = styled.div``;
+export const CareselWrapper = styled.div`
+  width: 100%;
+`;
 
 export const CardImg = styled.img`
   width: 100%;

@@ -1,4 +1,4 @@
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
@@ -7,6 +7,7 @@ import MarketWriteUI from "./market-write.presenter";
 import { CREATE_USEDITEM, UPDATE_USEDITEM } from "./market-write.queries";
 import { schema } from "./market-write.validation";
 import { UPLOAD_FILE } from "../../../commons/uploads/02/Uploads02.queries";
+import { FETCH_USEDITEM } from "../market-detail/market-detail.queries";
 
 declare const window: typeof globalThis & {
   kakao: any;
@@ -17,6 +18,11 @@ export default function MarketWrite(props) {
   const [createUseditem] = useMutation(CREATE_USEDITEM);
   const [updateUseditem] = useMutation(UPDATE_USEDITEM);
   const [uploadFile] = useMutation(UPLOAD_FILE);
+  const { data } = useQuery(FETCH_USEDITEM, {
+    variables: {
+      useditemId: router.query.number,
+    },
+  });
   const [myLat, setMyLat] = useState(null);
   const [myLng, setMyLng] = useState(null);
   const [files, setFiles] = useState([null, null, null]);
@@ -72,6 +78,12 @@ export default function MarketWrite(props) {
 
   async function onClickUpdateProduct(data) {
     try {
+      const uploadFiles = files
+        .filter((el) => el)
+        .map((el) => uploadFile({ variables: { file: el } }));
+      const results = await Promise.all(uploadFiles);
+      const myImages = results.map((el) => el.data.uploadFile.url);
+
       const result = await updateUseditem({
         variables: {
           updateUseditemInput: {
@@ -80,6 +92,7 @@ export default function MarketWrite(props) {
               lat: myLat,
               lng: myLng,
             },
+            images: myImages,
           },
           useditemId: router.query.number,
         },
@@ -176,6 +189,7 @@ export default function MarketWrite(props) {
       modules={modules}
       myLat={myLat}
       myLng={myLng}
+      data={data}
     />
   );
 }

@@ -47,12 +47,20 @@ export default function MarketWriteUI(props: any) {
         <WrapperBody>
           <InputWrapper>
             <CommonLabel name="상품명" />
-            <InputText type="text" {...props.register("name")} />
+            <InputText
+              type="text"
+              {...props.register("name")}
+              defaultValue={props.data?.fetchUseditem.name}
+            />
           </InputWrapper>
           <ErrorText name={props.formState.errors.name?.message} />
           <InputWrapper>
             <CommonLabel name="한줄요약" />
-            <InputText type="text" {...props.register("remarks")} />
+            <InputText
+              type="text"
+              {...props.register("remarks")}
+              defaultValue={props.data?.fetchUseditem.remarks}
+            />
             <ErrorText name={props.formState.errors.remarks?.message} />
           </InputWrapper>
           <DetailWrapper>
@@ -60,17 +68,26 @@ export default function MarketWriteUI(props: any) {
             <DetailText
               onChange={props.onChangeMyContents}
               modules={props.modules}
+              defaultValue={props.data?.fetchUseditem.contents}
             />
           </DetailWrapper>
           <ErrorText name={props.formState.errors.contents?.message} />
           <InputWrapper>
             <CommonLabel name="판매가격" />
-            <InputText type="text" {...props.register("price")} />
+            <InputText
+              type="text"
+              {...props.register("price")}
+              defaultValue={props.data?.fetchUseditem.price}
+            />
             <ErrorText name={props.formState.errors.price?.message} />
           </InputWrapper>
           <InputWrapper>
             <CommonLabel name="태그입력" />
-            <InputText type="text" {...props.register("tags")} />
+            <InputText
+              type="text"
+              {...props.register("tags")}
+              defaultValue={props.data?.fetchUseditem.tags}
+            />
           </InputWrapper>
           <MapWrapper>
             <LocationWrapper>
@@ -100,6 +117,7 @@ export default function MarketWriteUI(props: any) {
                   key={`${el}_${index}`}
                   index={index}
                   onChangeFiles={props.onChangeFiles}
+                  defaultFileUrl={props.data?.fetchUseditem.images?.[index]}
                 />
               ))}
             </ProductPhotoWrapper>
