@@ -28,6 +28,7 @@ export const UploadImageHidden = styled.input`
 export const UploadImage = styled.img`
   width: 180px;
   height: 180px;
+  margin-right: 24px;
 
   cursor: pointer;
 `;

@@ -20,8 +20,6 @@ import {
   OptionRadio,
   RadioLabel,
   ButtonWrapper,
-  CancelButton,
-  SubmitButton,
   Error,
 } from "./New.styels";
 import { Modal } from "antd";

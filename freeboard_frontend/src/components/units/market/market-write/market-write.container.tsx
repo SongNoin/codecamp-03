@@ -25,6 +25,9 @@ export default function MarketWrite(props) {
   });
   const [myLat, setMyLat] = useState(null);
   const [myLng, setMyLng] = useState(null);
+  // const [myAddress, setMyAddress] = useState("");
+  // const [myAddressDetail, setMyAddressDetail] = useState("");
+
   const [files, setFiles] = useState([null, null, null]);
 
   const { handleSubmit, register, setValue, trigger, formState } = useForm({
@@ -48,6 +51,9 @@ export default function MarketWrite(props) {
     setFiles(newFiles);
   }
 
+  // function onChangeAddress(event) {
+  //   setMyAddress(event.target.value);
+  // }
   async function onClickUploadProduct(data) {
     try {
       const uploadFiles = files
@@ -184,6 +190,7 @@ export default function MarketWrite(props) {
       onClickUploadProduct={onClickUploadProduct}
       onClickUpdateProduct={onClickUpdateProduct}
       onChangeMyContents={onChangeMyContents}
+      // onChangeAddress={onChangeAddress}
       onChangeFiles={onChangeFiles}
       isEdit={props.isEdit}
       modules={modules}

@@ -7,6 +7,7 @@ import {
   FETCH_USEDITEM,
   DELETE_USEDITEM,
   TOGGLE_USEDITEM_PICK,
+  CREATEPOINTTRANSACTIONOFBUYINGANDSELLING,
 } from "./market-detail.queries";
 
 declare const window: typeof globalThis & {
@@ -17,6 +18,9 @@ export default function MarketDetail() {
 
   const [deleteUseditem] = useMutation(DELETE_USEDITEM);
   const [toggleUseditemPick] = useMutation(TOGGLE_USEDITEM_PICK);
+  const [createPointTransactionOfBuyingAndSelling] = useMutation(
+    CREATEPOINTTRANSACTIONOFBUYINGANDSELLING
+  );
   const { data } = useQuery(FETCH_USEDITEM, {
     variables: {
       useditemId: router.query.number,
@@ -65,6 +69,25 @@ export default function MarketDetail() {
     }
   }
 
+  async function onClickBuy() {
+    try {
+      await createPointTransactionOfBuyingAndSelling({
+        variables: {
+          useritemId: router.query.number,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_USEDITEM,
+            variables: { useritemId: router.query.number },
+          },
+        ],
+      });
+      alert("상품을 구매합니다~");
+      router.push(`/market/market-list`);
+    } catch (error) {
+      alert(error.message);
+    }
+  }
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -76,8 +99,8 @@ export default function MarketDetail() {
         const options = {
           // 지도를 생성할 때 필요한 기본 옵션
           center: new window.kakao.maps.LatLng(
-            Number(data?.fetchUseditem.useditemAddress?.lat),
-            Number(data?.fetchUseditem.useditemAddress?.lng)
+            Number(data?.fetchUseditem.useditemAddress?.lat) || 37.485148,
+            Number(data?.fetchUseditem.useditemAddress?.lng) || 126.895113
           ), // 지도의 중심좌표.
           level: 3, // 지도의 레벨(확대, 축소 정도)
         };
@@ -124,6 +147,7 @@ export default function MarketDetail() {
       onClickMoveToEdit={onClickMoveToEdit}
       onClickDeleteProduct={onClickDeleteProduct}
       onClickToggleUseditemPick={onClickToggleUseditemPick}
+      onClickBuy={onClickBuy}
     />
   );
 }

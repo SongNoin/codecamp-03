@@ -1,6 +1,6 @@
 import HeaderUI from "./header.presenter";
 import { useRouter } from "next/router";
-import React, { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
 import { FETCH_USER_LOGGED_IN } from "./header.queies";
 import { useQuery } from "@apollo/client";
@@ -8,7 +8,8 @@ import { useQuery } from "@apollo/client";
 export default function Header() {
   const { accessToken, setUserInfo } = useContext(GlobalContext);
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isPointOpen, setIsPointOpen] = useState(false);
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
 
   useEffect(() => {
@@ -45,7 +46,11 @@ export default function Header() {
     router.push(`/market/market-list`);
   }
   function onTogleLogin() {
-    setIsOpen((prev) => !prev);
+    setIsLoginOpen((prev) => !prev);
+  }
+
+  function onToglePoint() {
+    setIsPointOpen((prev) => !prev);
   }
 
   return (
@@ -55,8 +60,10 @@ export default function Header() {
       onClickGames={onClickGames}
       onClickMoveToSignUp={onClickMoveToSignUp}
       onClickMoveToMarket={onClickMoveToMarket}
-      isOpen={isOpen}
+      isLoginOpen={isLoginOpen}
       onTogleLogin={onTogleLogin}
+      isPointOpen={isPointOpen}
+      onToglePoint={onToglePoint}
       accessToken={accessToken}
     />
   );

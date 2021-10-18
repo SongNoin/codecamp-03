@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import MarKetListUI from "./market-list.presenter";
 import {
   FETCH_USEDITEMS,
@@ -8,13 +9,17 @@ import {
 
 export default function MarKetList() {
   const router = useRouter();
+  const [soldOut, setSoldOut] = useState(false);
   const { data: dataUseditemsOfTheBest } = useQuery(
     FETCH_USEDITEMS_OF_THE_BEST
   );
   const { data } = useQuery(FETCH_USEDITEMS, {
-    variables: { page: 1 },
+    variables: { page: 1, isSoldout: false },
   });
 
+  const { data: soldOutData } = useQuery(FETCH_USEDITEMS, {
+    variables: { page: 1, isSoldout: true },
+  });
   // function onClickMoveToProduct(event) {
   //   router.push(`/market/market-detail/${event.currentTarget.id}`);
   // }
@@ -46,12 +51,23 @@ export default function MarKetList() {
   function onClickMoveToMarketWrite() {
     router.push("/market/market-write");
   }
+
+  function onClickSoldOutList() {
+    setSoldOut(true);
+  }
+  function onClickNotSoldOutList() {
+    setSoldOut(false);
+  }
   return (
     <MarKetListUI
       data={data}
       dataUseditemsOfTheBest={dataUseditemsOfTheBest}
       onClickMoveToProduct={onClickMoveToProduct}
       onClickMoveToMarketWrite={onClickMoveToMarketWrite}
+      soldOutData={soldOutData}
+      soldOut={soldOut}
+      onClickSoldOutList={onClickSoldOutList}
+      onClickNotSoldOutList={onClickNotSoldOutList}
     />
   );
 }

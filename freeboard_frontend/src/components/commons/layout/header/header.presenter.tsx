@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import { Modal } from "antd";
 import {
   Wrapper,
@@ -10,6 +9,7 @@ import {
   My,
 } from "./header.styles";
 import LoginPage from "../../../../../pages/login";
+import Point from "../../../units/user/point/point.container";
 
 export default function HeaderUI(props: any) {
   return (
@@ -27,11 +27,18 @@ export default function HeaderUI(props: any) {
           </MenuWrapper>
         </TitleWrapper>
         <MyWrapper>
-          {props.accessToken && <My src="/images/user.png"></My>}
+          {props.accessToken && (
+            <My src="/images/user.png" onClick={props.onToglePoint} />
+          )}
+          {props.isPointOpen && (
+            <Modal visible={true} onCancel={props.onToglePoint}>
+              <Point />
+            </Modal>
+          )}
           {!props.accessToken && (
             <My src="/images/login.png" onClick={props.onTogleLogin}></My>
           )}
-          {props.isOpen && (
+          {props.isLoginOpen && (
             <Modal visible={true} onCancel={props.onTogleLogin}>
               <LoginPage />
             </Modal>

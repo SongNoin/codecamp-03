@@ -105,19 +105,21 @@ export const MenuWrapper = styled.div`
 export const SellProduct = styled.div`
   font-family: Noto Sans CJK KR;
   font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: ${(props) => (props.soldOut === true ? "normal" : 500)};
+  font-size: ${(props) => (props.soldOut === true ? "18px" : "25px")};
   line-height: 27px;
-  color: #000000;
+  color: ${(props) => (props.soldOut === true ? "#4f4f4f" : "#81d8b1")};
   margin-right: 20px;
+  cursor: pointer;
 `;
 export const SoldOutProduct = styled.div`
   font-family: Noto Sans CJK KR;
   font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
+  font-weight: ${(props) => (props.soldOut === true ? 500 : "normal")};
+  font-size: ${(props) => (props.soldOut === true ? "25px" : "18px")};
   line-height: 27px;
-  color: #4f4f4f;
+  color: ${(props) => (props.soldOut === true ? "#81d8b1" : "#4f4f4f")};
+  cursor: pointer;
 `;
 export const SearchWrapper = styled.div``;
 export const SearchBox = styled.input`

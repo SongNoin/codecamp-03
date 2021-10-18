@@ -83,8 +83,18 @@ export default function MarKetListUI(props) {
         </BestProductWrapper>
         <ProductSearchWrapper>
           <MenuWrapper>
-            <SellProduct>판매중 상품</SellProduct>
-            <SoldOutProduct>판매된 상품</SoldOutProduct>
+            <SellProduct
+              onClick={props.onClickNotSoldOutList}
+              soldOut={props.soldOut}
+            >
+              판매중 상품
+            </SellProduct>
+            <SoldOutProduct
+              onClick={props.onClickSoldOutList}
+              soldOut={props.soldOut}
+            >
+              판매된 상품
+            </SoldOutProduct>
           </MenuWrapper>
           <SearchWrapper>
             <SearchBox type="text" placeholder="제품을 검색해주세요" />
@@ -92,43 +102,85 @@ export default function MarKetListUI(props) {
             <SearchButton>검색</SearchButton>
           </SearchWrapper>
         </ProductSearchWrapper>
-        <ProductListWrapper>
-          {props.data?.fetchUseditems.map((el) => (
-            <ProductRow
-              key={el._id}
-              id={el._id}
-              onClick={props.onClickMoveToProduct(el)}
-            >
-              <Line />
-              <ProductWrapperBody>
-                <ProductInfoWrapper>
-                  <ProductPhoto
-                    src={`https://storage.googleapis.com/${el?.images[0]}`}
-                  />
-                  <ProductInfo>
-                    <ProductTitle>{el.name}</ProductTitle>
-                    <ProductSubTitle>{el.remarks}</ProductSubTitle>
-                    <ProductTag>{el.tags}</ProductTag>
-                    <ProductInfoFooter>
-                      <ProductSellerWrapper>
-                        <ProductSellerPhoto src="/images/photo.png" />
-                        <ProductSeller>{el.seller?.name}</ProductSeller>
-                      </ProductSellerWrapper>
-                      <ProductLikeWrapper>
-                        <ProductHeart src="/images/heart.png" />
-                        <ProductLikeCount>{el.pickedCount}</ProductLikeCount>
-                      </ProductLikeWrapper>
-                    </ProductInfoFooter>
-                  </ProductInfo>
-                </ProductInfoWrapper>
-                <ProductPriceWrapper>
-                  <Money src="/images/money.png" />
-                  <ProductPrice>{el.price}</ProductPrice>
-                </ProductPriceWrapper>
-              </ProductWrapperBody>
-            </ProductRow>
-          ))}
-        </ProductListWrapper>
+        {!props.soldOut && (
+          <ProductListWrapper>
+            {props.data?.fetchUseditems.map((el) => (
+              <ProductRow
+                key={el._id}
+                id={el._id}
+                onClick={props.onClickMoveToProduct(el)}
+              >
+                <Line />
+                <ProductWrapperBody>
+                  <ProductInfoWrapper>
+                    <ProductPhoto
+                      src={`https://storage.googleapis.com/${el?.images[0]}`}
+                    />
+                    <ProductInfo>
+                      <ProductTitle>{el.name}</ProductTitle>
+                      <ProductSubTitle>{el.remarks}</ProductSubTitle>
+                      <ProductTag>{el.tags}</ProductTag>
+                      <ProductInfoFooter>
+                        <ProductSellerWrapper>
+                          <ProductSellerPhoto src="/images/photo.png" />
+                          <ProductSeller>{el.seller?.name}</ProductSeller>
+                        </ProductSellerWrapper>
+                        <ProductLikeWrapper>
+                          <ProductHeart src="/images/heart.png" />
+                          <ProductLikeCount>{el.pickedCount}</ProductLikeCount>
+                        </ProductLikeWrapper>
+                      </ProductInfoFooter>
+                    </ProductInfo>
+                  </ProductInfoWrapper>
+                  <ProductPriceWrapper>
+                    <Money src="/images/money.png" />
+                    <ProductPrice>{el.price}</ProductPrice>
+                  </ProductPriceWrapper>
+                </ProductWrapperBody>
+              </ProductRow>
+            ))}
+          </ProductListWrapper>
+        )}
+        {props.soldOut && (
+          <ProductListWrapper>
+            {props.soldOutData?.fetchUseditems.map((el) => (
+              <ProductRow
+                key={el._id}
+                id={el._id}
+                onClick={props.onClickMoveToProduct(el)}
+              >
+                <Line />
+                <ProductWrapperBody>
+                  <ProductInfoWrapper>
+                    <ProductPhoto
+                      src={`https://storage.googleapis.com/${el?.images[0]}`}
+                    />
+                    <ProductInfo>
+                      <ProductTitle>{el.name}</ProductTitle>
+                      <ProductSubTitle>{el.remarks}</ProductSubTitle>
+                      <ProductTag>{el.tags}</ProductTag>
+                      <ProductInfoFooter>
+                        <ProductSellerWrapper>
+                          <ProductSellerPhoto src="/images/photo.png" />
+                          <ProductSeller>{el.seller?.name}</ProductSeller>
+                        </ProductSellerWrapper>
+                        <ProductLikeWrapper>
+                          <ProductHeart src="/images/heart.png" />
+                          <ProductLikeCount>{el.pickedCount}</ProductLikeCount>
+                        </ProductLikeWrapper>
+                      </ProductInfoFooter>
+                    </ProductInfo>
+                  </ProductInfoWrapper>
+                  <ProductPriceWrapper>
+                    <Money src="/images/money.png" />
+                    <ProductPrice>{el.price}</ProductPrice>
+                  </ProductPriceWrapper>
+                </ProductWrapperBody>
+              </ProductRow>
+            ))}
+          </ProductListWrapper>
+        )}
+
         <ButtonWrapper>
           <div />
           <CommonButton
