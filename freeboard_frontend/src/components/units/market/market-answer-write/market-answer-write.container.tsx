@@ -53,7 +53,7 @@ export default function MarketAnswerWrite(props) {
           {
             query: FETCH_USEDITEM_QUESTIONS_ANSWERS,
             variables: {
-              useditemQuestionId: props.el?._id,
+              useditemQuestionId: props.answerel?.useditemQuestion._id,
             },
           },
         ],

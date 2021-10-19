@@ -42,6 +42,9 @@ export default function Header() {
     router.push(`/signup/`);
   }
 
+  function onClickMoveToMyPage() {
+    router.push(`/mypage/mymarket`);
+  }
   function onClickMoveToMarket() {
     router.push(`/market/market-list`);
   }
@@ -65,6 +68,7 @@ export default function Header() {
       isPointOpen={isPointOpen}
       onToglePoint={onToglePoint}
       accessToken={accessToken}
+      onClickMoveToMyPage={onClickMoveToMyPage}
     />
   );
 }

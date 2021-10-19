@@ -23,7 +23,6 @@ export default function MarKetList() {
   // function onClickMoveToProduct(event) {
   //   router.push(`/market/market-detail/${event.currentTarget.id}`);
   // }
-
   const onClickMoveToProduct = (el) => (event) => {
     router.push(`/market/market-detail/${event.currentTarget.id}`);
 

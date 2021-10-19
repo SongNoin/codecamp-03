@@ -42,8 +42,8 @@ export const BestProductBox = styled.div`
 export const BestProductPhoto = styled.img`
   width: 242px;
   height: 242px;
-  background-color: gray;
 `;
+
 export const BoxBody = styled.div``;
 export const BestProductName = styled.div`
   font-family: Noto Sans CJK KR;

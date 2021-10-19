@@ -43,7 +43,7 @@ export default function HeaderUI(props: any) {
               <LoginPage />
             </Modal>
           )}
-          <My src="/images/my.png"></My>
+          <My src="/images/my.png" onClick={props.onClickMoveToMyPage}></My>
           {!props.accessToken && (
             <My
               src="/images/signup.png"

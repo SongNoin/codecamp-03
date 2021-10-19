@@ -26,7 +26,8 @@ export default function Login() {
           password: myPassword,
         },
       });
-      localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
+      // localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
+      localStorage.setItem("refreshToken", "true");
       setAccessToken(result.data?.loginUser.accessToken);
       location.reload();
     } catch (error) {

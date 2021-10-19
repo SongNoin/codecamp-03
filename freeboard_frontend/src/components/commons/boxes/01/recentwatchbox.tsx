@@ -119,7 +119,11 @@ export default function RecentWatchBox() {
             <LikeCount>{el.pickedCount}</LikeCount>
           </LikeWrapper>
           <ProductWrapper>
-            <Photo src={`https://storage.googleapis.com/${el?.images[0]}`} />
+            {el.images[0] ? (
+              <Photo src={`https://storage.googleapis.com/${el?.images[0]}`} />
+            ) : (
+              <Photo src={"/images/noimage.jpg"} />
+            )}
           </ProductWrapper>
           <Name>{el.name}</Name>
           <Subname>{el.remarks}</Subname>
