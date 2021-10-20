@@ -22,6 +22,7 @@ export const ProductMenu = styled.div`
   color: ${(props) => (props.isPickList === true ? "#4f4f4f" : "#00bfa5")};
   cursor: pointer;
 `;
+
 export const PickMenu = styled.div`
   font-family: Noto Sans CJK KR;
   font-style: normal;
@@ -31,6 +32,7 @@ export const PickMenu = styled.div`
   color: ${(props) => (props.isPickList === true ? "#00bfa5" : "#4f4f4f")};
   cursor: pointer;
 `;
+
 export const MenuWrapper = styled.div`
   display: flex;
   flex-direction: row;

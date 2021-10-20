@@ -37,7 +37,7 @@ const Navi = styled.div`
 `;
 
 const HiddenBanner = ["/signup"];
-const HiddenSide = ["/mypage/mymarket"];
+const HiddenSide = ["/mypage/mymarket", "/mypage/myprofile", "/mypage/mypoint"];
 
 export default function Layout(props: any) {
   const router = useRouter();

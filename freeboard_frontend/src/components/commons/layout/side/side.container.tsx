@@ -8,8 +8,20 @@ export default function Sidebar() {
   function onClcikMoveToMyMarket() {
     router.push("/mypage/mymarket");
   }
+  function onClickMoveToMyPoint() {
+    router.push("/mypage/mypoint");
+  }
+  function onClickMoveToMyProfile() {
+    router.push("/mypage/myprofile");
+  }
+
   const { data } = useQuery(FETCH_USER_LOGGEDIN);
   return (
-    <SideBarUI data={data} onClcikMoveToMyMarket={onClcikMoveToMyMarket} />
+    <SideBarUI
+      data={data}
+      onClcikMoveToMyMarket={onClcikMoveToMyMarket}
+      onClickMoveToMyPoint={onClickMoveToMyPoint}
+      onClickMoveToMyProfile={onClickMoveToMyProfile}
+    />
   );
 }

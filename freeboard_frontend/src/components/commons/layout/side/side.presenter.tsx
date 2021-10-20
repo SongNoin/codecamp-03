@@ -28,8 +28,10 @@ export default function SideBarUI(props) {
         </UserInfoWRapper>
         <MenuWrapper>
           <MenuMarket onClick={props.onClcikMoveToMyMarket}>내 장터</MenuMarket>
-          <MenuPoint>내 포인트</MenuPoint>
-          <MenuProfile>내 프로필</MenuProfile>
+          <MenuPoint onClick={props.onClickMoveToMyPoint}>내 포인트</MenuPoint>
+          <MenuProfile onClick={props.onClickMoveToMyProfile}>
+            내 프로필
+          </MenuProfile>
         </MenuWrapper>
       </Wrapper>
     </>
