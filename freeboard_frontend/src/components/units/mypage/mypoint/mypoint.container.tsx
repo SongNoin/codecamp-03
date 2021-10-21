@@ -1,7 +1,5 @@
 import MyPointUI from "./mypoint.presenter";
 import { useState } from "react";
-import { useQuery } from "@apollo/client";
-import { FETCH_POINT_TRANSACTIONS } from "./mypoint.queries";
 
 export default function MyPoint() {
   const [total, setTotal] = useState(true);
