@@ -42,7 +42,13 @@ export default function MarketDetailUI(props: any) {
         <WrapperHeader>
           <UserWrapper>
             <UserInfo>
-              <UserPhoto src="/images/photo.png" />
+              <UserPhoto
+                src={
+                  props.data?.fetchUseditem.seller.picture
+                    ? `https://storage.googleapis.com/${props.data?.fetchUseditem.seller.picture}`
+                    : "/images/photo.png"
+                }
+              />
               <InfoWrapper>
                 <Seller>{props.data?.fetchUseditem.seller?.name}</Seller>
                 <Date>

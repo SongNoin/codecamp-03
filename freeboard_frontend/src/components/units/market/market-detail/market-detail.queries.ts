@@ -13,6 +13,7 @@ export const FETCH_USEDITEM = gql`
       pickedCount
       seller {
         name
+        picture
       }
       useditemAddress {
         lat

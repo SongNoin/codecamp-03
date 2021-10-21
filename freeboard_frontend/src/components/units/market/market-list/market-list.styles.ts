@@ -105,20 +105,20 @@ export const MenuWrapper = styled.div`
 export const SellProduct = styled.div`
   font-family: Noto Sans CJK KR;
   font-style: normal;
-  font-weight: ${(props) => (props.soldOut === true ? "normal" : 500)};
+  font-weight: ${(props) => (props.soldOut === true ? "normal" : 800)};
   font-size: ${(props) => (props.soldOut === true ? "18px" : "25px")};
-  line-height: 27px;
-  color: ${(props) => (props.soldOut === true ? "#4f4f4f" : "#81d8b1")};
+  line-height: 24px;
+  color: ${(props) => (props.soldOut === true ? "#4f4f4f" : "#00bfa5")};
   margin-right: 20px;
   cursor: pointer;
 `;
 export const SoldOutProduct = styled.div`
   font-family: Noto Sans CJK KR;
   font-style: normal;
-  font-weight: ${(props) => (props.soldOut === true ? 500 : "normal")};
+  font-weight: ${(props) => (props.soldOut === true ? 800 : "normal")};
   font-size: ${(props) => (props.soldOut === true ? "25px" : "18px")};
-  line-height: 27px;
-  color: ${(props) => (props.soldOut === true ? "#81d8b1" : "#4f4f4f")};
+  line-height: 24px;
+  color: ${(props) => (props.soldOut === true ? "#00bfa5" : "#4f4f4f")};
   cursor: pointer;
 `;
 export const SearchWrapper = styled.div``;

@@ -4,14 +4,15 @@ export const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding-top: 90px;
+  padding-left: 200px;
 `;
 export const PhotoWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin-right: 600px;
+  margin-right: 500px;
 `;
 export const PhotoLine = styled.div`
   height: 650px;

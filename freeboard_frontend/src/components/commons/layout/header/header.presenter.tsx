@@ -29,10 +29,13 @@ export default function HeaderUI(props: any) {
         </TitleWrapper>
         <MyWrapper>
           {props.accessToken && (
-            <MyPicture
-              src={`https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.picture}`}
-              onClick={props.onToglePoint}
-            />
+            <>
+              <MyPicture
+                src={`https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.picture}`}
+                onClick={props.onToglePoint}
+              />
+              <My src="/images/my.png" onClick={props.onClickMoveToMyPage}></My>
+            </>
           )}
           {props.isPointOpen && (
             <Modal visible={true} onCancel={props.onToglePoint}>
@@ -47,7 +50,6 @@ export default function HeaderUI(props: any) {
               <LoginPage />
             </Modal>
           )}
-          <My src="/images/my.png" onClick={props.onClickMoveToMyPage}></My>
           {!props.accessToken && (
             <My
               src="/images/signup.png"

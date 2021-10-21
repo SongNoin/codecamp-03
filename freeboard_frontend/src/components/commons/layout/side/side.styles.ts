@@ -20,7 +20,7 @@ export const Title = styled.div`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 40px;
   line-height: 36px;
   margin-top: 80px;
   /* identical to box height */

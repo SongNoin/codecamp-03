@@ -12,6 +12,7 @@ export const FETCH_USEDITEMS = gql`
       pickedCount
       seller {
         name
+        picture
       }
       images
     }
@@ -30,4 +31,3 @@ export const FETCH_USEDITEMS_OF_THE_BEST = gql`
     }
   }
 `;
-
