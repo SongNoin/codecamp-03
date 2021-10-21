@@ -127,7 +127,7 @@ export default function RecentWatchBox() {
           </ProductWrapper>
           <Name>{el.name}</Name>
           <Subname>{el.remarks}</Subname>
-          <Price>{el.price}</Price>
+          <Price>{el.price.toLocaleString("ko-KR")}</Price>
           <Tag>{el.tags}</Tag>
         </RecentBox>
       ))}

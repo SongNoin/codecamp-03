@@ -32,8 +32,9 @@ export const UserInfoWRapper = styled.div`
   margin-top: 48px;
 `;
 export const UserPhoto = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 `;
 export const UserName = styled.div`
   font-family: Noto Sans CJK KR;
@@ -60,27 +61,31 @@ export const MenuWrapper = styled.div`
 export const MenuMarket = styled.div`
   font-family: Noto Sans CJK KR;
   font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
+  font-weight: ${(props) => (props.market === true ? 800 : "normal")};
+  font-size: ${(props) => (props.market === true ? "40px" : "25px")};
   line-height: 27px;
-  margin-top: 30px;
+  margin-top: 50px;
   cursor: pointer;
+  color: ${(props) => (props.market === true ? "#00bfa5" : "#4f4f4f")};
 `;
 export const MenuPoint = styled.div`
   font-family: Noto Sans CJK KR;
   font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
+  font-weight: ${(props) => (props.point === true ? 800 : "normal")};
+  font-size: ${(props) => (props.point === true ? "40px" : "25px")};
   line-height: 27px;
-  margin-top: 30px;
+  margin-top: 80px;
+
   cursor: pointer;
+  color: ${(props) => (props.point === true ? "#00bfa5" : "#4f4f4f")};
 `;
 export const MenuProfile = styled.div`
   font-family: Noto Sans CJK KR;
   font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
+  font-weight: ${(props) => (props.profile === true ? 800 : "normal")};
+  font-size: ${(props) => (props.profile === true ? "40px" : "25px")};
   line-height: 27px;
-  margin-top: 30px;
+  margin-top: 80px;
   cursor: pointer;
+  color: ${(props) => (props.profile === true ? "#00bfa5" : "#4f4f4f")};
 `;

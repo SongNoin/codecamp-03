@@ -7,6 +7,7 @@ export const FETCH_USER_LOGGEDIN = gql`
       userPoint {
         amount
       }
+      picture
     }
   }
 `;

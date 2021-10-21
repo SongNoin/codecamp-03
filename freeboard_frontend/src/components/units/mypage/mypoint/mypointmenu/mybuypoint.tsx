@@ -51,7 +51,43 @@ const Row = styled.div`
 
 const Column = styled.div`
   width: 20%;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
+`;
+const ColumnAmount = styled.div`
+  width: 20%;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #69b4ff;
+`;
+const ColumnBalance = styled.div`
+  width: 20%;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  text-align: center;
+
+  /* Gray 2 */
+
+  color: #4f4f4f;
 `;
 
 export default function MyBuyPointPage() {
@@ -64,16 +100,19 @@ export default function MyBuyPointPage() {
         <RowName>
           <ColumnName>거래일</ColumnName>
           <ColumnName>상품명</ColumnName>
+          <ColumnName>판매자</ColumnName>
           <ColumnName>거래 내역</ColumnName>
           <ColumnName>거래 후 잔액</ColumnName>
-          <ColumnName>판매자</ColumnName>
         </RowName>
         {data?.fetchPointTransactionsOfBuying.map((el) => (
           <Row key={el._id}>
             <Column>{el.createdAt.slice(0, 10)}</Column>
             <Column>{el.useditem.name}</Column>
-            <Column>{el.amount}</Column>
-            <Column>{el.balance}</Column>
+            <Column></Column>
+            <ColumnAmount>{el.amount.toLocaleString("ko-KR")}</ColumnAmount>
+            <ColumnBalance>
+              ￦ {el.balance.toLocaleString("ko-KR")}
+            </ColumnBalance>
             {/* <Column>{el.useditem?.buyer?.name}</Column> */}
           </Row>
         ))}

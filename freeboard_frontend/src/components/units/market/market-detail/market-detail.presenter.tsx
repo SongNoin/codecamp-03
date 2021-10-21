@@ -73,7 +73,9 @@ export default function MarketDetailUI(props: any) {
               <LikeCount>{props.data?.fetchUseditem.pickedCount}</LikeCount>
             </LikeWrapper>
           </TitleWrapper>
-          <PriceWrapper>{props.data?.fetchUseditem.price} 원</PriceWrapper>
+          <PriceWrapper>
+            {props.data?.fetchUseditem.price.toLocaleString("ko-KR")} 원
+          </PriceWrapper>
           <PhotoWrapper>
             {props.data?.fetchUseditem.images
               ?.filter((el) => el)

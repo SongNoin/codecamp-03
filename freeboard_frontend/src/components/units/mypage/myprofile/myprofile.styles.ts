@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   padding-top: 80px;
   padding-right: 360px;
   padding-left: 126px;
+  margin-bottom: 200px;
 `;
 
 export const Title = styled.div`
@@ -44,4 +45,18 @@ export const ButtonWrapper = styled.div`
   margin-top: 40px;
   display: flex;
   justify-content: flex-end;
+`;
+
+export const NameWrapper = styled.div`
+  margin-top: 80px;
+`;
+
+export const UploadWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 250px;
 `;

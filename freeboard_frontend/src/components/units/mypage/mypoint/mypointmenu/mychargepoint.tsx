@@ -43,9 +43,44 @@ const Row = styled.div`
 
 const Column = styled.div`
   width: 25%;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
   text-align: center;
 `;
 
+const ColumnAmount = styled.div`
+  width: 25%;
+  text-align: center;
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #ff1493;
+`;
+
+const ColumnBalance = styled.div`
+  width: 25%;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  text-align: center;
+`;
 export default function MyChargePointPage() {
   const { data } = useQuery(FETCH_POINT_TRANSACTIONS_OF_LOADING, {
     variables: { page: 1 },
@@ -63,8 +98,10 @@ export default function MyChargePointPage() {
           <Row key={el._id}>
             <Column>{el.createdAt.slice(0, 10)}</Column>
             <Column>{el.impUid}</Column>
-            <Column>{el.amount}</Column>
-            <Column>{el.balance}</Column>
+            <ColumnAmount>+ {el.amount.toLocaleString("ko-KR")}</ColumnAmount>
+            <ColumnBalance>
+              ￦ {el.balance.toLocaleString("ko-KR")}
+            </ColumnBalance>
           </Row>
         ))}
       </Wrapper>

@@ -62,3 +62,14 @@ export const My = styled.img`
     height: 90%;
   }
 `;
+
+export const MyPicture = styled.img`
+  height: 80%;
+  margin-right: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  :hover {
+    height: 90%;
+  }
+`;

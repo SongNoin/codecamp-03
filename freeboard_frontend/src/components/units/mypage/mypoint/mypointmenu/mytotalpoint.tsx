@@ -32,8 +32,49 @@ const Row = styled.div`
 const Column = styled.div`
   width: 25%;
   text-align: center;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #4f4f4f;
+`;
+const ColumnPlus = styled.div`
+  width: 25%;
+  text-align: center;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #ff1493;
+`;
+const ColumnMinus = styled.div`
+  width: 25%;
+  text-align: center;
+
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #69b4ff;
 `;
 
+const ColumnBalance = styled.div`
+  width: 25%;
+  text-align: center;
+  font-family: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+`;
 const FETCH_POINT_TRANSACTIONS = gql`
   query fetchPointTransactions($page: Int) {
     fetchPointTransactions(page: $page) {
@@ -64,9 +105,19 @@ export default function MyTotalPointPage() {
         {data?.fetchPointTransactions.map((el) => (
           <Row key={el._id}>
             <Column>{el.createdAt.slice(0, 10)}</Column>
-            <Column>{el.status}</Column>
-            <Column>{el.amount}</Column>
-            <Column>{el.balance}</Column>
+            {el.amount > 0 ? (
+              <ColumnPlus>{el.status}</ColumnPlus>
+            ) : (
+              <ColumnMinus>{el.status}</ColumnMinus>
+            )}
+            {el.amount > 0 ? (
+              <ColumnPlus>{el.amount.toLocaleString("ko-KR")}</ColumnPlus>
+            ) : (
+              <ColumnMinus>{el.amount.toLocaleString("ko-KR")}</ColumnMinus>
+            )}
+            <ColumnBalance>
+              ￦ {el.balance.toLocaleString("ko-KR")}
+            </ColumnBalance>
           </Row>
         ))}
       </Wrapper>

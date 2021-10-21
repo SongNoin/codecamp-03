@@ -55,7 +55,7 @@ export default function MyMarketUI(props) {
                 <Column>{10 - index}</Column>
                 <ColumnTitle>{el.name}</ColumnTitle>
                 <ColumnSoldOut>{el?.buyer?.name && "판매완료"}</ColumnSoldOut>
-                <Column>{el.price}</Column>
+                <Column>{el.price.toLocaleString("ko-KR")}</Column>
                 <Column>{el.createdAt.slice(0, 10)}</Column>
               </Row>
             ))}
@@ -75,7 +75,7 @@ export default function MyMarketUI(props) {
                 <Column>{10 - index}</Column>
                 <PickColumnTitle>{el.name}</PickColumnTitle>
                 <ColumnSoldOut>{el?.buyer?.name && "판매완료"}</ColumnSoldOut>
-                <Column>￦ {el.price}</Column>
+                <Column>￦ {el.price.toLocaleString("ko-KR")}</Column>
                 <Column>{el.seller.name}</Column>
                 <Column>{el.createdAt.slice(0, 10)}</Column>
               </Row>

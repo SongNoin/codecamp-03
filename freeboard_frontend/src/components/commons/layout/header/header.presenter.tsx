@@ -6,6 +6,7 @@ import {
   MenuWrapper,
   Menu,
   MyWrapper,
+  MyPicture,
   My,
 } from "./header.styles";
 import LoginPage from "../../../../../pages/login";
@@ -28,7 +29,10 @@ export default function HeaderUI(props: any) {
         </TitleWrapper>
         <MyWrapper>
           {props.accessToken && (
-            <My src="/images/user.png" onClick={props.onToglePoint} />
+            <MyPicture
+              src={`https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.picture}`}
+              onClick={props.onToglePoint}
+            />
           )}
           {props.isPointOpen && (
             <Modal visible={true} onCancel={props.onToglePoint}>

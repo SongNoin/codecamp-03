@@ -72,7 +72,9 @@ export default function MarKetListUI(props) {
                 <BoxFooter>
                   <BestProductInfo>
                     <BestProductSubTitle>{el.remarks}</BestProductSubTitle>
-                    <BestProductPrice>{el.price} 원</BestProductPrice>
+                    <BestProductPrice>
+                      {el.price.toLocaleString("ko-KR")} 원
+                    </BestProductPrice>
                   </BestProductInfo>
                   <BestProductLikeWrapper>
                     <ProductHeart src="/images/heart.png" />
@@ -142,7 +144,9 @@ export default function MarKetListUI(props) {
                   </ProductInfoWrapper>
                   <ProductPriceWrapper>
                     <Money src="/images/money.png" />
-                    <ProductPrice>{el.price}</ProductPrice>
+                    <ProductPrice>
+                      {el.price.toLocaleString("ko-KR")}
+                    </ProductPrice>
                   </ProductPriceWrapper>
                 </ProductWrapperBody>
               </ProductRow>

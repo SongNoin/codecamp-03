@@ -69,6 +69,7 @@ export default function Header() {
       onToglePoint={onToglePoint}
       accessToken={accessToken}
       onClickMoveToMyPage={onClickMoveToMyPage}
+      data={data}
     />
   );
 }
