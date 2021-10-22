@@ -107,7 +107,6 @@ function solution(new_id) {
   }
 
   // 3단계
-
   answer = answer.join("");
   while (answer.includes("..")) {
     answer = answer.replace("..", ".");
@@ -163,6 +162,7 @@ function solution(new_id) {
       result = result.slice(0, result.length - 1);
     }
   }
+
   removeLastDot();
 
   // 5단계 : 빈 문자열이라면 "a" 대입

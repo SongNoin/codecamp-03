@@ -51,6 +51,10 @@ export const UserPoint = styled.div`
   font-size: 16px;
   line-height: 24px;
   margin-top: 10px;
+  margin-bottom: 20px;
+`;
+export const PointCharge = styled.div`
+  margin-top: 20px;
 `;
 export const MenuWrapper = styled.div`
   display: flex;

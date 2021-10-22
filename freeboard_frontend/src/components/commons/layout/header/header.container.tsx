@@ -9,7 +9,6 @@ export default function Header() {
   const { accessToken, setUserInfo } = useContext(GlobalContext);
   const router = useRouter();
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isPointOpen, setIsPointOpen] = useState(false);
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
 
   useEffect(() => {
@@ -51,11 +50,10 @@ export default function Header() {
   function onTogleLogin() {
     setIsLoginOpen((prev) => !prev);
   }
-
-  function onToglePoint() {
-    setIsPointOpen((prev) => !prev);
+  function onClickLogout() {
+    localStorage.clear();
+    alert("로그아웃이 되었습니다");
   }
-
   return (
     <HeaderUI
       onClickMain={onClickMain}
@@ -65,11 +63,10 @@ export default function Header() {
       onClickMoveToMarket={onClickMoveToMarket}
       isLoginOpen={isLoginOpen}
       onTogleLogin={onTogleLogin}
-      isPointOpen={isPointOpen}
-      onToglePoint={onToglePoint}
       accessToken={accessToken}
       onClickMoveToMyPage={onClickMoveToMyPage}
       data={data}
+      onClickLogout={onClickLogout}
     />
   );
 }

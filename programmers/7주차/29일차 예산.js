@@ -29,6 +29,7 @@
 //* https://programmers.co.kr/learn/courses/30/lessons/12982
 
 //* 내 풀이 1
+
 function solution(d, budget) {
   let answer = 0;
   d.sort((a, b) => a - b);
@@ -38,4 +39,41 @@ function solution(d, budget) {
     answer++;
   }
   return answer;
+}
+
+//* Reference 1( for 반복문 )
+
+function solution(d, budget) {
+  const team = [];
+
+  // 신청한 예산들을 오름차순으로 정렬
+  d.sort((a, b) => a - b);
+
+  // 부서들이 신청한 금액의 총 합
+  let sum = 0;
+  for (let i = 0; i < d.length; i++) {
+    sum += d[i];
+
+    if (sum <= budget) {
+      team.push(d[i]);
+    }
+  }
+  return team.length;
+}
+
+//* Reference 2( filter )
+
+function solution(d, budget) {
+  const result = d
+    .sort((a, b) => a - b)
+    .filter((price) => {
+      // 총 예산에서 해당 지원금을 삭감
+      budget -= price;
+
+      // 예산이 0 이상일 경우에만 return
+      if (budget >= 0) {
+        return price;
+      }
+    });
+  return result.length;
 }

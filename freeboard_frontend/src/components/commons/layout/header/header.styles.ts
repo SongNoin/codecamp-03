@@ -10,12 +10,22 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 
-export const Title = styled.img`
-  margin-left: 40px;
-  height: 90%;
+export const Title = styled.div`
+  /* margin-right: 20px; */
+  margin-left: 30px;
+  font-family: LogoFont;
+  font-style: "normal";
+  font-size: 60px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 27px;
+
+  color: black;
+  text-shadow: 2px 2px #ffe87b;
+
   cursor: pointer;
   :hover {
-    height: 100%;
+    font-size: 70px;
   }
 `;
 
@@ -35,13 +45,22 @@ export const MenuWrapper = styled.div`
   margin-left: 30px;
 `;
 
-export const Menu = styled.img`
-  height: 90%;
-  margin-left: 10px;
-  margin-top: 10px;
+export const MenuTitle = styled.div`
+  margin-right: 20px;
+  font-style: "normal";
+  font-family: LogoFont;
+
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 27px;
+
+  color: black;
+  text-shadow: 2px 2px #f7c6ff;
+
   cursor: pointer;
   :hover {
-    height: 100%;
+    font-size: 50px;
   }
 `;
 
@@ -53,20 +72,28 @@ export const MyWrapper = styled.div`
   align-items: center;
 `;
 
-export const My = styled.img`
-  height: 80%;
+export const MyTitle = styled.div`
   margin-right: 20px;
-  margin-top: 10px;
+  font-style: "normal";
+  font-family: LogoFont;
+
+  font-size: 40px;
+  text-align: center;
+  font-weight: bolder;
+  line-height: 27px;
+
+  color: black;
+  text-shadow: 2px 2px #00bfa5;
+
   cursor: pointer;
   :hover {
-    height: 90%;
+    font-size: 50px;
   }
 `;
 
 export const MyPicture = styled.img`
   height: 80%;
-  margin-right: 20px;
-  margin-top: 10px;
+  margin-right: 40px;
   cursor: pointer;
   border-radius: 50%;
   :hover {

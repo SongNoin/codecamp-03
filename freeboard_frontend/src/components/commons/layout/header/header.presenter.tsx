@@ -1,30 +1,26 @@
-import { Modal } from "antd";
 import {
   Wrapper,
   TitleWrapper,
   Title,
   MenuWrapper,
-  Menu,
   MyWrapper,
   MyPicture,
-  My,
+  MenuTitle,
+  MyTitle,
 } from "./header.styles";
 import LoginPage from "../../../../../pages/login";
-import Point from "../../../units/user/point/point.container";
+import { Modal } from "antd";
 
 export default function HeaderUI(props: any) {
   return (
     <>
       <Wrapper>
         <TitleWrapper>
-          <Title src="/images/songny2.png" onClick={props.onClickMain}></Title>
+          <Title onClick={props.onClickMain}>SONGNY</Title>
           <MenuWrapper>
-            <Menu src="/images/board.png" onClick={props.onClickList}></Menu>
-            <Menu
-              src="/images/market.png"
-              onClick={props.onClickMoveToMarket}
-            ></Menu>
-            <Menu src="/images/games.png" onClick={props.onClickGames}></Menu>
+            <MenuTitle onClick={props.onClickList}>BOARD</MenuTitle>
+            <MenuTitle onClick={props.onClickMoveToMarket}>MARKET</MenuTitle>
+            <MenuTitle onClick={props.onClickGames}>GAMES</MenuTitle>
           </MenuWrapper>
         </TitleWrapper>
         <MyWrapper>
@@ -32,18 +28,13 @@ export default function HeaderUI(props: any) {
             <>
               <MyPicture
                 src={`https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.picture}`}
-                onClick={props.onToglePoint}
+                onClick={props.onClickMoveToMyPage}
               />
-              <My src="/images/my.png" onClick={props.onClickMoveToMyPage}></My>
+              <MyTitle onClick={props.onClickLogout}>LOGOUT</MyTitle>
             </>
           )}
-          {props.isPointOpen && (
-            <Modal visible={true} onCancel={props.onToglePoint}>
-              <Point />
-            </Modal>
-          )}
           {!props.accessToken && (
-            <My src="/images/login.png" onClick={props.onTogleLogin}></My>
+            <MyTitle onClick={props.onTogleLogin}>LOGIN</MyTitle>
           )}
           {props.isLoginOpen && (
             <Modal visible={true} onCancel={props.onTogleLogin}>
@@ -51,10 +42,7 @@ export default function HeaderUI(props: any) {
             </Modal>
           )}
           {!props.accessToken && (
-            <My
-              src="/images/signup.png"
-              onClick={props.onClickMoveToSignUp}
-            ></My>
+            <MyTitle onClick={props.onClickMoveToSignUp}>SIGNUP</MyTitle>
           )}
         </MyWrapper>
       </Wrapper>

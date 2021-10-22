@@ -1,3 +1,4 @@
+import CommonButton from "../../buttons/01/CommonButton";
 import {
   Wrapper,
   TitleWrapper,
@@ -11,6 +12,8 @@ import {
   MenuPoint,
   MenuProfile,
 } from "./side.styles";
+import { Modal } from "antd";
+import Point from "../../../units/user/point/point.container";
 
 export default function SideBarUI(props) {
   return (
@@ -31,6 +34,12 @@ export default function SideBarUI(props) {
             )}
             송
           </UserPoint>
+          <CommonButton name="포인트 충전하기" onClick={props.onToglePoint} />
+          {props.isPointOpen && (
+            <Modal visible={true} onCancel={props.onToglePoint}>
+              <Point />
+            </Modal>
+          )}
         </UserInfoWRapper>
         <MenuWrapper>
           <MenuMarket

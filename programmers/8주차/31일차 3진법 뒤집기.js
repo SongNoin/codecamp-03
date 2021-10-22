@@ -23,7 +23,8 @@
 
 //* https://programmers.co.kr/learn/courses/30/lessons/68935
 
-// Reference 1 (3진법으로 변환)
+//* Reference 1 (3진법으로 변환)
+
 function solution(n) {
   n = n.toString(3);
 
@@ -35,15 +36,9 @@ function solution(n) {
   return parseInt(reverse, 3);
 }
 
-// Reference 2 (reverse )
-function solution(n) {
-  n = n.toString(3).split("").reverse().join("");
-
-  return parseInt(n, 3);
-}
+//* Reference 2 (reverse )
 
 function solution(n, arr1, arr2) {
-  let answer = [];
   parseInt(n.toString(2), 2);
   for (let i = 0; i < n; i++) {
     for (let is = 0; is < n; is++) {
@@ -54,7 +49,7 @@ function solution(n, arr1, arr2) {
   return n.toString(2);
 }
 
-// Reference 2 (reverse)
+//* Reference 3 (reverse)
 
 function solution(n) {
   n = n.toString(3).split("").reverse().join("");
