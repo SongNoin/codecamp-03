@@ -36,7 +36,13 @@ export default function SideBarUI(props) {
           </UserPoint>
           <CommonButton name="포인트 충전하기" onClick={props.onToglePoint} />
           {props.isPointOpen && (
-            <Modal visible={true} onCancel={props.onToglePoint}>
+            <Modal
+              visible={true}
+              onCancel={props.onToglePoint}
+              cancelButtonProps={{ style: { display: "none" } }}
+              okButtonProps={{ style: { display: "none" } }}
+              mask={true}
+            >
               <Point />
             </Modal>
           )}

@@ -10,6 +10,7 @@ export const FETCH_USEDITEM_QUESTIONS_ANSWERS = gql`
       contents
       user {
         name
+        picture
       }
       createdAt
       useditemQuestion {

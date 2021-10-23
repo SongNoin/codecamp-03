@@ -23,11 +23,11 @@ export default function MarketCommentListItemUI(props) {
   const [isOpenAnswer, serIsOpenAnswer] = useState(false);
 
   function onClickUpdate() {
-    setIsQuestionEdit(true);
+    setIsQuestionEdit((prev) => !prev);
   }
 
   function onClickOpenAnswer() {
-    serIsOpenAnswer(true);
+    serIsOpenAnswer((prev) => !prev);
   }
   return (
     <>
@@ -35,7 +35,13 @@ export default function MarketCommentListItemUI(props) {
         <Wrapper>
           <CommentWrapper>
             <UserInfoWrapper>
-              <UserPhoto src="/images/photo.png" />
+              <UserPhoto
+                src={
+                  props.el?.user.picture
+                    ? `https://storage.googleapis.com/${props.el.user.picture}`
+                    : "/images/photo.png"
+                }
+              />
               <UserInfo>
                 <UserName>{props.el?.user?.name}</UserName>
                 <Comment>{props.el?.contents}</Comment>
@@ -57,8 +63,6 @@ export default function MarketCommentListItemUI(props) {
           </CommentWrapper>
         </Wrapper>
       )}
-      <MarketAnswerList el={props.el} />
-
       {isQuestionEdit && (
         <MarketCommentsWrite
           isQuestionEdit={isQuestionEdit}
@@ -66,7 +70,11 @@ export default function MarketCommentListItemUI(props) {
           el={props.el}
         />
       )}
-      {isOpenAnswer && <MarketAnswerWrite el={props.el} />}
+      <MarketAnswerList el={props.el} />
+
+      {isOpenAnswer && (
+        <MarketAnswerWrite el={props.el} serIsOpenAnswer={serIsOpenAnswer} />
+      )}
       <LineWrapper>
         <Line />
       </LineWrapper>

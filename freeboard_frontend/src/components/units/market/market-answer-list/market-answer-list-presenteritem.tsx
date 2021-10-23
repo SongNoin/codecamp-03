@@ -24,7 +24,13 @@ export default function MarketAnswerListItemUI(props) {
         <Wrapper>
           <AnswerWrapper>
             <Arrow src="/images/answerarrow.png" />
-            <UserPhoto src="/images/photo.png" />
+            <UserPhoto
+              src={
+                props.answerel?.user?.picture
+                  ? `https://storage.googleapis.com/${props.answerel.user.picture}`
+                  : "/images/photo.png"
+              }
+            />
             <AnswerInfo>
               <UserName>{props.answerel?.user?.name}</UserName>
               <Comment>{props.answerel?.contents}</Comment>

@@ -37,7 +37,12 @@ export default function HeaderUI(props: any) {
             <MyTitle onClick={props.onTogleLogin}>LOGIN</MyTitle>
           )}
           {props.isLoginOpen && (
-            <Modal visible={true} onCancel={props.onTogleLogin}>
+            <Modal
+              visible={true}
+              onCancel={props.onTogleLogin}
+              cancelButtonProps={{ style: { display: "none" } }}
+              okButtonProps={{ style: { display: "none" } }}
+            >
               <LoginPage />
             </Modal>
           )}

@@ -51,6 +51,7 @@ export default function Point() {
             },
           });
           alert(`포인트 ${myPoint} 송이 충전되었습니다!`);
+          location.reload();
           // mutation () => createPointTransactionOfLoading
           // ...,
           // 결제 성공 시 로직,

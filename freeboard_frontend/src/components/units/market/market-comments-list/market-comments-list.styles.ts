@@ -22,6 +22,7 @@ export const UserPhoto = styled.img`
   width: 40px;
   height: 40px;
   margin-top: 5px;
+  border-radius: 50%;
 `;
 export const UserInfo = styled.div`
   margin-left: 16px;

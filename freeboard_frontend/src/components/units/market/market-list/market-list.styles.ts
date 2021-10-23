@@ -238,6 +238,7 @@ export const ProductInfoFooter = styled.div`
 export const ProductSellerPhoto = styled.img`
   width: 20px;
   height: 20px;
+  border-radius: 50%;
 `;
 
 export const ProductSellerWrapper = styled.div`

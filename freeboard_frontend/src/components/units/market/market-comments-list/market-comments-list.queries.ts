@@ -8,6 +8,7 @@ export const FETCH_USEDITEM_QUESTIONS = gql`
       createdAt
       user {
         name
+        picture
       }
     }
   }

@@ -53,6 +53,7 @@ export default function Header() {
   function onClickLogout() {
     localStorage.clear();
     alert("로그아웃이 되었습니다");
+    location.reload();
   }
   return (
     <HeaderUI

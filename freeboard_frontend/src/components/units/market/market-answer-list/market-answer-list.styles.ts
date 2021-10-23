@@ -26,6 +26,7 @@ export const UserPhoto = styled.img`
   width: 40px;
   height: 40px;
   margin-left: 30px;
+  border-radius: 50%;
 `;
 
 export const AnswerInfo = styled.div`
