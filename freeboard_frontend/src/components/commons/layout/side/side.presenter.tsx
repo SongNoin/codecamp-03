@@ -24,7 +24,11 @@ export default function SideBarUI(props) {
         </TitleWrapper>
         <UserInfoWRapper>
           <UserPhoto
-            src={`https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.picture}`}
+            src={
+              props.data?.fetchUserLoggedIn.picture
+                ? `https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.picture}`
+                : "/images/photo.png"
+            }
           />
           <UserName>{props.data?.fetchUserLoggedIn.name}</UserName>
           <UserPoint>

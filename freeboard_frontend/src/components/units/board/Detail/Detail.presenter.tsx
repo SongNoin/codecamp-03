@@ -39,10 +39,8 @@ export default function DetailUI(props: any) {
       <BoardsWrapper>
         <ProfileWrapper>
           <ProfileInfo>
-            <Photo>
-              <img src="/images/photo.png" />
-              {/*  img에도 상수이름을 지을 수 있다.  ex ) <Photo =img src="/images/photo.png" />  */}
-            </Photo>
+            <Photo src="/images/photo.png" />
+            {/*  img에도 상수이름을 지을 수 있다.  ex ) <Photo =img src="/images/photo.png" />  */}
             <Profile>
               <Name>{props.data?.fetchBoard.writer}</Name>
               <Date>

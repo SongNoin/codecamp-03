@@ -104,8 +104,11 @@ export default function MarketWriteUI(props: any) {
               </GPSWrapper>
               <Address>
                 <CommonLabel name="주소" />
-                <AddressText type="text" />
-                <AddressText type="text" />
+                <AddressText type="text" value={props.myAddress} readOnly />
+                <AddressText
+                  type="text"
+                  onChange={props.onChangeAddressDetail}
+                />
               </Address>
             </AddressWrapper>
           </MapWrapper>

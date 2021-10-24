@@ -22,6 +22,15 @@ export default function Point() {
     setMyPoint(event.target.value);
   }
   function onClickPayment() {
+    if (myPoint === "" || isNaN(myPoint) === true) {
+      alert("포인트액수(숫자)를 입력해주세요!");
+      return;
+    }
+    if (myPoint < 100) {
+      alert("100원 이상 결제 해주세요!");
+      return;
+    }
+
     const IMP = window.IMP; // 생략 가능
     IMP.init("imp49910675"); // 예: imp49910675
     // IMP.request_pay(param, callback) 결제창 호출

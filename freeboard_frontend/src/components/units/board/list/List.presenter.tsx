@@ -51,7 +51,11 @@ export default function ListUI(props: any) {
           {props.dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el) => (
             <BestBoardBox key={el._id} id={el._id} onClick={props.onClickBest}>
               <BestPhoto1
-                src={`https://storage.googleapis.com/${el.images[0]}`}
+                src={
+                  el.images[0]
+                    ? `https://storage.googleapis.com/${el.images[0]}`
+                    : "/images/noimage.jpg"
+                }
               />
               <BestText>
                 <BestTitle>{el.title}</BestTitle>

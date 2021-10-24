@@ -15,6 +15,9 @@ export const FETCH_USEDITEMS = gql`
         picture
       }
       images
+      useditemAddress {
+        addressDetail
+      }
     }
   }
 `;

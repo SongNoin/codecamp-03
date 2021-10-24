@@ -35,9 +35,10 @@ export const ProfileInfo = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const Photo = styled.div`
+export const Photo = styled.img`
   width: 46.67px;
   height: 46.67px;
+  border-radius: 50%;
 `;
 export const Profile = styled.div`
   display: flex;

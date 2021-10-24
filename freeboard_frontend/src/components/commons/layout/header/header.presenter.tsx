@@ -27,7 +27,11 @@ export default function HeaderUI(props: any) {
           {props.accessToken && (
             <>
               <MyPicture
-                src={`https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.picture}`}
+                src={
+                  props.data?.fetchUserLoggedIn.picture
+                    ? `https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.picture}`
+                    : "/images/photo.png"
+                }
                 onClick={props.onClickMoveToMyPage}
               />
               <MyTitle onClick={props.onClickLogout}>LOGOUT</MyTitle>

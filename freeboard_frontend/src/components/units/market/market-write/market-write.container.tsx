@@ -25,8 +25,8 @@ export default function MarketWrite(props) {
   });
   const [myLat, setMyLat] = useState(null);
   const [myLng, setMyLng] = useState(null);
-  // const [myAddress, setMyAddress] = useState("");
-  // const [myAddressDetail, setMyAddressDetail] = useState("");
+  const [myAddress, setMyAddress] = useState("");
+  const [myAddressDetail, setMyAddressDetail] = useState("");
 
   const [files, setFiles] = useState([null, null, null]);
 
@@ -39,6 +39,10 @@ export default function MarketWrite(props) {
     setValue("contents", value === "<p><br></p>" ? "" : value);
 
     trigger("contents");
+  }
+
+  function onChangeAddressDetail(event) {
+    setMyAddressDetail(event.target.value);
   }
 
   function onClickMoveToMarketList() {
@@ -67,6 +71,7 @@ export default function MarketWrite(props) {
           createUseditemInput: {
             ...data,
             useditemAddress: {
+              address: myAddress,
               lat: myLat,
               lng: myLng,
             },
@@ -153,6 +158,12 @@ export default function MarketWrite(props) {
           // 지도 중심좌표에 마커를 생성합니다
           position: map.getCenter(),
         });
+        const geocoder = new window.kakao.maps.services.Geocoder();
+        console.log(geocoder);
+        const coord = new window.kakao.maps.LatLng(myLat, myLng);
+        const test = function (coords, callback) {
+          geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
+        };
         marker.setMap(map);
 
         window.kakao.maps.event.addListener(
@@ -160,6 +171,11 @@ export default function MarketWrite(props) {
           "click",
           function (mouseEvent: { latLng: any }) {
             // 클릭한 위도, 경도 정보를 가져옵니다
+            test(mouseEvent.latLng, function (result, status) {
+              if (status === window.kakao.maps.services.Status.OK) {
+                setMyAddress(result[0].address.address_name);
+              }
+            });
 
             const latlng = mouseEvent.latLng;
 
@@ -176,11 +192,13 @@ export default function MarketWrite(props) {
             // alert(message);
             setMyLat(latlng.getLat());
             setMyLng(latlng.getLng());
+            setMyAddress(geocoder.coord2Address);
           }
         );
       });
     };
   }, []);
+
   return (
     <MarketWriteUI
       handleSubmit={handleSubmit}
@@ -190,13 +208,14 @@ export default function MarketWrite(props) {
       onClickUploadProduct={onClickUploadProduct}
       onClickUpdateProduct={onClickUpdateProduct}
       onChangeMyContents={onChangeMyContents}
-      // onChangeAddress={onChangeAddress}
+      onChangeAddressDetail={onChangeAddressDetail}
       onChangeFiles={onChangeFiles}
       isEdit={props.isEdit}
       modules={modules}
       myLat={myLat}
       myLng={myLng}
       data={data}
+      myAddress={myAddress}
     />
   );
 }
