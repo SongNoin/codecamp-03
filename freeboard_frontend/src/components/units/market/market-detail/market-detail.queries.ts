@@ -18,6 +18,8 @@ export const FETCH_USEDITEM = gql`
       useditemAddress {
         lat
         lng
+        address
+        addressDetail
       }
       images
     }

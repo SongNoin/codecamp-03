@@ -16,6 +16,7 @@ export const FETCH_USEDITEMS = gql`
       }
       images
       useditemAddress {
+        address
         addressDetail
       }
     }

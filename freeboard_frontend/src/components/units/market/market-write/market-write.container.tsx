@@ -72,6 +72,7 @@ export default function MarketWrite(props) {
             ...data,
             useditemAddress: {
               address: myAddress,
+              addressDetail: myAddressDetail,
               lat: myLat,
               lng: myLng,
             },

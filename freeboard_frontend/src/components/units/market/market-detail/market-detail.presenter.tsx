@@ -34,6 +34,7 @@ import {
   Map,
   ButtonWrapper,
 } from "./market-detail.styles";
+import { Tooltip } from "antd";
 
 export default function MarketDetailUI(props: any) {
   return (
@@ -60,7 +61,12 @@ export default function MarketDetailUI(props: any) {
           </UserWrapper>
           <IconWrapper>
             <LinkIcon src="/images/link.png" />
-            <MapIcon src="/images/map2.png" />
+            <Tooltip
+              placement="topRight"
+              title={`${props.data?.fetchUseditem.useditemAddress?.address} ${props.data?.fetchUseditem.useditemAddress?.addressDetail}`}
+            >
+              <MapIcon src="/images/map2.png" />
+            </Tooltip>
           </IconWrapper>
         </WrapperHeader>
         <Line />
