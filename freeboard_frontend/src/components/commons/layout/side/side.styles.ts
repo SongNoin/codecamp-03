@@ -62,7 +62,7 @@ export const MenuWrapper = styled.div`
   align-items: center;
   margin-top: 69px;
 `;
-export const MenuMarket = styled.div`
+export const MenuMarket = styled.div<{ market: boolean }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: ${(props) => (props.market === true ? 800 : "normal")};
@@ -72,7 +72,7 @@ export const MenuMarket = styled.div`
   cursor: pointer;
   color: ${(props) => (props.market === true ? "#00bfa5" : "#4f4f4f")};
 `;
-export const MenuPoint = styled.div`
+export const MenuPoint = styled.div<{ point: boolean }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: ${(props) => (props.point === true ? 800 : "normal")};
@@ -83,7 +83,7 @@ export const MenuPoint = styled.div`
   cursor: pointer;
   color: ${(props) => (props.point === true ? "#00bfa5" : "#4f4f4f")};
 `;
-export const MenuProfile = styled.div`
+export const MenuProfile = styled.div<{ profile: boolean }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: ${(props) => (props.profile === true ? 800 : "normal")};

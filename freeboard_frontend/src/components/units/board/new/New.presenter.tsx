@@ -1,5 +1,3 @@
-import React, { Component } from "react";
-
 import {
   Wrapper,
   Title,
@@ -92,7 +90,7 @@ export default function NewWriteUI(props: any) {
 
           <SearchButton
             onClick={props.onTogleAddress}
-            onComplete={props.onCompleteAddressSearch}
+            // onComplete={props.onCompleteAddressSearch}
           >
             우편번호 검색
           </SearchButton>

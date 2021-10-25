@@ -130,27 +130,6 @@ export const ButtonWrapper = styled.div`
   justify-content: center;
   margin-top: 80px;
 `;
-export const CancelButton = styled.button`
-  width: 179px;
-  height: 52px;
-  background: #bdbdbd;
-  border: none;
-  cursor: pointer;
-
-  margin-right: 24px;
-  :hover {
-    background-color: #cd5c5c;
-  }
-`;
-export const SubmitButton = styled.button`
-  width: 179px;
-  height: 52px;
-  background: #ffd600;
-  border: none;
-  cursor: ${(props) => (props.color === true ? "pointer" : "default")};
-  background-color: ${(props) =>
-    props.color === true ? "yellow" : "gray"}; //함수를 받을수없어서 만들어줌
-`;
 
 export const Error = styled.div`
   margin-top: 10px;

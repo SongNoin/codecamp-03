@@ -1,4 +1,3 @@
-import React from "react";
 
 import { Wrapper, CarImage } from "./games.styles";
 

@@ -12,7 +12,7 @@ export const MenuWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
-export const Total = styled.div`
+export const Total = styled.div<{ total: boolean }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: ${(props) => (props.total === true ? 800 : "normal")};
@@ -21,7 +21,7 @@ export const Total = styled.div`
   color: ${(props) => (props.total === true ? "#00bfa5" : "#4f4f4f")};
   cursor: pointer;
 `;
-export const Charge = styled.div`
+export const Charge = styled.div<{ charge: boolean }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: ${(props) => (props.charge === true ? 800 : "normal")};
@@ -30,7 +30,7 @@ export const Charge = styled.div`
   color: ${(props) => (props.charge === true ? "#00bfa5" : "#4f4f4f")};
   cursor: pointer;
 `;
-export const Buy = styled.div`
+export const Buy = styled.div<{ buy: boolean }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: ${(props) => (props.buy === true ? 800 : "normal")};
@@ -39,7 +39,7 @@ export const Buy = styled.div`
   color: ${(props) => (props.buy === true ? "#00bfa5" : "#4f4f4f")};
   cursor: pointer;
 `;
-export const Sell = styled.div`
+export const Sell = styled.div<{ sell: boolean }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: ${(props) => (props.sell === true ? 800 : "normal")};

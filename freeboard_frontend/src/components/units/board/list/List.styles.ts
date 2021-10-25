@@ -361,7 +361,7 @@ export const RegisterBoardButton = styled.button`
   }
 `;
 
-export const Page = styled.div`
+export const Page = styled.div<{ current: boolean }>`
   margin-right: 10px;
   margin-left: 10px;
   cursor: pointer;

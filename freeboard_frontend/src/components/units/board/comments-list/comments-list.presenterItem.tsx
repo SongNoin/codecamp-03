@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import { useState } from "react";
 import CommentsWrite from "../comments-write/comments-write.container";
 import { Modal } from "antd";
 import {

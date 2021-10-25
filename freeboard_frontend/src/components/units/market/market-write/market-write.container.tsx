@@ -161,7 +161,7 @@ export default function MarketWrite(props) {
         });
         const geocoder = new window.kakao.maps.services.Geocoder();
         console.log(geocoder);
-        const coord = new window.kakao.maps.LatLng(myLat, myLng);
+        // const coord = new window.kakao.maps.LatLng(myLat, myLng);
         const test = function (coords, callback) {
           geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
         };

@@ -23,7 +23,7 @@ export default function MarketCommentsList(props) {
         // boardId: String(router.query.number),
         page: Math.ceil(data?.fetchUseditemQuestions.length / 10) + 1,
       },
-      updateQuery: (prev, { fetchMoreResult }) => {
+      updateQuery: (prev: any, { fetchMoreResult }) => {
         return {
           fetchUseditemQuestions: [
             ...prev.fetchUseditemQuestions,

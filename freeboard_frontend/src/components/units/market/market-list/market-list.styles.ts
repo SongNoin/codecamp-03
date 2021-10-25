@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import InfiniteScroll from "react-infinite-scroller";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -102,7 +103,7 @@ export const MenuWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
-export const SellProduct = styled.div`
+export const SellProduct = styled.div<{ soldOut: boolean }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: ${(props) => (props.soldOut === true ? "normal" : 800)};
@@ -112,7 +113,7 @@ export const SellProduct = styled.div`
   margin-right: 20px;
   cursor: pointer;
 `;
-export const SoldOutProduct = styled.div`
+export const SoldOutProduct = styled.div<{ soldOut: boolean }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: ${(props) => (props.soldOut === true ? 800 : "normal")};
@@ -121,14 +122,18 @@ export const SoldOutProduct = styled.div`
   color: ${(props) => (props.soldOut === true ? "#00bfa5" : "#4f4f4f")};
   cursor: pointer;
 `;
-export const SearchWrapper = styled.div``;
+export const SearchWrapper = styled.div`
+  display: flex;
+`;
 export const SearchBox = styled.input`
-  width: 282px;
+  /* width: 282px; */
+  width: 564px;
   height: 52px;
   background: #f2f2f2;
   border: none;
 
   padding-left: 20px;
+  margin-right: 20px;
 `;
 export const SearchDate = styled.input`
   width: 282px;
@@ -163,7 +168,15 @@ export const SearchButton = styled.button`
 `;
 export const ProductListWrapper = styled.div`
   margin-top: 40px;
+  height: 1000px;
+  overflow: auto;
 `;
+
+export const ProductListSoldWrapper = styled.div`
+  margin-top: 40px;
+`;
+
+export const Infinite = styled(InfiniteScroll)``;
 
 export const ProductRow = styled.div`
   display: flex;

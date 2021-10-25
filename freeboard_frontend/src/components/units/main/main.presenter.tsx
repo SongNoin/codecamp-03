@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import { Wrapper, MainTitle } from "./main.styles";
 

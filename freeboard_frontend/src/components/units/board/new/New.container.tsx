@@ -9,6 +9,17 @@ import {
   FETCH_BOARD,
   UPLOAD_FILE,
 } from "./New.queries";
+interface IMyUpdateBoardInput {
+  title?: string;
+  contents?: string;
+  youtubeUrl?: string;
+  boardAddress?: {
+    zipcode?: string;
+    address?: string;
+    addressDetail?: string;
+  };
+  images?: string[];
+}
 
 export default function NewWrite(props) {
   const router = useRouter();
@@ -126,7 +137,7 @@ export default function NewWrite(props) {
     setMyAddressDetail(event.target.value);
   }
 
-  function onCompleteAddressSearch(data) {
+  function onCompleteAddressSearch(data: any) {
     setMyAddress(data.address);
     setMyZipcode(data.zonecode);
     setIsOpen(false);
@@ -195,7 +206,7 @@ export default function NewWrite(props) {
       return;
     }
 
-    const myUpdateboardInput = {};
+    const myUpdateboardInput: IMyUpdateBoardInput = {};
     if (myTitle) myUpdateboardInput.title = myTitle;
     if (myContents) myUpdateboardInput.contents = myContents;
     if (myYoutube) myUpdateboardInput.youtubeUrl = myYoutube;

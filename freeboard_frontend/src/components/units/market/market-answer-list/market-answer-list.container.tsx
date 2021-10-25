@@ -21,7 +21,7 @@ export default function MarketAnswerList(props) {
       variables: {
         page: Math.ceil(data?.fetchUseditemQuestionAnswers.length / 10) + 1,
       },
-      updateQuery: (prev, { fetchMoreResult }) => {
+      updateQuery: (prev: any, { fetchMoreResult }) => {
         return {
           fetchUseditemQuestionAnswers: [
             ...prev.fetchUseditemQuestionAnswers,

@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import { useState } from "react";
 
 import { useQuery } from "@apollo/client";
 import ListUI from "./List.presenter";
@@ -9,10 +9,17 @@ import {
 } from "./List.queries";
 import { useRouter } from "next/router";
 import _ from "lodash";
+import {
+  IQuery,
+  IQueryFetchBoardsArgs,
+} from "../../../../commons/types/generated/types";
 
 export default function List() {
   const [startPage, setStartPage] = useState(1);
-  const { data, refetch } = useQuery(FETCH_BOARDS, {
+  const { data, refetch } = useQuery<
+    Pick<IQuery, "fetchBoards">,
+    IQueryFetchBoardsArgs
+  >(FETCH_BOARDS, {
     variables: { page: startPage },
   });
   const router = useRouter();
@@ -27,7 +34,7 @@ export default function List() {
   // const [mySearch, setMySearch] = useState("");
   const [myKeyword, setMyKeyword] = useState("");
 
-  const getDebounce = _.debounce((data) => {
+  const getDebounce = _.debounce((data: any) => {
     refetch({ search: data, page: 1 });
     setMyKeyword(data);
     setCurrent(1);

@@ -15,7 +15,7 @@ import {
 import { Modal } from "antd";
 import Point from "../../../units/user/point/point.container";
 
-export default function SideBarUI(props) {
+export default function SideBarUI(props: any) {
   return (
     <>
       <Wrapper>

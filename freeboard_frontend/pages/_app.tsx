@@ -19,7 +19,6 @@ import {
 import { createUploadLink } from "apollo-upload-client";
 
 import Layout from "../src/components/commons/layout";
-import { GraphQLError } from "graphql";
 import { getAccessToken } from "../src/commons/libraries/getAccessToken";
 
 export const GlobalContext = createContext(null);

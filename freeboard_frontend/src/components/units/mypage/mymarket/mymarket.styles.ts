@@ -12,7 +12,8 @@ export const WrapperHeader = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
-export const ProductMenu = styled.div`
+
+export const ProductMenu = styled.div<{ isPickList: boolean }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: ${(props) => (props.isPickList === true ? "normal" : 800)};
@@ -23,7 +24,7 @@ export const ProductMenu = styled.div`
   cursor: pointer;
 `;
 
-export const PickMenu = styled.div`
+export const PickMenu = styled.div<{ isPickList: boolean }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
   font-weight: ${(props) => (props.isPickList === true ? 800 : "normal")};

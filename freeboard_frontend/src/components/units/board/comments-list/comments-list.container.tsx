@@ -19,7 +19,7 @@ export default function CommentsList() {
         // boardId: String(router.query.number),
         page: Math.ceil(data?.fetchBoardComments.length / 10) + 1,
       },
-      updateQuery: (prev, { fetchMoreResult }) => {
+      updateQuery: (prev: any, { fetchMoreResult }) => {
         return {
           fetchBoardComments: [
             ...prev.fetchBoardComments,

@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import CommonButton from "../../../commons/buttons/01/CommonButton";
 
 import {
