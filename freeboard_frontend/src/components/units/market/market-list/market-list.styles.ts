@@ -4,8 +4,6 @@ import InfiniteScroll from "react-infinite-scroller";
 export const Wrapper = styled.div`
   width: 100%;
   padding-top: 80px;
-  padding-left: 360px;
-  padding-right: 360px;
   padding-bottom: 405px;
   display: flex;
   flex-direction: column;

@@ -3,13 +3,9 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   width: 1200px;
   padding-top: 60px;
-  padding-right: 100px;
-  padding-left: 100px;
   padding-bottom: 100px;
 
   margin-top: 80px;
-  margin-left: 360px;
-  margin-right: 360px;
 
   background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);

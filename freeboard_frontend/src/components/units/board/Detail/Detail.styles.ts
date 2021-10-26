@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
 import ReactPlayer from "react-player";
 export const Wrapper = styled.div`
-  width: 1920px;
+  width: 100%;
   padding-top: 80px;
-  padding-left: 360px;
-  padding-right: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 export const BoardsWrapper = styled.div`
   width: 1200px;

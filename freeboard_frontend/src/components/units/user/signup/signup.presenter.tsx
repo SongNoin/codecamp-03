@@ -21,15 +21,15 @@ export default function SignUpUI(props: any) {
       <Wrapper>
         <PhotoWrapper>
           <PhotoLine>
-            <Photo src="images/signup/sofa.jpg" />
-            <Photo src="images/signup/ps5cross.jpg" />
+            <Photo src="/images/signup/sofa.jpg" />
+            <Photo src="/images/signup/ps5cross.jpg" />
 
-            <Photo src="images/signup/women.jpeg" />
+            <Photo src="/images/signup/women.jpeg" />
           </PhotoLine>
           <PhotoLine>
-            <Photo src="images/signup/pizza.jpg" />
-            <Photo src="images/signup/ps5rounge.jpg" />
-            <Photo src="images/signup/older.jpg" />
+            <Photo src="/images/signup/pizza.jpg" />
+            <Photo src="/images/signup/ps5rounge.jpg" />
+            <Photo src="/images/signup/older.jpg" />
           </PhotoLine>
         </PhotoWrapper>
         <SignUpWrapper>

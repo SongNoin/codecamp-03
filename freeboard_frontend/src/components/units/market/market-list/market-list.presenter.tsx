@@ -24,8 +24,6 @@ import {
   SoldOutProduct,
   SearchWrapper,
   SearchBox,
-  SearchDate,
-  SearchButton,
   ProductListWrapper,
   ProductListSoldWrapper,
   ProductRow,

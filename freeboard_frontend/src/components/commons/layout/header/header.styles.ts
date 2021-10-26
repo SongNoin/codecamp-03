@@ -92,11 +92,13 @@ export const MyTitle = styled.div`
 `;
 
 export const MyPicture = styled.img`
-  height: 80%;
+  height: 65px;
+  width: 65px;
   margin-right: 40px;
   cursor: pointer;
   border-radius: 50%;
   :hover {
-    height: 90%;
+    height: 75px;
+    width: 75px;
   }
 `;

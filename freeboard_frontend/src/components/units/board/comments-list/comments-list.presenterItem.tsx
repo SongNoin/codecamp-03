@@ -79,9 +79,7 @@ export default function CommentsListUIItem(props) {
       {!isCommentEdit && (
         <CommentsWrapper>
           <CommentsInfo>
-            <CommentsPhoto>
-              <img src="/images/photo.png" />
-            </CommentsPhoto>
+            <CommentsPhoto src="/images/photo.png" />
             <CommentsText>
               <CommentsWriter>{props.el?.writer}</CommentsWriter>
               <Comments>{props.el?.contents}</Comments>

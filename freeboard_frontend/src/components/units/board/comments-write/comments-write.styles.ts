@@ -2,12 +2,19 @@ import styled from "@emotion/styled";
 import { Rate } from "antd";
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  /* width: 1200px;
   margin-top: 40px;
   margin-left: 360px;
-  margin-bottom: 40px;
+  margin-bottom: 40px; */
+  /* width: 100%; */
+  /* width: 1200px; */
+  display: flex;
+  flex-direction: column;
 `;
-
+export const WrapperHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 export const CommentsTitle = styled.div`
   display: flex;
   flex-direction: row;

@@ -4,15 +4,13 @@ export const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   align-items: center;
   padding-top: 90px;
-  padding-left: 200px;
 `;
 export const PhotoWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin-right: 500px;
+  margin-right: 350px;
 `;
 export const PhotoLine = styled.div`
   height: 650px;
@@ -53,10 +51,15 @@ export const SubTitle = styled.div`
 `;
 
 export const Logo = styled.span`
-  font-family: Noto Sans CJK KR;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 30px;
+  font-family: LogoFont;
+  font-style: "normal";
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 27px;
+
+  color: black;
+  text-shadow: 2px 2px #ffe87b;
   margin-right: 10px;
 `;
 export const TextWrapper = styled.div`

@@ -11,16 +11,16 @@ export const CommentsWrapper = styled.div`
   border-bottom: 1px solid #bdbdbd;
 
   margin-top: 20px;
-  margin-left: 360px;
 `;
 
 export const CommentsInfo = styled.div`
   display: flex;
   flex-direction: row;
 `;
-export const CommentsPhoto = styled.div`
+export const CommentsPhoto = styled.img`
   width: 40px;
   height: 40px;
+  border-radius: 50%;
 `;
 export const CommentsText = styled.div`
   margin-left: 16px;

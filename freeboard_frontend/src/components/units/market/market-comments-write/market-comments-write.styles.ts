@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 80px;
-  margin-left: 360px;
+  /* margin-left: 360px; */
 `;
 
 export const TitleWrapper = styled.div`

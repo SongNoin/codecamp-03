@@ -2,7 +2,6 @@ import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import MarKetListUI from "./market-list.presenter";
-import _ from "lodash";
 
 import {
   FETCH_USEDITEMS,

@@ -3,11 +3,9 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   width: 1200px;
   margin-top: 30px;
-  margin-left: 420px;
-  margin-right: 360px;
-
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const Arrow = styled.img`

@@ -1,5 +1,6 @@
 import {
   Wrapper,
+  WrapperHeader,
   CommentsTitle,
   CommentsIcon,
   WriterInfo,
@@ -18,31 +19,34 @@ export default function CommentsWriteUI(props: any) {
   return (
     <>
       <Wrapper>
-        {!props.isCommentEdit && (
-          <CommentsTitle>
-            <CommentsIcon>
-              <img src="/images/commentsicon.png" />
-            </CommentsIcon>
-            댓글
-          </CommentsTitle>
-        )}
-        <WriterInfo>
-          <WriterInput
-            name="writerinput"
-            type="text"
-            placeholder="작성자"
-            onChange={props.onChangeWriter}
-          ></WriterInput>
-          <PasswordInput
-            name="passwordinput"
-            type="password"
-            placeholder="비밀번호"
-            onChange={props.onChangePassword}
-          ></PasswordInput>
-          <RateWrapper>
-            <RateInput onChange={props.handleChange} />
-          </RateWrapper>
-        </WriterInfo>
+        <WrapperHeader>
+          {!props.isCommentEdit && (
+            <CommentsTitle>
+              <CommentsIcon>
+                <img src="/images/commentsicon.png" />
+              </CommentsIcon>
+              댓글
+            </CommentsTitle>
+          )}
+          <WriterInfo>
+            <WriterInput
+              name="writerinput"
+              type="text"
+              placeholder="작성자"
+              onChange={props.onChangeWriter}
+            ></WriterInput>
+            <PasswordInput
+              name="passwordinput"
+              type="password"
+              placeholder="비밀번호"
+              onChange={props.onChangePassword}
+            ></PasswordInput>
+
+            <RateWrapper>
+              <RateInput onChange={props.handleChange} />
+            </RateWrapper>
+          </WriterInfo>
+        </WrapperHeader>
         <CommentsContents>
           <CommentsInput
             name="commentsinput"

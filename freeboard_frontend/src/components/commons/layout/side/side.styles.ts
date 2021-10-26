@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 538px;
+  /* width: 700px; */
   height: 1189px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 120px;
+  padding-left: 200px;
+  padding-right: 120px;
 
   border-right: 2px solid #f2f2f2;
 `;

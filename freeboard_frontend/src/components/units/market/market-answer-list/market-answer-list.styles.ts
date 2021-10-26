@@ -3,8 +3,6 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   width: 1200px;
   margin-top: 30px;
-  margin-left: 420px;
-  margin-right: 360px;
 
   display: flex;
   flex-direction: row;
@@ -13,6 +11,7 @@ export const Wrapper = styled.div`
 `;
 
 export const AnswerWrapper = styled.div`
+  width: 1000px;
   display: flex;
   flex-direction: row;
 `;
@@ -59,4 +58,7 @@ export const Button = styled.img`
   height: 18px;
   margin-right: 16px;
   cursor: pointer;
+`;
+export const WrapperFooter = styled.div`
+  display: flex;
 `;

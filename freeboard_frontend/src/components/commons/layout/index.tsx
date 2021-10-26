@@ -8,21 +8,29 @@ import Sidebar from "./side/side.container";
 const Wrapper = styled.div`
   margin: 0px;
   width: 100%;
-  display: flex;
-  justify-content: center;
+
+  align-items: center;
+  /* justify-content: center; */
 `;
 
 const LayoutWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
   align-items: center;
 `;
 
-const Body = styled.div``;
+const Body = styled.div`
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Footer = styled.div`
   height: 100px;
+  background-color: black;
 `;
 const SideWrapper = styled.div`
   width: 100%;
@@ -36,7 +44,7 @@ const Navi = styled.div`
   background-color: black;
 `;
 
-const HiddenBanner = ["/signup"];
+const HiddenBanner = ["/signup", "/"];
 const HiddenSide = ["/mypage/mymarket", "/mypage/myprofile", "/mypage/mypoint"];
 
 export default function Layout(props: any) {
@@ -45,17 +53,23 @@ export default function Layout(props: any) {
   const isHiddenSide = !HiddenSide.includes(router.pathname);
 
   return (
-    <Wrapper>
-      <LayoutWrapper>
-        <Navi />
-        <Header />
-        {!isHiddenBanner && <Banner />}
-        <SideWrapper>
-          {!isHiddenSide && <Sidebar />}
-          <Body>{props.children}</Body>
-        </SideWrapper>
-        {isHiddenSide && <Footer />}
-      </LayoutWrapper>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <LayoutWrapper>
+          <Navi />
+          <Header />
+          {!isHiddenBanner && <Banner />}
+          {!isHiddenSide && (
+            <SideWrapper>
+              <Sidebar />
+              <Body>{props.children}</Body>
+            </SideWrapper>
+          )}
+          {isHiddenSide && <Body>{props.children}</Body>}
+
+          {isHiddenSide && <Footer />}
+        </LayoutWrapper>
+      </Wrapper>
+    </>
   );
 }

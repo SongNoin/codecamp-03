@@ -12,10 +12,10 @@ export default function RecentWatchBox() {
 
   const MyBox = styled.div`
     width: 196px;
-    position: sticky;
-    bottom: 50px;
-    left: 3000px;
 
+    position: absolute;
+    top: 1500px;
+    left: 1600px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,6 @@ export default function RecentWatchBox() {
     flex-direction: column;
     margin-top: 20px;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.1);
-
     :hover {
       background-color: #81d8b1;
     }
