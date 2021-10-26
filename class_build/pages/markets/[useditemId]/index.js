@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { gql, request } from "graphql-request";
 
-export default function MarketPage() {
+export default function MarketPage(props) {
   //* 2번째실행
 
   return (
