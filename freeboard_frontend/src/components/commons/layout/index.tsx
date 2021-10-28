@@ -29,7 +29,8 @@ const Body = styled.div`
 `;
 
 const Footer = styled.div`
-  height: 100px;
+  height: 80px;
+  width: 100%;
   background-color: black;
 `;
 const SideWrapper = styled.div`
@@ -46,18 +47,21 @@ const Navi = styled.div`
 
 const HiddenBanner = ["/signup", "/"];
 const HiddenSide = ["/mypage/mymarket", "/mypage/myprofile", "/mypage/mypoint"];
+const HiddenHeader = [];
 
 export default function Layout(props: any) {
   const router = useRouter();
   const isHiddenBanner = HiddenBanner.includes(router.pathname);
   const isHiddenSide = !HiddenSide.includes(router.pathname);
 
+  const isHiddenHeader = HiddenHeader.includes(router.pathname);
+
   return (
     <>
       <Wrapper>
         <LayoutWrapper>
           <Navi />
-          <Header />
+          {!isHiddenHeader && <Header />}
           {!isHiddenBanner && <Banner />}
           {!isHiddenSide && (
             <SideWrapper>

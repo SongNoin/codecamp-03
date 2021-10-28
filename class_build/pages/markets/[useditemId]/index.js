@@ -20,6 +20,8 @@ export default function MarketPage(props) {
 }
 
 const FETCH_USEDITEM = gql`
+  # 1번째실행
+
   query fetchUseditem($useditemId: ID!) {
     fetchUseditem(useditemId: $useditemId) {
       name
