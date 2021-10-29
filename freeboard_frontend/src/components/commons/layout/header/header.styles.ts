@@ -21,7 +21,7 @@ export const Title = styled.div`
   line-height: 27px;
 
   color: black;
-  text-shadow: 2px 2px #ffe87b;
+  text-shadow: 2px 2px #81d8b1;
 
   cursor: pointer;
   :hover {
@@ -56,7 +56,7 @@ export const MenuTitle = styled.div`
   line-height: 27px;
 
   color: black;
-  text-shadow: 2px 2px #f7c6ff;
+  text-shadow: 2px 2px #ffe87f;
 
   cursor: pointer;
   :hover {
@@ -83,7 +83,7 @@ export const MyTitle = styled.div`
   line-height: 27px;
 
   color: black;
-  text-shadow: 2px 2px #00bfa5;
+  text-shadow: 2px 2px #f7c6ff;
 
   cursor: pointer;
   :hover {

@@ -59,7 +59,7 @@ export const Logo = styled.span`
   line-height: 27px;
 
   color: black;
-  text-shadow: 2px 2px #ffe87b;
+  text-shadow: 2px 2px #00bfa5;
   margin-right: 10px;
 `;
 export const TextWrapper = styled.div`

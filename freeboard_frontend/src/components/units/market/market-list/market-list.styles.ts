@@ -9,15 +9,22 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-export const TitleWrapper = styled.div``;
+export const TitleWrapper = styled.div`
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 export const Title = styled.div`
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 42px;
+  font-family: LogoFont;
+  font-style: "normal";
+  font-size: 200px;
   text-align: center;
-  color: #000000;
+  font-weight: bold;
+  line-height: 27px;
+  color: black;
+  text-shadow: 6px 6px #ffe87f;
 `;
 export const BestProductWrapper = styled.div`
   width: 1200px;

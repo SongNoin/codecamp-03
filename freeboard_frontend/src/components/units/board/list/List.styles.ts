@@ -20,9 +20,18 @@ export const TitleWrapper = styled.div`
   height: 200px;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
-export const BestBoardTitle = styled.img`
-  height: 100%;
+export const BestBoardTitle = styled.div`
+  font-family: LogoFont;
+  font-style: "normal";
+  font-size: 200px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 27px;
+
+  color: black;
+  text-shadow: 6px 6px #ffe87f;
 `;
 export const BestBoardContents = styled.div`
   display: flex;

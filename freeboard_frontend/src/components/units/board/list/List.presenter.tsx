@@ -43,7 +43,7 @@ export default function ListUI(props: any) {
     <Wrapper>
       <WrapperHeader>
         <TitleWrapper>
-          <BestBoardTitle src="/images/bestboard.png"></BestBoardTitle>
+          <BestBoardTitle>Board</BestBoardTitle>
         </TitleWrapper>
 
         <BestBoardContents>

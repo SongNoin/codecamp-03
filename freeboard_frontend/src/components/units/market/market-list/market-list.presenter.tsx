@@ -53,7 +53,7 @@ export default function MarKetListUI(props) {
     <>
       <Wrapper>
         <TitleWrapper>
-          <Title>베스트 상품</Title>
+          <Title>Market</Title>
         </TitleWrapper>
         <BestProductWrapper>
           {props.dataUseditemsOfTheBest?.fetchUseditemsOfTheBest.map((el) => (
