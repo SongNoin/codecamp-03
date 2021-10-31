@@ -28,7 +28,7 @@ export default function MainUI(props) {
             <Logo>SONGNY</Logo>
           </LogoWrapper>
           <LeftPhotoWrapper>
-            <LeftPhoto src={"/images/signup/pizza.jpg"} />
+            <LeftPhoto src={"/images/main/blackops.jpg"} />
           </LeftPhotoWrapper>
         </WrapperLeft>
         <WrapperCenter>
@@ -49,7 +49,7 @@ export default function MainUI(props) {
         </WrapperCenter>
         <WrapperRight>
           <RightPhotoWapper>
-            <RightPhoto src={"images/signup/older.jpg"} />
+            <RightPhoto src={"images/main/cratos2.jpg"} />
           </RightPhotoWapper>
           <IntroWrapper>
             <Intro>Play Has No Limits</Intro>

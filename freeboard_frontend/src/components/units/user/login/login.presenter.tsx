@@ -1,6 +1,7 @@
 import BigCommonButton from "../../../commons/buttons/03/BigCommonButton";
 import {
   Wrapper,
+  LogoWrapper,
   Logo,
   Title,
   TextWrapper,
@@ -18,7 +19,9 @@ export default function LoginUI(props) {
   return (
     <>
       <Wrapper>
-        <Logo src="/images/songny2.png" />
+        <LogoWrapper>
+          <Logo>SONGNY</Logo>
+        </LogoWrapper>
         <Title>로그인하기</Title>
         <TextWrapper>
           <Info

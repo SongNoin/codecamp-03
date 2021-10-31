@@ -43,8 +43,8 @@ export const LeftPhotoWrapper = styled.div`
   background-image: linear-gradient(
     to right,
     #e0eafc 0%,
-    #35c584 90%,
-    #35c584 100%
+    black 60%,
+    #e0eafc 100%
   );
 
   /* padding: 15px 45px; */
@@ -56,7 +56,7 @@ export const LeftPhotoWrapper = styled.div`
   border: none;
   :hover {
     background-position: right center; /* change the direction of the change here */
-    color: #fff;
+    color: black;
     text-decoration: none;
   }
 `;
@@ -135,8 +135,8 @@ export const WrapperRight = styled.div`
   background-image: linear-gradient(
     to right,
     #e0eafc 0%,
-    #35c584 90%,
-    #35c584 100%
+    black 60%,
+    #e0eafc 100%
   );
 
   /* padding: 15px 45px; */
@@ -145,12 +145,11 @@ export const WrapperRight = styled.div`
   transition: 0.5s;
   background-size: 200% auto;
   color: black;
-  box-shadow: 0 0 20px #eee;
   display: block;
   border: none;
   :hover {
     background-position: right center; /* change the direction of the change here */
-    color: #fff;
+    color: black;
     text-decoration: none;
   }
 `;

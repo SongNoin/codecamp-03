@@ -5,8 +5,19 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const Logo = styled.img`
-  width: 250px;
+
+export const LogoWrapper = styled.div`
+  margin-top: 80px;
+`;
+export const Logo = styled.div`
+  font-family: LogoFont;
+  font-style: "normal";
+  font-size: 130px;
+  /* text-align: center; */
+  font-weight: bold;
+  line-height: 27px;
+  color: black;
+  text-shadow: 4px 4px #81d8b1;
 `;
 
 export const Title = styled.div`
@@ -14,6 +25,7 @@ export const Title = styled.div`
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
+  margin-top: 70px;
 `;
 
 export const TextWrapper = styled.div`
