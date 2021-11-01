@@ -96,6 +96,8 @@ export default function MarketWrite(props) {
       const results = await Promise.all(uploadFiles);
       const myImages = results.map((el) => el.data.uploadFile.url);
 
+      // myImages.push(data.fetchUseditem.images);
+
       const result = await updateUseditem({
         variables: {
           updateUseditemInput: {
@@ -109,13 +111,22 @@ export default function MarketWrite(props) {
           useditemId: router.query.number,
         },
       });
-      console.log(data);
+      console.log(myImages);
       alert("상품을 수정합니다~");
       router.push(`/market/market-detail/${result.data.updateUseditem._id}`);
     } catch (error) {
       console.log(error.message);
     }
   }
+  useEffect(() => {
+    if (props.isEdit && data?.fetchUseditem) {
+      setValue("name", data?.fetchUseditem.name);
+      setValue("remarks", data?.fetchUseditem.remarks);
+      setValue("contents", data?.fetchUseditem.contents);
+      setValue("price", data?.fetchUseditem.price);
+      setValue("tags", data?.fetchUseditem.tags);
+    }
+  }, [props.isEdit, data?.fetchUseditem]);
 
   const modules = {
     toolbar: {

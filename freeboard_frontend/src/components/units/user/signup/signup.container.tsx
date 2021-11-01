@@ -48,16 +48,23 @@ export default function SignUp() {
     }
     if (myName === "") {
       setNameError("이름이 입력되지 않았습니다!");
+      return;
     }
     if (myPassword === "") {
       setPasswordError("비밀번호가 입력되지 않았습니다!");
+      return;
     }
     if (myCheckPassword === "") {
-      setCheckPasswordError("비밀번호가 입력되지 않았습니다!");
+      setCheckPasswordError("확인 비밀번호가 입력되지 않았습니다!");
+      return;
     }
 
     if (/\w+@\w+\.\w+/.test(myEmail) === false) {
       alert("이메일 형식이 아닙니다!");
+      return;
+    }
+    if (myPassword.length < 4) {
+      setPasswordError("비밀번호는 4자리 이상이여야합니다.");
       return;
     }
     if (myPassword !== myCheckPassword) {

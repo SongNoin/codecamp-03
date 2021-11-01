@@ -35,7 +35,7 @@ export default function MarketWriteUI(props: any) {
   return (
     <form
       onSubmit={props.handleSubmit(
-        props.isEdit ? props.onClickUploadProduct : props.onClickUploadProduct
+        props.isEdit ? props.onClickUpdateProduct : props.onClickUploadProduct
       )}
     >
       <Wrapper>
@@ -65,11 +65,22 @@ export default function MarketWriteUI(props: any) {
           </InputWrapper>
           <DetailWrapper>
             <CommonLabel name="상품설명" />
-            <DetailText
-              onChange={props.onChangeMyContents}
-              modules={props.modules}
-              defaultValue={props.data?.fetchUseditem.contents}
-            />
+            {props.isEdit ? (
+              <>
+                {props.data?.fetchUseditem.contents && (
+                  <DetailText // quill
+                    onChange={props.onChangeMyContents}
+                    modules={props.modules}
+                    defaultValue={props.data?.fetchUseditem.contents}
+                  />
+                )}
+              </>
+            ) : (
+              <DetailText // quill
+                onChange={props.onChangeMyContents}
+                modules={props.modules}
+              />
+            )}
           </DetailWrapper>
           <ErrorText name={props.formState.errors.contents?.message} />
           <InputWrapper>
