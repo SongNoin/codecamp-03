@@ -90,14 +90,13 @@ export default function MarketWrite(props) {
 
   async function onClickUpdateProduct(data) {
     try {
-      const uploadFiles = files
-        .filter((el) => el)
-        .map((el) => uploadFile({ variables: { file: el } }));
+      const uploadFiles = files.map((el) =>
+        el ? uploadFile({ variables: { file: el } }) : null
+      );
       const results = await Promise.all(uploadFiles);
-      const myImages = results.map((el) => el.data.uploadFile.url);
+      const myImages = results.map((el) => el?.data.uploadFile.url || "");
 
-      // myImages.push(data.fetchUseditem.images);
-
+      console.log("3333", myImages);
       const result = await updateUseditem({
         variables: {
           updateUseditemInput: {
@@ -111,10 +110,11 @@ export default function MarketWrite(props) {
           useditemId: router.query.number,
         },
       });
-      console.log(myImages);
+      console.log(data);
       alert("상품을 수정합니다~");
       router.push(`/market/market-detail/${result.data.updateUseditem._id}`);
     } catch (error) {
+      
       console.log(error.message);
     }
   }
