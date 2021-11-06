@@ -28,6 +28,7 @@ import {WebView} from 'react-native-webview';
 // } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => Node = () => {
+  fetch('https://koreanjson.com/posts/1');
   return <WebView source={{uri: 'https://songny.me'}} />;
 };
 

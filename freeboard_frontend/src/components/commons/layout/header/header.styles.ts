@@ -73,7 +73,7 @@ export const MyWrapper = styled.div`
 `;
 
 export const MyTitle = styled.div`
-  margin-right: 20px;
+  margin-right: 40px;
   font-style: "normal";
   font-family: LogoFont;
 
@@ -94,7 +94,6 @@ export const MyTitle = styled.div`
 export const MyPicture = styled.img`
   height: 65px;
   width: 65px;
-  margin-right: 40px;
   cursor: pointer;
   border-radius: 50%;
   :hover {

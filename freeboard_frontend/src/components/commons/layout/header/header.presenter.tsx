@@ -26,6 +26,8 @@ export default function HeaderUI(props: any) {
         <MyWrapper>
           {props.accessToken && (
             <>
+              <MyTitle onClick={props.onClickMoveToMyPage}>MY</MyTitle>
+              <MyTitle onClick={props.onClickLogout}>LOGOUT</MyTitle>
               <MyPicture
                 src={
                   props.data?.fetchUserLoggedIn.picture
@@ -34,7 +36,6 @@ export default function HeaderUI(props: any) {
                 }
                 onClick={props.onClickMoveToMyPage}
               />
-              <MyTitle onClick={props.onClickLogout}>LOGOUT</MyTitle>
             </>
           )}
           {!props.accessToken && (
