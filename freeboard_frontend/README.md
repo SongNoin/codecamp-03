@@ -1,9 +1,10 @@
 ## [ 개인 프로젝트 ] Songny
 
- ****
 
-![송니](https://user-images.githubusercontent.com/88178866/143570324-d33bf372-05d3-462f-b65d-b50838bf8ae0.PNG)
 
+<p align="center">
+  <img width="1000" src="https://user-images.githubusercontent.com/88178866/143570324-d33bf372-05d3-462f-b65d-b50838bf8ae0.PNG">
+</p>
 
 > **PLAY HAS NO LIMITS!**
 > 
