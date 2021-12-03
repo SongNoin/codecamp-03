@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   margin: 0px;
   width: 100%;
 
-  align-items: center;
+  /* align-items: center; */
   /* justify-content: center; */
 `;
 
@@ -22,10 +22,10 @@ const LayoutWrapper = styled.div`
 `;
 
 const Body = styled.div`
-  /* width: 100%; */
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
 `;
 
 const SideWrapper = styled.div`

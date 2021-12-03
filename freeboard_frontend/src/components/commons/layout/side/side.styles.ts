@@ -63,34 +63,43 @@ export const MenuWrapper = styled.div`
   align-items: center;
   margin-top: 69px;
 `;
-export const MenuMarket = styled.div<{ market: boolean }>`
+export const MenuMarket = styled.div<{ isClicked: string }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
-  font-weight: ${(props) => (props.market === true ? 800 : "normal")};
-  font-size: ${(props) => (props.market === true ? "40px" : "25px")};
+  font-weight: ${(props) =>
+    props.isClicked === "/mypage/mymarket" ? 800 : "normal"};
+  font-size: ${(props) =>
+    props.isClicked === "/mypage/mymarket" ? "40px" : "25px"};
   line-height: 27px;
   margin-top: 50px;
   cursor: pointer;
-  color: ${(props) => (props.market === true ? "#00bfa5" : "#4f4f4f")};
+  color: ${(props) =>
+    props.isClicked === "/mypage/mymarket" ? "#00bfa5" : "#4f4f4f"};
 `;
-export const MenuPoint = styled.div<{ point: boolean }>`
+export const MenuPoint = styled.div<{ isClicked: string }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
-  font-weight: ${(props) => (props.point === true ? 800 : "normal")};
-  font-size: ${(props) => (props.point === true ? "40px" : "25px")};
+  font-weight: ${(props) =>
+    props.isClicked === "/mypage/mypoint" ? 800 : "normal"};
+  font-size: ${(props) =>
+    props.isClicked === "/mypage/mypoint" ? "40px" : "25px"};
   line-height: 27px;
   margin-top: 80px;
 
   cursor: pointer;
-  color: ${(props) => (props.point === true ? "#00bfa5" : "#4f4f4f")};
+  color: ${(props) =>
+    props.isClicked === "/mypage/mypoint" ? "#00bfa5" : "#4f4f4f"};
 `;
-export const MenuProfile = styled.div<{ profile: boolean }>`
+export const MenuProfile = styled.div<{ isClicked: string }>`
   font-family: Noto Sans CJK KR;
   font-style: normal;
-  font-weight: ${(props) => (props.profile === true ? 800 : "normal")};
-  font-size: ${(props) => (props.profile === true ? "40px" : "25px")};
+  font-weight: ${(props) =>
+    props.isClicked === "/mypage/myprofile" ? 800 : "normal"};
+  font-size: ${(props) =>
+    props.isClicked === "/mypage/myprofile" ? "40px" : "25px"};
   line-height: 27px;
   margin-top: 80px;
   cursor: pointer;
-  color: ${(props) => (props.profile === true ? "#00bfa5" : "#4f4f4f")};
+  color: ${(props) =>
+    props.isClicked === "/mypage/myprofile" ? "#00bfa5" : "#4f4f4f"};
 `;

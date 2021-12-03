@@ -54,16 +54,19 @@ export default function SideBarUI(props: any) {
         <MenuWrapper>
           <MenuMarket
             onClick={props.onClcikMoveToMyMarket}
-            market={props.market}
+            isClicked={props.isClicked}
           >
             📦 내 장터
           </MenuMarket>
-          <MenuPoint onClick={props.onClickMoveToMyPoint} point={props.point}>
+          <MenuPoint
+            onClick={props.onClickMoveToMyPoint}
+            isClicked={props.isClicked}
+          >
             💸 내 포인트
           </MenuPoint>
           <MenuProfile
             onClick={props.onClickMoveToMyProfile}
-            profile={props.profile}
+            isClicked={props.isClicked}
           >
             🧔 내 프로필
           </MenuProfile>

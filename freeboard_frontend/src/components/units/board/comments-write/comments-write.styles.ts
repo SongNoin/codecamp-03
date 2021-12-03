@@ -2,16 +2,13 @@ import styled from "@emotion/styled";
 import { Rate } from "antd";
 
 export const Wrapper = styled.div`
-  /* width: 1200px;
-  margin-top: 40px;
-  margin-left: 360px;
-  margin-bottom: 40px; */
-  /* width: 100%; */
-  /* width: 1200px; */
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
 `;
 export const WrapperHeader = styled.div`
+  width: 1200px;
   display: flex;
   flex-direction: column;
 `;

@@ -3,6 +3,12 @@ import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+`;
+export const WriterWrapper = styled.div`
   width: 1200px;
   padding-top: 60px;
   padding-right: 100px;
@@ -10,12 +16,11 @@ export const Wrapper = styled.div`
   padding-bottom: 100px;
 
   margin-top: 80px;
-  margin-left: 360px;
-  margin-right: 360px;
 
   background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
 `;
+
 export const WrapperHeader = styled.div``;
 export const TitleWrapper = styled.div`
   padding-top: 40px;

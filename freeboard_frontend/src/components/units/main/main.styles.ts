@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 // import { breakPoints } from "../../../commons/styles/media";
 
 export const Wrapper = styled.div`
-  width: 1920px;
+  width: 100%;
   height: 902px;
   display: flex;
   flex-direction: row;

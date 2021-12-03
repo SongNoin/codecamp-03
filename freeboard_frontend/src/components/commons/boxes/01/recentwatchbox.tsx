@@ -13,9 +13,10 @@ export default function RecentWatchBox() {
   const MyBox = styled.div`
     width: 196px;
 
-    position: absolute;
-    top: 1500px;
-    left: 1600px;
+    position: sticky;
+    left: 85%;
+    bottom: 10%;
+
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

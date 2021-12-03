@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 1200px;
+
   margin-top: 30px;
 
   display: flex;
@@ -9,9 +10,13 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+export const WrapperFooter = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
 
 export const AnswerWrapper = styled.div`
-  width: 1000px;
   display: flex;
   flex-direction: row;
 `;
@@ -51,14 +56,10 @@ export const Comment = styled.div`
 
 export const ButtonWrapper = styled.div`
   margin-bottom: 60px;
-  margin-right: 60px;
 `;
 export const Button = styled.img`
   width: 18px;
   height: 18px;
   margin-right: 16px;
   cursor: pointer;
-`;
-export const WrapperFooter = styled.div`
-  display: flex;
 `;

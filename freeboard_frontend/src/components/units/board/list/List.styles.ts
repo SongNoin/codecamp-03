@@ -1,7 +1,13 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const BoardListWrapper = styled.div`
+  width: 1200px;
   padding-top: 80px;
 
   padding-bottom: 405px;

@@ -9,6 +9,7 @@ import {
 } from "./comments-list.queries";
 
 import {
+  Wrapper,
   CommentsWrapper,
   CommentsInfo,
   CommentsPhoto,
@@ -70,43 +71,45 @@ export default function CommentsListUIItem(props) {
 
   return (
     <>
-      {isOpenDeleteModal && (
-        <Modal visible={true} onOk={onClickDelete} onCancel={closeModal}>
-          <div>비밀번호 입력: </div>
-          <PasswordInput type="password" onChange={onChangeDeletePassword} />
-        </Modal>
-      )}
-      {!isCommentEdit && (
-        <CommentsWrapper>
-          <CommentsInfo>
-            <CommentsPhoto src="/images/photo.png" />
-            <CommentsText>
-              <CommentsWriter>{props.el?.writer}</CommentsWriter>
-              <Comments>{props.el?.contents}</Comments>
-              <CommentsRate value={props.el?.rating} disabled />
-              <CommentsDate>{props.el?.createdAt.slice(0, 10)}</CommentsDate>
-            </CommentsText>
-          </CommentsInfo>
-          <CommentsButtonWrapper>
-            <CommentsEditButton
-              src="/images/editicon.png"
-              onClick={onClickEdit}
-            ></CommentsEditButton>
-            <CommentsDeleteButton
-              src="/images/deleteicon.png"
-              id={props.el?._id}
-              onClick={onClickOpenDeleteModal}
-            ></CommentsDeleteButton>
-          </CommentsButtonWrapper>
-        </CommentsWrapper>
-      )}
-      {isCommentEdit && (
-        <CommentsWrite
-          isCommentEdit={isCommentEdit}
-          setIsCommentEdit={setIsCommentEdit}
-          el={props.el}
-        />
-      )}
+      <Wrapper>
+        {isOpenDeleteModal && (
+          <Modal visible={true} onOk={onClickDelete} onCancel={closeModal}>
+            <div>비밀번호 입력: </div>
+            <PasswordInput type="password" onChange={onChangeDeletePassword} />
+          </Modal>
+        )}
+        {!isCommentEdit && (
+          <CommentsWrapper>
+            <CommentsInfo>
+              <CommentsPhoto src="/images/photo.png" />
+              <CommentsText>
+                <CommentsWriter>{props.el?.writer}</CommentsWriter>
+                <Comments>{props.el?.contents}</Comments>
+                <CommentsRate value={props.el?.rating} disabled />
+                <CommentsDate>{props.el?.createdAt.slice(0, 10)}</CommentsDate>
+              </CommentsText>
+            </CommentsInfo>
+            <CommentsButtonWrapper>
+              <CommentsEditButton
+                src="/images/editicon.png"
+                onClick={onClickEdit}
+              ></CommentsEditButton>
+              <CommentsDeleteButton
+                src="/images/deleteicon.png"
+                id={props.el?._id}
+                onClick={onClickOpenDeleteModal}
+              ></CommentsDeleteButton>
+            </CommentsButtonWrapper>
+          </CommentsWrapper>
+        )}
+        {isCommentEdit && (
+          <CommentsWrite
+            isCommentEdit={isCommentEdit}
+            setIsCommentEdit={setIsCommentEdit}
+            el={props.el}
+          />
+        )}
+      </Wrapper>
     </>
   );
 }

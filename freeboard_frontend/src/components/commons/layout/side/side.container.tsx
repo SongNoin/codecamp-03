@@ -5,30 +5,22 @@ import SideBarUI from "./side.presenter";
 import { FETCH_USER_LOGGEDIN } from "./side.queries";
 
 export default function Sidebar() {
-  const [market, setMarket] = useState(true);
-  const [point, setPoint] = useState(false);
-  const [profile, setProfile] = useState(false);
   const [isPointOpen, setIsPointOpen] = useState(false);
 
   const router = useRouter();
+  const isClicked = router.pathname;
   function onClcikMoveToMyMarket() {
-    setMarket(true);
-    setPoint(false);
-    setProfile(false);
     router.push("/mypage/mymarket");
   }
+
   function onClickMoveToMyPoint() {
-    setMarket(false);
-    setPoint(true);
-    setProfile(false);
     router.push("/mypage/mypoint");
   }
+
   function onClickMoveToMyProfile() {
-    setMarket(false);
-    setPoint(false);
-    setProfile(true);
     router.push("/mypage/myprofile");
   }
+
   function onToglePoint() {
     setIsPointOpen((prev) => !prev);
   }
@@ -37,9 +29,7 @@ export default function Sidebar() {
   return (
     <SideBarUI
       data={data}
-      market={market}
-      point={point}
-      profile={profile}
+      isClicked={isClicked}
       isPointOpen={isPointOpen}
       onClcikMoveToMyMarket={onClcikMoveToMyMarket}
       onClickMoveToMyPoint={onClickMoveToMyPoint}

@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1380px;
+  width: 100%;
   padding-top: 94px;
-  padding-right: 360px;
+  padding-right: 300px;
   padding-left: 40px;
 `;
 export const MenuWrapper = styled.div`

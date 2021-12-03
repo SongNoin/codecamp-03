@@ -23,7 +23,6 @@ export default function SignUpUI(props: any) {
           <PhotoLine>
             <Photo src="/images/signup/sofa.jpg" />
             <Photo src="/images/signup/ps5cross.jpg" />
-
             <Photo src="/images/signup/women.jpeg" />
           </PhotoLine>
           <PhotoLine>

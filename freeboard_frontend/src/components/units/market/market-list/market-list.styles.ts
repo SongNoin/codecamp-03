@@ -2,11 +2,12 @@ import styled from "@emotion/styled";
 import InfiniteScroll from "react-infinite-scroller";
 
 export const Wrapper = styled.div`
-  width: 100%;
+  /* width: 1920px; */
   padding-top: 80px;
   padding-bottom: 405px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const TitleWrapper = styled.div`
@@ -98,6 +99,7 @@ export const BestProductLikeCount = styled.div`
 `;
 export const ProductSearchWrapper = styled.div`
   margin-top: 80px;
+  width: 1200px;
 
   display: flex;
   flex-direction: row;
@@ -321,6 +323,7 @@ export const ProductPrice = styled.div`
   color: #000000;
 `;
 export const ButtonWrapper = styled.div`
+  width: 1200px;
   margin-top: 40px;
   display: flex;
   justify-content: flex-end;

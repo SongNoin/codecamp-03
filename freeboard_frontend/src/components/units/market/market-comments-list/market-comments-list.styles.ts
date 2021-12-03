@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const CommentListWrapper = styled.div`
   width: 1200px;
   margin-top: 30px;
 

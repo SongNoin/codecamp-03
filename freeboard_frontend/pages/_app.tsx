@@ -57,7 +57,11 @@ function MyApp({ Component, pageProps }) {
   });
 
   const uploadLink = createUploadLink({
-    uri: "https://backend03.codebootcamp.co.kr/graphql03",
+    // 코드캠프 백엔드 uri:
+    uri: "https://backend03.codebootcamp.co.kr/graphql",
+    // 송니 백엔드 uri:
+    // "https://backend03.codebootcamp.co.kr/graphql03",
+
     headers: {
       authorization: `Bearer ${accessToken}`,
     },

@@ -5,6 +5,7 @@ import ErrorText from "../../../commons/texts/02/ErrorText";
 import Uploads02 from "../../../commons/uploads/02/Uploads02.container";
 import {
   Wrapper,
+  WriterWrapper,
   WrapperHeader,
   TitleWrapper,
   Title,
@@ -39,123 +40,125 @@ export default function MarketWriteUI(props: any) {
       )}
     >
       <Wrapper>
-        <WrapperHeader>
-          <TitleWrapper>
-            <Title>{props.isEdit ? "상품 수정하기" : "상품 등록하기"}</Title>
-          </TitleWrapper>
-        </WrapperHeader>
-        <WrapperBody>
-          <InputWrapper>
-            <CommonLabel name="상품명" />
-            <InputText
-              type="text"
-              {...props.register("name")}
-              defaultValue={props.data?.fetchUseditem.name}
-            />
-          </InputWrapper>
-          <ErrorText name={props.formState.errors.name?.message} />
-          <InputWrapper>
-            <CommonLabel name="한줄요약" />
-            <InputText
-              type="text"
-              {...props.register("remarks")}
-              defaultValue={props.data?.fetchUseditem.remarks}
-            />
-            <ErrorText name={props.formState.errors.remarks?.message} />
-          </InputWrapper>
-          <DetailWrapper>
-            <CommonLabel name="상품설명" />
-            {props.isEdit ? (
-              <>
-                {props.data?.fetchUseditem.contents && (
-                  <DetailText // quill
-                    onChange={props.onChangeMyContents}
-                    modules={props.modules}
-                    defaultValue={props.data?.fetchUseditem.contents}
-                  />
-                )}
-              </>
-            ) : (
-              <DetailText // quill
-                onChange={props.onChangeMyContents}
-                modules={props.modules}
+        <WriterWrapper>
+          <WrapperHeader>
+            <TitleWrapper>
+              <Title>{props.isEdit ? "상품 수정하기" : "상품 등록하기"}</Title>
+            </TitleWrapper>
+          </WrapperHeader>
+          <WrapperBody>
+            <InputWrapper>
+              <CommonLabel name="상품명" />
+              <InputText
+                type="text"
+                {...props.register("name")}
+                defaultValue={props.data?.fetchUseditem.name}
               />
-            )}
-          </DetailWrapper>
-          <ErrorText name={props.formState.errors.contents?.message} />
-          <InputWrapper>
-            <CommonLabel name="판매가격" />
-            <InputText
-              type="text"
-              {...props.register("price")}
-              defaultValue={props.data?.fetchUseditem.price}
-            />
-            <ErrorText name={props.formState.errors.price?.message} />
-          </InputWrapper>
-          <InputWrapper>
-            <CommonLabel name="태그입력" />
-            <InputText
-              type="text"
-              {...props.register("tags")}
-              defaultValue={props.data?.fetchUseditem.tags}
-            />
-          </InputWrapper>
-          <MapWrapper>
-            <LocationWrapper>
-              <CommonLabel name="거래위치" />
-              <Location id="map"></Location>
-            </LocationWrapper>
-            <AddressWrapper>
-              <GPSWrapper>
-                <CommonLabel name="GPS" />
-                <GPSTextWrapper>
-                  <GPSText type="text" value={props.myLat} readOnly />
-                  <GPSText type="text" value={props.myLng} readOnly />
-                </GPSTextWrapper>
-              </GPSWrapper>
-              <Address>
-                <CommonLabel name="주소" />
-                <AddressText type="text" value={props.myAddress} readOnly />
-                <AddressText
-                  type="text"
-                  onChange={props.onChangeAddressDetail}
+            </InputWrapper>
+            <ErrorText name={props.formState.errors.name?.message} />
+            <InputWrapper>
+              <CommonLabel name="한줄요약" />
+              <InputText
+                type="text"
+                {...props.register("remarks")}
+                defaultValue={props.data?.fetchUseditem.remarks}
+              />
+              <ErrorText name={props.formState.errors.remarks?.message} />
+            </InputWrapper>
+            <DetailWrapper>
+              <CommonLabel name="상품설명" />
+              {props.isEdit ? (
+                <>
+                  {props.data?.fetchUseditem.contents && (
+                    <DetailText // quill
+                      onChange={props.onChangeMyContents}
+                      modules={props.modules}
+                      defaultValue={props.data?.fetchUseditem.contents}
+                    />
+                  )}
+                </>
+              ) : (
+                <DetailText // quill
+                  onChange={props.onChangeMyContents}
+                  modules={props.modules}
                 />
-              </Address>
-            </AddressWrapper>
-          </MapWrapper>
-          <PhotoWrapper>
-            <CommonLabel name="사진 첨부" />
-            <ProductPhotoWrapper>
-              {new Array(3).fill(1).map((el, index) => (
-                <Uploads02
-                  key={`${el}_${index}`}
-                  index={index}
-                  onChangeFiles={props.onChangeFiles}
-                  defaultFileUrl={props.data?.fetchUseditem.images?.[index]}
-                />
-              ))}
-            </ProductPhotoWrapper>
-          </PhotoWrapper>
-          <OptionWrapper>
-            <CommonLabel name="메인사진설정" />
-            <Option name="optionradio" type="radio" />
-            <RadioName>사진 1</RadioName>
-            <Option name="optionradio" type="radio" />
-            <RadioName>사진 2</RadioName>
-          </OptionWrapper>
-        </WrapperBody>
-        <WrapperFooter>
-          <ButtonWrapper>
-            <RedButton
-              onClick={props.onClickMoveToMarketList}
-              name="취소하기"
-            />
-            <CommonButton
-              type="submit"
-              name={props.isEdit ? "수정하기" : "등록하기"}
-            />
-          </ButtonWrapper>
-        </WrapperFooter>
+              )}
+            </DetailWrapper>
+            <ErrorText name={props.formState.errors.contents?.message} />
+            <InputWrapper>
+              <CommonLabel name="판매가격" />
+              <InputText
+                type="text"
+                {...props.register("price")}
+                defaultValue={props.data?.fetchUseditem.price}
+              />
+              <ErrorText name={props.formState.errors.price?.message} />
+            </InputWrapper>
+            <InputWrapper>
+              <CommonLabel name="태그입력" />
+              <InputText
+                type="text"
+                {...props.register("tags")}
+                defaultValue={props.data?.fetchUseditem.tags}
+              />
+            </InputWrapper>
+            <MapWrapper>
+              <LocationWrapper>
+                <CommonLabel name="거래위치" />
+                <Location id="map"></Location>
+              </LocationWrapper>
+              <AddressWrapper>
+                <GPSWrapper>
+                  <CommonLabel name="GPS" />
+                  <GPSTextWrapper>
+                    <GPSText type="text" value={props.myLat} readOnly />
+                    <GPSText type="text" value={props.myLng} readOnly />
+                  </GPSTextWrapper>
+                </GPSWrapper>
+                <Address>
+                  <CommonLabel name="주소" />
+                  <AddressText type="text" value={props.myAddress} readOnly />
+                  <AddressText
+                    type="text"
+                    onChange={props.onChangeAddressDetail}
+                  />
+                </Address>
+              </AddressWrapper>
+            </MapWrapper>
+            <PhotoWrapper>
+              <CommonLabel name="사진 첨부" />
+              <ProductPhotoWrapper>
+                {new Array(3).fill(1).map((el, index) => (
+                  <Uploads02
+                    key={`${el}_${index}`}
+                    index={index}
+                    onChangeFiles={props.onChangeFiles}
+                    defaultFileUrl={props.data?.fetchUseditem.images?.[index]}
+                  />
+                ))}
+              </ProductPhotoWrapper>
+            </PhotoWrapper>
+            <OptionWrapper>
+              <CommonLabel name="메인사진설정" />
+              <Option name="optionradio" type="radio" />
+              <RadioName>사진 1</RadioName>
+              <Option name="optionradio" type="radio" />
+              <RadioName>사진 2</RadioName>
+            </OptionWrapper>
+          </WrapperBody>
+          <WrapperFooter>
+            <ButtonWrapper>
+              <RedButton
+                onClick={props.onClickMoveToMarketList}
+                name="취소하기"
+              />
+              <CommonButton
+                type="submit"
+                name={props.isEdit ? "수정하기" : "등록하기"}
+              />
+            </ButtonWrapper>
+          </WrapperFooter>
+        </WriterWrapper>
       </Wrapper>
     </form>
   );

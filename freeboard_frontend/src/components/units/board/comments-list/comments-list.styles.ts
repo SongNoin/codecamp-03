@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
 import { Rate } from "antd";
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const CommentsWrapper = styled.div`
   height: 130px;
   width: 1200px;
