@@ -17,6 +17,11 @@ import {
   IntroWrapper,
   RightPhotoWapper,
   RightPhoto,
+  MobileWrapper,
+  MobileLogo,
+  Line,
+  MobileMenu,
+  MobileMenuWrapper,
 } from "./main.styles";
 
 export default function MainUI(props) {
@@ -57,6 +62,21 @@ export default function MainUI(props) {
           </IntroWrapper>
         </WrapperRight>
       </Wrapper>
+      <MobileWrapper>
+        <MobileLogo>SONGNY</MobileLogo>
+        <Line />
+        <MobileMenuWrapper>
+          <MobileMenu onClick={props.onClickMoveToBoard}>BOARD</MobileMenu>
+          <MobileMenu onClick={props.onClickMoveToMarket}>MARKET</MobileMenu>
+          <MobileMenu onClick={props.onClickMoveToSignUp}>SIGNUP</MobileMenu>
+        </MobileMenuWrapper>
+        <InfoWrapper>
+          <Title>Info</Title>
+          <Info>Email : as5427072@gmail.com</Info>
+          <Info>Git : github.com/SongNoin</Info>
+          <Info>Blog : velog.io/@as5427072</Info>
+        </InfoWrapper>
+      </MobileWrapper>
     </>
   );
 }

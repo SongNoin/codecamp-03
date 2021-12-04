@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-// import { breakPoints } from "../../../commons/styles/media";
+import { breakPoints } from "../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -7,6 +7,9 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 export const WrapperLeft = styled.div`
@@ -61,7 +64,7 @@ export const LeftPhotoWrapper = styled.div`
   }
 `;
 export const LeftPhoto = styled.img`
-  height: 80%;
+  height: 70%;
 `;
 export const WrapperCenter = styled.div`
   width: 34%;
@@ -187,5 +190,52 @@ export const RightPhotoWapper = styled.div`
   align-items: center;
 `;
 export const RightPhoto = styled.img`
-  height: 90%;
+  height: 80%;
+`;
+
+export const MobileWrapper = styled.div`
+  @media ${breakPoints.desktop} {
+    display: none;
+  }
+  margin-top: 100px;
+`;
+export const Line = styled.hr`
+  border: 1px solid #f2f2f2;
+  margin-top: 100px;
+`;
+export const MobileLogo = styled.div`
+  font-family: LogoFont;
+  font-style: "normal";
+  font-size: 100px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 27px;
+  color: black;
+  text-shadow: 3px 3px #00bfa5;
+`;
+export const MobileMenuWrapper = styled.div`
+  @media ${breakPoints.desktop} {
+    display: none;
+  }
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 150px;
+`;
+export const MobileMenu = styled.div`
+  font-style: "normal";
+  font-family: LogoFont;
+
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 27px;
+
+  color: black;
+  text-shadow: 2px 2px #f7c6ff;
+  margin-left: 20px;
+  :hover {
+    font-size: 50px;
+  }
+  cursor: pointer;
 `;
