@@ -63,7 +63,11 @@ export default function ListUI(props: any) {
                   }
                 />
                 <BestText>
-                  <BestTitle>{el.title}</BestTitle>
+                  <BestTitle>
+                    {el.title.length > 15
+                      ? el.title.slice(0, 15) + "..."
+                      : el.title}
+                  </BestTitle>
                   <BestContents>
                     <BestProfile>
                       <BestName>
@@ -114,7 +118,11 @@ export default function ListUI(props: any) {
               <Row key={el._id} id={el._id} onClick={props.onClickDetail}>
                 <Column>{10 - index}</Column>
                 {/* 10-index 를 해줘야 10부터 숫자가 시작된다. 1 부터 시작하고 싶으면 index + 1 */}
-                <ColumnTitle>{el.title}</ColumnTitle>
+                <ColumnTitle>
+                  {el.title.length > 40
+                    ? el.title.slice(0, 40) + "..."
+                    : el.title}
+                </ColumnTitle>
                 <Column>{el.writer}</Column>
                 <Column>{el.createdAt.slice(0, 10)}</Column>
               </Row>
